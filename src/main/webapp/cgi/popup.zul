@@ -1,0 +1,60 @@
+<zk>
+	<window id="dialog" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('support.cgi.PopupVM')" border="normal" width="600px" height="400px"
+		mode="modal">
+
+		<space height="200px" />
+		<label>Serveic Label:</label>
+		<textbox />
+		<button if="${vm.serviceManuel}" sclass="inactiveButton" image="/cgi/zoom_icon16.png"
+			width="40px" onClick='serviceInvoicePop.open(self,"after_start")'
+			tooltiptext="labels.service.addmodify.label.tooltip.button.glass" />
+		<button if="${vm.serviceManuel}" sclass="inactiveButton" label="..." width="30px"
+			onClick='serviceWorkspace.open(self,"after_start")'
+			tooltiptext="labels.service.addmodify.label.tooltip.button.suspensionPoint" />
+		<popup id="serviceInvoicePop" style="border: 1px solid #86A4BE;" width="300px">
+
+			<listbox model="@bind(vm.serviceInvoice)" rows="10">
+				<listhead>
+					<listheader>
+						<vlayout>
+							<space height="3px" />
+							<textbox value="@bind(vm.serviceFilterInvoice)" instant="true"
+								width="80%" />
+							<label value="${labels.service.addmodify.label.inter}" />
+						</vlayout>
+					</listheader>
+				</listhead>
+				<template name="model" var="each">
+					<listitem
+						onClick="@command('refreshLabel', label=each.productTypeLabel, mnemonic=each.id.mnemonicProductType, popUp=serviceInvoicePop)">
+						<listcell label="${each}" value="${each}" />
+					</listitem>
+				</template>
+			</listbox>
+		</popup>
+
+		<popup id="serviceWorkspace" style="max-height:500px" width="300px"> 
+<!-- 		height="400px"> -->
+			<listbox model="@bind(vm.serviceWorkspace)" rows="10" >
+				<listhead>
+					<listheader>
+						<vlayout>
+							<space height="3px" />
+							<textbox value="@bind(vm.serviceFilterWorkspace)" instant="true"
+								width="80%" />
+							<label value="Service label" />
+						</vlayout>
+					</listheader>
+				</listhead>
+				<template name="model" var="each">
+					<listitem
+						onClick="@command('refreshLabel', label=each.productTypeLabel, mnemonic=each.id.mnemonicProductType, popUp=serviceWorkspace)">
+						<listcell label="${each}" value="${each}" />
+					</listitem>
+				</template>
+			</listbox>
+		</popup>
+
+	</window>
+</zk>
