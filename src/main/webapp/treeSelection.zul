@@ -1,0 +1,74 @@
+<?page title="tree" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" border="normal">
+
+<hlayout width="100%">
+<tree id="tree1" width="400px" rows="8" multiple="true">
+	<treecols sizable="true">
+		<treecol label="Name" />
+		<treecol label="Description" />
+	</treecols>
+	<treechildren>
+		<treeitem>
+			<treerow>
+				<treecell label="Item 1" />
+				<treecell label="Item 1 description" />
+			</treerow>
+		</treeitem>
+		<treeitem>
+			<treerow>
+				<treecell label="Item 2" />
+				<treecell label="Item 2 description" />
+			</treerow>
+			<treechildren>
+				<treeitem>
+					<treerow>
+						<treecell label="Item 2.1" />
+					</treerow>
+					<treechildren>
+						<treeitem>
+							<treerow>
+								<treecell label="Item 2.1.1" />
+							</treerow>
+						</treeitem>
+					</treechildren>
+				</treeitem>
+				<treeitem>
+					<treerow>
+						<treecell label="Item 2.2" />
+					</treerow>
+					<treechildren>
+						<treeitem>
+							<treerow>
+								<treecell label="Item 2.2.1" />
+							</treerow>
+						</treeitem>
+					</treechildren>
+				</treeitem>
+			</treechildren>
+		</treeitem>
+		<treeitem label="Item 3" />
+	</treechildren>
+</tree>
+<button label="输出" onClick="ok()"></button>
+<zscript>
+	<![CDATA[
+	         void ok(){
+	        	 Set set = tree1.getSelectedItems();
+	        	 Iterator iterator = set.iterator();
+	        	 StringBuffer sb = new StringBuffer();
+	        	 while(iterator.hasNext()){
+	        		 Treeitem item =(Treeitem) iterator.next();
+	        		 sb.append(item.getLabel());
+	        	 }
+				Messagebox.show(sb.toString());
+				System.out.println(tree1.getModel());
+	         }
+	         ]]>
+</zscript>
+</hlayout>
+
+
+</window>
+
+</zk>
