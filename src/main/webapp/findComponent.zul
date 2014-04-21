@@ -1,0 +1,17 @@
+<window title="first" apply="support.FindVisibilityComposer">
+	<label popup="p1">Open p1</label>
+	<popup id="p1" >
+		This is a popup.
+	</popup>
+	<window title="second" closable="true">
+		<label popup="p2">Open p2</label>
+		<popup id="p2">This is a popup.</popup>
+	</window>
+	<window mode="modal">
+		a modal
+	</window>
+	<window mode="overlapped">
+		a overlapped
+	</window>
+	<timer id="timer" delay="2000" repeats="true"/>
+</window>
