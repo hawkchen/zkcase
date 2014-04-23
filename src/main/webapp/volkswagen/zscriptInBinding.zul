@@ -1,0 +1,56 @@
+<zk>
+
+	<groupbox mold="3d" vflex="1" closable="false">
+		<caption style="line-height: 12px;">
+			<toolbar id="toolbarParent" style="padding: 0;">
+				<template name="children" var="item">
+					<toolbarbutton onClick="switchDetailTab(itemStatus.index)" />
+				</template>
+			</toolbar>
+		</caption>
+		<zscript><![CDATA[
+				//switchDetailTab(0);
+				]]></zscript>
+		<tablelayout vflex="min">
+			<tablechildren style="vertical-align: top;">
+				<div id="tabsParent">
+					<template name="children" var="item">
+						<div >
+							<include src="/pages/template/dataAdministration/detailGrid.zul" />
+						</div>
+						<zscript>
+				switchDetailTab(0);
+				</zscript>
+					</template>
+				</div>
+			</tablechildren>
+
+			<tablechildren hflex="min" vflex="min">
+				<div id="specificFunctionBar" sclass="entitySpecificFunctionBar" vflex="1">
+					<include entityVM="entityVM" listVM="listVM" />
+				</div>
+			</tablechildren>
+		</tablelayout>
+	</groupbox>
+
+	<zscript><![CDATA[
+	void switchDetailTab(int index) {
+		System.out.println(">>>"+index);
+		return;
+		if (tabsParent.getChildren().size() > 1) {
+			hideAll();
+			tabsParent.getChildren().get(index).visible = true;
+		}
+		toolbarParent.getChildren().get(index).style = "background: #C8E7F7;font-weight: bold;";
+	}
+	void hideAll(){
+            for(Component div : tabsParent.getChildren()){
+                div.visible=false;
+            }
+            for(Component toolbar : toolbarParent.getChildren()){
+                toolbar.style="";
+            }
+        }
+]]>
+    </zscript>
+</zk>

@@ -1,0 +1,20 @@
+<zk>
+	<window>
+		<zscript><![CDATA[
+	//test2();
+]]></zscript>
+
+		<groupbox mold="3d" vflex="1" closable="false">
+			<zscript><![CDATA[
+			test2();
+			]]></zscript>
+		</groupbox>
+		<zscript><![CDATA[
+		                  test2();
+	void test2() {
+		System.out.println("test2");
+	}
+]]></zscript>
+	</window>
+
+</zk>
