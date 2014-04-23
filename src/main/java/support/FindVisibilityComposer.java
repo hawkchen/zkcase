@@ -13,7 +13,7 @@ public class FindVisibilityComposer extends SelectorComposer<Component>{
 	
 	@Listen("onTimer = #timer")
 	public void printVisibleWindows(){
-		List<Component> popupList = Selectors.find(getPage(), "popup[visible=true]");
+		List<Component> popupList = Selectors.find(getPage(), "popup");
 		List<Component> windowList =  Selectors.find(getPage(), "window[mode='modal'][visible=true], window[mode='overlapped'][visible=true]");
 		
 		
