@@ -1,5 +1,7 @@
-<window title="first" apply="support.FindVisibilityComposer">
-	<label popup="p1">Open p1</label>
+<!-- 7.0.1 -->
+<window id="win" title="first" apply="support.FindVisibilityComposer">
+	<label popup="p1">Open p1</label><separator/>
+	<label id="openLable">popup p1</label>
 	<popup id="p1" >
 		This is a popup.
 	</popup>
@@ -10,11 +12,16 @@
 	<window mode="modal" visible="false">
 		a modal
 	</window>
-	<window mode="overlapped">
+	<window id="innerWin" mode="overlapped">
 		a overlapped
 	</window>
+	<separator height="40px"/>
 	<include id="myinclude" ></include>
 	<button onClick="toggle()">Toggle popup inclusion</button>
+	<button  onClick="visible()">open included popup </button>
+	<button onClick="openPopup()">Open popup </button>
+	<button onClick="openP1()">Open p1 </button>
+	<button onClick="setPopup()">set p1 </button>
 	<zscript><![CDATA[
 		public void toggle(){
 			if (myinclude.getSrc()==null){
@@ -22,6 +29,25 @@
 			}else{
 				myinclude.setSrc(null);
 			}
+		}
+		public void visible(){
+			((Popup)myinclude.query("popup")).open(win, "after_center");
+		}
+		
+		public void openPopup(){
+			Popup popup = new Popup();
+			popup.appendChild(new Label("popup contents"));
+			innerWin.query("popup");
+			innerWin.appendChild(popup);
+			popup.open(innerWin);
+		}
+		
+		public void openP1(){
+			p1.open(win);
+		}
+		
+		public void setPopup(){
+			openLable.setPopup("p1");
 		}
 	]]></zscript>
 	<timer id="timer" delay="2000" repeats="true"/>

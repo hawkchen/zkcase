@@ -1,0 +1,14 @@
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	 xmlns:h="http://www.w3.org/1999/xhtml"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<vlayout  spacing="20px" apply="support.researchforgood.PopupDetectComposer">
+		<timer id="timer" repeats="true" delay="1000" running="true"/>
+		<label id="output" value=""/>
+		<a id="openPopup" label="Open a popup"/>
+		<a id="openWindow" label="Open a window"/>
+	</vlayout>
+
+
+</zk>
