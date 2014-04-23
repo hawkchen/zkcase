@@ -1,0 +1,10 @@
+<!-- 6.5.2 -->
+<zk>
+<div apply="support.putnam.ManyColumnsController">
+    <grid model="${$composer.labelList}"
+        rowRenderer="support.putnam.ManyColumnsRenderer">
+        <columns>
+        </columns>
+    </grid>
+</div>
+</zk>
