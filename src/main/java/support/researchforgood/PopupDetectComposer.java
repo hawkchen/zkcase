@@ -14,28 +14,29 @@ public class PopupDetectComposer extends GenericForwardComposer<Vlayout> {
 	Label output;
 	A openPopup;
 	A openWindow;
+	int openPopupCount = 0;
+	//create popup first
+	Label popupContent = new Label();
+	Popup popup = new Popup();
 
 	int count = 0;
 
+	//approach 1
 	@Override
 	public void doAfterCompose(Vlayout comp) throws Exception {
 		super.doAfterCompose(comp);
-		//approach 1
-		Popup popup = new Popup();
-		popup.appendChild(new Label("popup contents"));
 		openPopup.appendChild(popup);
+		popup.appendChild(popupContent);
 		openPopup.setPopup(popup);
-		//approach 2
-		page.addEventListener("onOpen", new EventListener() {
-		    public void onEvent(Event event) {
-		    	System.out.println(((OpenEvent)event).isOpen());
-		    }
-		});
 	}
-
+	
+	public void onClick$openPopup() {
+		//change popup content dynamically
+		popupContent.setValue("popup contents");
+	}
+	
 	public void onTimer$timer() {
 		List<Component> popupList = Selectors.find(getPage(), "popup[visible=true], window[mode='modal'][visible=true], window[mode='overlapped'][visible=true]");
-//		popupList = Selectors.find(getPage(), "popup");
 		if ( popupList.size() > 0 ) {
 			output.setValue("stopped");
 		} else {
@@ -43,17 +44,45 @@ public class PopupDetectComposer extends GenericForwardComposer<Vlayout> {
 		}
 	}
 
-//	public void onClick$openPopup() {
-//		Popup popup = new Popup();
-//		popup.appendChild(new Label("popup contents"));
-//		openPopup.appendChild(popup);
-//		openPopup.setPopup(popup);//not work
-//		popup.open(openPopup);
-//	}
-
-	public void onOpen(){
-		
+	
+	/*
+	//approach 2
+	@Override
+	public void doAfterCompose(Vlayout comp) throws Exception {
+		super.doAfterCompose(comp);
+		openPopup.appendChild(popup);
+		popup.appendChild(popupContent);
+		openPopup.setPopup(popup);
+		page.addEventListener("onOpen", new EventListener() {
+			public void onEvent(Event event) {
+				System.out.println(event.getTarget()+" "+((OpenEvent)event).isOpen());
+				if (((OpenEvent)event).isOpen()){
+					openPopupCount++;	
+				}else{
+					openPopupCount--;
+				}
+			}
+		});
 	}
+
+	public void onClick$openPopup() {
+		//change popup content dynamically
+		popupContent.setValue("popup contents");
+	}
+	
+	public void onTimer$timer() {
+		List<Component> popupList = Selectors.find(getPage(), "window[mode='modal'][visible=true], window[mode='overlapped'][visible=true]");
+		if ( popupList.size() + openPopupCount > 0 ) {
+			output.setValue("stopped");
+		} else {
+			output.setValue("running " + (count++));
+		}
+	}
+	 */
+
+	
+
+	//rest of the codes ----------------------
 	
 	public void onClick$openWindow() {
 		Window win = new Window("Window","normal",true);
@@ -61,4 +90,5 @@ public class PopupDetectComposer extends GenericForwardComposer<Vlayout> {
 		openWindow.appendChild(win);
 		win.doModal();
 	}
+	
 }
