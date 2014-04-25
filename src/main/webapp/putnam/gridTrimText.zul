@@ -1,0 +1,34 @@
+<!-- 6.5.2 -->
+<zk>
+  <style>
+    .auto-trunc {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      white-space: nowrap;
+    }
+  </style>
+  <window border="normal" title="hello" sizable="true" width="800px">
+    
+    <grid>
+      <columns>
+        <column />
+        <column />
+        <column />
+      </columns>
+       
+      <rows>
+        <row>
+          <label sclass="auto-trunc" value="long long long label to be truncated with 3 dots in the end by CSS"/>
+          <label sclass="auto-trunc" value="long long long label to be truncated with 3 dots in the end by CSS"/>
+          <label sclass="auto-trunc" value="long long long label to be truncated with 3 dots in the end by CSS"/>
+        </row>
+        <row>
+          <label sclass="auto-trunc" value="long long long label to be truncated with 3 dots in the end by CSS"/>
+          <label sclass="auto-trunc" value="long long long label to be truncated with 3 dots in the end by CSS"/>
+          <label sclass="auto-trunc" value="long long long label to be truncated with 3 dots in the end by CSS"/>
+        </row>
+      </rows>
+    </grid>
+  </window>
+</zk>
