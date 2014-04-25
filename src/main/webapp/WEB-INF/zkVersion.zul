@@ -1,0 +1,18 @@
+<zk>
+	<!-- Print current using ZK edition, e.g. 6.5.0 EE -->
+	<zscript><![CDATA[
+	String edition = "CE";
+	try {
+		Class.forName("org.zkoss.zkmax.init.WebAppInit");
+		edition = "EE";
+	} catch (Exception e) {
+		try {
+			Class.forName("org.zkoss.zkex.zul.Columnlayout");
+			edition = "PE";
+		} catch (Exception ex) {
+
+		}
+	}
+]]></zscript>
+	${desktop.webApp.version} ${edition}
+</zk>
