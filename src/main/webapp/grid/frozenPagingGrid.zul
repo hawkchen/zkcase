@@ -1,0 +1,28 @@
+<zk>
+	<zscript><![CDATA[
+		ListModel rowData = new ListModelList(Collections.nCopies(46, "row"));
+		List data = Collections.nCopies(20, "column");
+	]]>
+	</zscript>
+<grid mold="paging" pageSize="5" model="${rowData}">
+	<frozen columns="1"/>
+	<columns >
+		<column label="first" width="400px"/>
+		<column forEach="${data}" label="${each} ${forEachStatus.index + 1}" width="200px"/>
+	</columns>
+	<rows>
+		<template name="model">
+		<row  >
+		<cell>
+			<label value="${each} ${forEachStatus.index + 1}"></label>
+		</cell>
+			<cell forEach="${data}" width="200px">
+				<label value="${each} ${forEachStatus.index + 1}"/> 
+			</cell>
+		</row>
+		</template>
+		<row>fixed</row>
+	</rows>
+</grid>
+
+</zk>

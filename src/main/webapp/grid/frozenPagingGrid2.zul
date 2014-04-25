@@ -1,0 +1,43 @@
+<zk>
+	<include src="/WEB-INF/zkVersion.zul"/>
+	<zscript><![CDATA[
+		List rowData = new LinkedList();
+		rowData.addAll(Collections.nCopies(46, "row"));
+		List data = Collections.nCopies(20, "column");
+	]]>
+	</zscript>
+	<div apply="support.grid.SpreadsheetController" width="100%">
+		<grid  width="100%"
+			model="${$composer.months}" mold="paging" pageSize="2">
+			<frozen style="background: #DFDED8" columns="1"/>
+			<columns>
+				<column label="Month" width="80px" />
+				<column style="text-align:right;" width="80px"
+					forEach="${$composer.days}"
+					label="${forEachStatus.index + 1}" />
+			</columns>
+			<rows>
+			<template name="model">
+				<row>
+					<cell>
+						<label value="${each.name}" width="100%" />
+					</cell>
+					<cell forEach="${$composer.days}">
+<!-- 					<intbox  -->
+<!-- 						format="#,###" constraint="no empty" width="55px" -->
+<!-- 						inplace="true" -->
+<!-- 						value="${each.days[forEachStatus.index] }" -->
+<!-- 						style="${each.days[forEachStatus.index] lt 0 ? 'color:red;text-align:right' : 'color:#373842;text-align:right'}" -->
+<!-- 						if="${each.numberOfDays gt forEachStatus.index}" /> -->
+						<label value="${each.days[forEachStatus.index] }"/>
+					</cell>
+				</row>
+			</template>
+				<row>
+					<cell>last</cell>
+					<cell forEach="${$composer.days}">a</cell>
+				</row>
+			</rows>
+		</grid>
+	</div>
+</zk>
