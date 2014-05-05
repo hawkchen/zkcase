@@ -1,0 +1,101 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<vlayout apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('support.hfconsulting.PagingViewModel')" xmlns:n="native">
+
+	<hlayout sclass="content-header">
+		<n:h1>Saldi Giornalieri</n:h1>
+	</hlayout>
+
+	<groupbox>
+		<vlayout>
+			<groupbox id="ricercaGrid" mold="3d" closable="true" open="false">
+
+				<attribute name="onOK">
+					Events.sendEvent("onClick", ricercaButton, null);
+				</attribute>
+
+				<attribute name="onOpen">
+					if (ricercaCaption.getIconSclass().equals("z-icon-plus-square")) {
+						ricercaCaption.setIconSclass("z-icon-minus-square");
+					} else {
+						ricercaCaption.setIconSclass("z-icon-plus-square");
+					}
+				</attribute>
+
+				<caption id="ricercaCaption" iconSclass="z-icon-plus-square"
+					label="${labels.general.search }" />
+					
+				<hlayout>
+					<button id="ricercaButton" class="btn-default btn"
+						label="${labels.general.search }" onClick="@command('ricerca')" />
+				</hlayout>
+			</groupbox>
+
+			<grid model="@load(vm.list)" id="gridSaldiGiornalieri" emptyMessage="empty"
+				width="100%">
+
+				<frozen columns="1" />
+
+				<columns sizable="true" width="100%">
+					<column label="labels.stampings.employee" width="200px" />
+					<column style="text-align:right;" width="90px" forEach="${vm.columns}"
+						label="${each}" />
+				</columns>
+
+				<template name="model" var="saldo">
+					<row width="100%">
+						<cell>
+							<label width="55px" value="@load(saldo)" />
+						</cell>
+						<cell popup="tooltipPopup" context="contextMenu">
+							<label width="55px"
+								value="@load(forEachStatus.index gt 0 ? 'gt 0' : 'lt 0')" />
+						</cell>
+					</row>
+				</template>
+			</grid>
+
+			<paging detailed="true" autohide="false" mold="default" id="paging"
+				totalSize="@bind(vm.totalSize)" pageSize="@bind(vm.pageSize)" activePage="@bind(vm.activePage)"
+				onPaging="@command('paging')">
+			</paging>
+			<popup id="tooltipPopup">
+
+				<groupbox width="300px;" mold="3d" closable="false">
+					<caption label="Dettaglio giornata" />
+
+					<vlayout>
+						<hlayout>
+							<label hflex="1" value="labels.dettagli_giornata.ore_effettive }" />
+							<label id="oreEffettive" hflex="1" />
+						</hlayout>
+						<hlayout>
+							<label hflex="1" value="labels.dettagli_giornata.ore_assenza }" />
+							<label id="oreAssenza" hflex="1" />
+						</hlayout>
+						<hlayout>
+							<label hflex="1" value="labels.dettagli_giornata.ore_previste }" />
+							<label id="orePreviste" hflex="1" />
+						</hlayout>
+						<hlayout>
+							<label hflex="1" value="labels.dettagli_giornata.ore_normali }" />
+							<label id="oreNormali" hflex="1" />
+						</hlayout>
+						<hlayout>
+							<label hflex="1" value="labels.dettagli_giornata.ore_maggiorazione }" />
+							<label id="oreMaggiorazione" hflex="1" />
+						</hlayout>
+						<hlayout>
+							<label hflex="1" value="labels.dettagli_giornata.ore_straordinarie }" />
+							<label id="oreStraordinarie" hflex="1" />
+						</hlayout>
+					</vlayout>
+					<hlayout></hlayout>
+
+				</groupbox>
+			</popup>
+
+			<menupopup id="contextMenu"></menupopup>
+		</vlayout>
+	</groupbox>
+</vlayout>

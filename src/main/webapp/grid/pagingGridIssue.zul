@@ -1,0 +1,27 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<!-- MVC example -->
+<vlayout apply="support.hfconsulting.PagingComposer">
+
+	<grid id="gridSaldiGiornalieri" emptyMessage="empty" width="100%">
+		<frozen columns="1" />
+
+		<columns sizable="true" width="100%">
+			<column label="labels.stampings.employee" width="200px" />
+			<column style="text-align:right;" width="90px" forEach="${$composer.columns}"
+				label="${each}" />
+		</columns>
+
+		<template name="model">
+			<row width="100%">
+				<cell>
+					<label width="55px" value="${each}" />
+				</cell>
+				<cell popup="tooltipPopup" context="contextMenu">
+					<label width="55px" value="${forEachStatus.index}" />
+				</cell>
+			</row>
+		</template>
+	</grid>
+
+	<paging detailed="true" autohide="false" mold="default" id="paging"></paging>
+</vlayout>
