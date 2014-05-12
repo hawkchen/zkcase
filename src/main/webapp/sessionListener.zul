@@ -1,0 +1,6 @@
+<zk>
+	<include src="/WEB-INF/zkVersion.zul" />
+	<window>
+		add an attribute in a self-made HttpSessionListener. this will cause infinite loop.
+	</window>
+</zk>

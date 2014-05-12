@@ -24,6 +24,10 @@ Copyright (C) 2004 Potix Corporation. All Rights Reserved.
 		<description>ZK listener for session cleanup</description>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
+	<listener>
+		<description>Issue 2291</description>
+		<listener-class>support.Issue2291HttpSessionListener</listener-class>
+	</listener>
 	<servlet>
 		<description>ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>
