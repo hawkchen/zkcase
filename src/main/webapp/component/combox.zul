@@ -1,0 +1,52 @@
+<!-- 7.0.1 -->
+<zk>
+<window title="Custom Constraint" border="normal" apply="support.gemteks.ValidateComposer">
+    <zscript><![CDATA[
+        class MyConst implements Constraint {
+            //Constraint//
+            public void validate(Component comp, Object value) {
+                if (value == null || ((Integer)value).intValue() < 100)
+                    throw new WrongValueException(comp, "At least 100 must be specified");
+            }
+        }
+        Constraint ctt = new MyConst();
+        
+        class SelectConstraint implements Constraint {
+            //Constraint//
+            public void validate(Component comp, Object value) {
+                if (value == null || "default".equals(value))
+                    throw new WrongValueException(comp, "please select");
+            }
+        }
+        Constraint select = new SelectConstraint();
+    ]]>
+    </zscript>
+<vlayout>
+	<textbox id="username" value="default"></textbox>
+	<hlayout>
+	Listen: <combobox id="listenCombo"  value="default">
+		<comboitem label="default" />
+		<comboitem label="A"/>
+		<comboitem label="B"/>
+	</combobox>
+	</hlayout>
+	<hlayout>
+	Speak: <combobox id="speakCombo" value="default"> 
+		<comboitem label="default"/>
+		<comboitem label="A"/>
+		<comboitem label="B"/>
+	</combobox>	
+	</hlayout>
+	<button id="validate">Validate</button>
+</vlayout>
+
+
+    <hlayout>
+        Enter a number at least 100:
+        <intbox constraint="${ctt}" />
+        
+        <label id="errmsg" />
+    </hlayout>
+    <intbox constraint="no positive"/>
+</window>
+</zk>

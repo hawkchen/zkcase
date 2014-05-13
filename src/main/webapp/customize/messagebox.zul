@@ -1,0 +1,16 @@
+<!-- 7.0.1 -->
+<zk>
+	<div class="btn-group">
+		<button>Left</button>
+		<button>Middle</button>
+		<button>Right</button>
+	</div>
+	<button onClick="messagebox()">message box</button>
+	<zscript><![CDATA[
+	public void messagebox(){
+		Messagebox.show("Warning is pressed", "Warning", Messagebox.OK, Messagebox.EXCLAMATION);
+	}
+	]]>
+	</zscript>
+	<window border="normal">window</window>
+</zk>

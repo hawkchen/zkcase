@@ -1,0 +1,13 @@
+<!-- 7.0.1 -->
+<zk>
+	 <button label="sleep">
+    <attribute name="onClick"><![CDATA[
+      try {
+        Thread.sleep(2000);
+      } catch (Exception e) {
+      
+      }
+    ]]></attribute>
+  </button>
+  
+</zk>
