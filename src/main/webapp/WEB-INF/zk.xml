@@ -15,13 +15,26 @@
 	<client-config>
 		<debug-js>true</debug-js>
 	</client-config>
-	<!-- To customize "Processing" message -->
+
+	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for grid. It improves the performance 
+		for huge grid. Default: false -->
+	<library-property>
+		<name>org.zkoss.zul.grid.rod</name>
+		<value>true</value>
+	</library-property>
+	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for listbox. It improves the 
+		performance for huge listbox. Default: false -->
+	<library-property>
+		<name>org.zkoss.zul.listbox.rod</name>
+		<value>true</value>
+	</library-property>
+	
+	<!-- To customize "Processing" message 
 	<device-config>
 		<device-type>ajax</device-type>
 		<embed><![CDATA[
  <script type="text/javascript">
 
-/*
 zk.startProcessing = function (timeout) {
 console.log("enter start processing");
 	zk.processingTimer = setTimeout (function () {
@@ -43,15 +56,15 @@ zk.endProcessing = function () {
   }
 };
 
-*/
  </script>
      ]]></embed>
 	</device-config>
+	-->
 
 
 	<!-- <library-property> <name>org.zkoss.zul.nativebar</name> <value>true</value> </library-property> -->
 
-	<!-- Apply zk bootstrap -->
+	<!-- Apply zk bootstrap 
 	<library-property>
 		<name>org.zkoss.zul.Button.mold</name>
 		<value>bs</value>
@@ -72,6 +85,14 @@ zk.endProcessing = function () {
 		<name>org.zkoss.zul.Panel.mold</name>
 		<value>bs</value>
 	</library-property>
+	-->
+
+
+
+
+
+
+
 
 	<!-- Uncomment if you turn off the caching of resources loaded from the class path (aka., class Web 
 		resources). By default, class Web resources are cached by the browser until you upgraded ZK to a newer 
@@ -106,6 +127,7 @@ zk.endProcessing = function () {
 	<!-- Turn on if you want to use language addons. <language-config> <addon-uri>/WEB-INF/lang-addon.xml</addon-uri> 
 		</language-config> -->
 
+
 	<!-- Turn on if the processing time is longer than 9000 miliseconds. Default: -1 (turned off) http://books.zkoss.org/wiki/ZK_Configuration_Reference/zk.xml/The_client-config_Element#The_resend-delay_Element 
 		<client-config> <resend-delay>9000</resend-delay> </client-config> -->
 	<!-- Turn on if you want to ignore the consecutive click events, if it happens too close to the previous 
@@ -122,18 +144,6 @@ zk.endProcessing = function () {
 	<!-- Turn off if you want to disable the wiring of variables defined in variable resolvers (XEL) Default: 
 		true <library-property> <name>org.zkoss.zk.ui.composer.autowire.xel</name> <value>false</value> </library-property> -->
 
-	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for grid. It improves the performance 
-		for huge grid. Default: false -->
-	<library-property>
-		<name>org.zkoss.zul.grid.rod</name>
-		<value>true</value>
-	</library-property>
-	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for listbox. It improves the 
-		performance for huge listbox. Default: false -->
-	<library-property>
-		<name>org.zkoss.zul.listbox.rod</name>
-		<value>true</value>
-	</library-property>
 
 	<!-- Turn on if you want to use IE7 compatible mode. It is useful if some of JavaScript code doesn't 
 		work properly in IE8. <library-property> <name>org.zkoss.zk.ui.EmulateIE7</name> <value>true</value> 
