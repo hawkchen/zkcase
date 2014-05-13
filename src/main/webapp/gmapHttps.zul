@@ -1,0 +1,12 @@
+<div xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<script type="text/javascript"
+		content="zk.googleAPIkey='ABQIAAAAmGxmYR57XDAbAumS9tV5fxQXyylOlR69a1vFTcUcpV6DXdesOBSMEHfkewcSzwEwBT7UzVx8ep8vjA'" />
+	<gmaps id="gmaps" width="520px" height="400px" showSmallCtrl="true" protocol="https">
+		<!-- 
+		<ginfo id="info" open="true"
+			content="Hello, &lt;a href=&quot;http://www.zkoss.org\&quot;&gt;ZK&lt;/a&gt;." />
+		<gmarker id="marker" lat="37.4410" lng="-122.1490"
+			content="Hello, &lt;a href=&quot;http://www.zkoss.org&quot;&gt;ZK&lt;/a&gt; on top of Gmarker." />
+		 -->
+	</gmaps>
+</div>
