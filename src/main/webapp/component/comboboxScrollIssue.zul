@@ -1,0 +1,57 @@
+<?page title="Auto Generated index.zul"?>
+<window title="Hello World!!" border="normal" vflex="1" hflex="1">
+
+	<label value="You are using: ${desktop.webApp.version}" />
+	<combobox id="cmbUser2" width="150px" readonly="true"
+		style="background:#FFFFFF">
+		<comboitem label="111111111" />
+		<comboitem label="abcdefghijklmnopqrstuvwxyz1234567890wxyz123456789" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+		<comboitem label="111111111" />
+		<comboitem label="f'd" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+		<comboitem label="111111111" />
+		<comboitem label="f'd" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+		<comboitem label="111111111" />
+		<comboitem label="f'd" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+		<comboitem label="111111111" />
+		<comboitem label="f'd" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+		<comboitem label="111111111" />
+		<comboitem label="f'd" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+		<comboitem label="111111111" />
+		<comboitem label="f'd" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+		<comboitem label="111111111" />
+		<comboitem label="f'd" />
+		<comboitem label="12" />
+		<comboitem label="34" />
+		<comboitem label="23" />
+		<comboitem label="34" />
+	</combobox>
+
+</window>
