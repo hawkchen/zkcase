@@ -1,0 +1,40 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<window border="normal" mode="overlapped" apply="org.zkoss.bind.BindComposer" width="100%"
+	viewModel="@id('vm') @init('support.grid.PagingViewModel')" xmlns:n="native">
+	Test on Safari 5.1 in iPad
+	<groupbox >
+		<vlayout>
+
+			<grid model="@load(vm.list)" id="gridSaldiGiornalieri" emptyMessage="empty"
+				width="100%">
+
+				<frozen columns="1" />
+
+				<columns sizable="true" width="100%">
+					<column label="labels.stampings.employee" width="200px" />
+					<column style="text-align:right;" width="70px" forEach="${vm.columns}"
+						label="${each}" />
+				</columns>
+
+				<template name="model" var="saldo">
+					<row width="100%" children="@load(vm.columnList)">
+					<template name="children">
+						<cell if="${forEachStatus.index eq 0 }">
+							<label width="55px" value="@load(saldo)" />
+						</cell>
+						<cell popup="tooltipPopup" context="contextMenu" if="${forEachStatus.index gt 0 }">
+							<label width="55px"
+								value="@load(forEachStatus.index gt 0 ? 'gt 0' : 'lt 0')" />
+						</cell>
+					</template>
+					</row>
+				</template>
+			</grid>
+
+			<paging detailed="true" autohide="false" mold="default" id="paging"
+				totalSize="@bind(vm.totalSize)" pageSize="@bind(vm.pageSize)" activePage="@bind(vm.activePage)"
+				onPaging="@command('paging')">
+			</paging>
+		</vlayout>
+	</groupbox>
+</window>
