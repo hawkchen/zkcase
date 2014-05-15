@@ -1,8 +1,8 @@
 <!-- 6.5.2 -->
 <zk>
-<div apply="support.putnam.ManyColumnsController">
+<div apply="support.rendering.ManyColumnsController">
     <grid model="${$composer.labelList}"
-        rowRenderer="support.putnam.ManyColumnsRenderer">
+        rowRenderer="support.rendering.ManyColumnsRenderer">
         <columns>
         </columns>
     </grid>

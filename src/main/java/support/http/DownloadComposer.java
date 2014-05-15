@@ -1,4 +1,4 @@
-package support.allianz;
+package support.http;
 
 import java.io.FileNotFoundException;
 
@@ -17,7 +17,7 @@ public class DownloadComposer extends SelectorComposer {
 		response.setHeader("Pragma", "public");
 		response.setHeader("Cache-Control", "public");
 
-		Filedownload.save("/allianz/forie.doc", null);
+		Filedownload.save("/component/forie.doc", null);
 	}
 	
 	@Listen("onClick = #downloadNoCache")
@@ -26,7 +26,7 @@ public class DownloadComposer extends SelectorComposer {
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Cache-Control", "no-cache,max-age=0,must-revalidate");
 
-		Filedownload.save("/allianz/forie.doc", null);
+		Filedownload.save("/component/forie.doc", null);
 	}
 	
 }

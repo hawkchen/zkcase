@@ -1,5 +1,5 @@
 <zk>
-<window id="main" apply="support.ComboboxComposer">
+<window id="main" apply="support.component.ComboboxComposer">
 	<combobox id="cbox"></combobox>
 </window>
 </zk>

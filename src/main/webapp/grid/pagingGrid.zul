@@ -1,6 +1,6 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
-<vlayout apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('support.hfconsulting.PagingViewModel')" xmlns:n="native">
+<window border="normal" mode="embedded" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('support.grid.PagingViewModel')" xmlns:n="native">
 
 	<groupbox>
 		<vlayout>
@@ -74,4 +74,4 @@
 			<menupopup id="contextMenu"></menupopup>
 		</vlayout>
 	</groupbox>
-</vlayout>
+</window>

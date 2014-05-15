@@ -1,7 +1,7 @@
 <!-- 6.5.0 -->
 <zk>
 	<window id="dialog" apply="org.zkoss.bind.BindComposer"
-		viewModel="@id('vm') @init('support.cgi.PopupVM')" border="normal" width="600px" height="400px"
+		viewModel="@id('vm') @init('support.component.PopupVM')" border="normal" width="600px" height="400px"
 		mode="modal">
 
 		<space height="200px" />

@@ -1,4 +1,4 @@
-package support.cgi;
+package support.component;
 
 import java.util.*;
 

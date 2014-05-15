@@ -1,4 +1,4 @@
-<window apply="support.allianz.DownloadComposer">
+<window apply="support.http.DownloadComposer">
 <button id="download" label="Download a doc">
 </button>
 <button id="downloadNoCache" label="Download NoCache a doc">

@@ -1,6 +1,6 @@
 <!-- 7.0.1 -->
 <zk>
-<window title="Custom Constraint" border="normal" apply="support.gemteks.ValidateComposer">
+<window title="Custom Constraint" border="normal" apply="support.component.ValidateComposer">
     <zscript><![CDATA[
         class MyConst implements Constraint {
             //Constraint//

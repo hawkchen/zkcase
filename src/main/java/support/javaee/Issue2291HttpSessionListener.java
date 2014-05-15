@@ -1,4 +1,4 @@
-package support;
+package support.javaee;
 
 import javax.servlet.http.*;
 

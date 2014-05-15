@@ -1,4 +1,4 @@
-package support.researchforgood;
+package support.component;
 
 
 import java.util.List;
