@@ -53,5 +53,22 @@
 		<comboitem label="23" />
 		<comboitem label="34" />
 	</combobox>
-
+	<!-- workaround -->
+<script >
+	var _oldzjq = {};
+	zk.override(zjq.prototype, _oldzjq, {
+	 scrollIntoView: function () {
+	  var n = this.jq[0];
+	  if (n) {
+	   var real = jq('#' + n.id + '-real')[0];
+	   if (real)
+	    n = real;
+	   setTimeout(function () {
+	    n.scrollIntoView();
+	   }, 20);
+	  }
+	  return this;
+	 }
+	});		
+</script>
 </window>
