@@ -2,34 +2,8 @@
 <vlayout apply="org.zkoss.bind.BindComposer"
 	viewModel="@id('vm') @init('support.hfconsulting.PagingViewModel')" xmlns:n="native">
 
-	<hlayout sclass="content-header">
-		<n:h1>Saldi Giornalieri</n:h1>
-	</hlayout>
-
 	<groupbox>
 		<vlayout>
-			<groupbox id="ricercaGrid" mold="3d" closable="true" open="false">
-
-				<attribute name="onOK">
-					Events.sendEvent("onClick", ricercaButton, null);
-				</attribute>
-
-				<attribute name="onOpen">
-					if (ricercaCaption.getIconSclass().equals("z-icon-plus-square")) {
-						ricercaCaption.setIconSclass("z-icon-minus-square");
-					} else {
-						ricercaCaption.setIconSclass("z-icon-plus-square");
-					}
-				</attribute>
-
-				<caption id="ricercaCaption" iconSclass="z-icon-plus-square"
-					label="${labels.general.search }" />
-					
-				<hlayout>
-					<button id="ricercaButton" class="btn-default btn"
-						label="${labels.general.search }" onClick="@command('ricerca')" />
-				</hlayout>
-			</groupbox>
 
 			<grid model="@load(vm.list)" id="gridSaldiGiornalieri" emptyMessage="empty"
 				width="100%">
@@ -43,14 +17,16 @@
 				</columns>
 
 				<template name="model" var="saldo">
-					<row width="100%">
-						<cell>
+					<row width="100%" children="@load(vm.columnList)">
+					<template name="children">
+						<cell if="${forEachStatus.index eq 0 }">
 							<label width="55px" value="@load(saldo)" />
 						</cell>
-						<cell popup="tooltipPopup" context="contextMenu">
+						<cell popup="tooltipPopup" context="contextMenu" if="${forEachStatus.index gt 0 }">
 							<label width="55px"
 								value="@load(forEachStatus.index gt 0 ? 'gt 0' : 'lt 0')" />
 						</cell>
+					</template>
 					</row>
 				</template>
 			</grid>

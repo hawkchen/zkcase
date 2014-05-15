@@ -104,4 +104,7 @@ public class PagingViewModel {
 	public void setColumns(List columns) {
 		this.columnList = columns;
 	}
+	public List<String> getColumnList() {
+		return columnList;
+	}
 }

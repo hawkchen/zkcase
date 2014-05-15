@@ -36,14 +36,7 @@ public class PagingComposer extends SelectorComposer<Component>{
 		updateList();
 		paging.setPageSize(pageSize);
 		paging.setTotalSize(totalSize);
-	}
-	
-	
-	@Listen("onPaging = #paging")
-    public void paging(){        
-		updateList();
-
-		//！codes below cause issue -------------------
+		
 		Columns columns = gridSaldiGiornalieri.getColumns();
 		gridSaldiGiornalieri.removeChild(columns);
 		columns = new Columns();
@@ -61,8 +54,34 @@ public class PagingComposer extends SelectorComposer<Component>{
 
 			columns.appendChild(newColumn);
 		}
-
 		gridSaldiGiornalieri.appendChild(columns);
+	}
+	
+	
+	@Listen("onPaging = #paging")
+    public void paging(){        
+		updateList();
+
+		//！codes below cause issue -------------------
+//		Columns columns = gridSaldiGiornalieri.getColumns();
+//		gridSaldiGiornalieri.removeChild(columns);
+//		columns = new Columns();
+//
+//		Column employeeColumn = new Column();
+//		employeeColumn.setWidth("200px");
+//		employeeColumn.setLabel("stampings.employee");
+//
+//		columns.appendChild(employeeColumn);
+//
+//		for (String giornata : columnList) {
+//			Column newColumn = new Column();
+//			newColumn.setLabel(giornata);
+//			newColumn.setWidth("75px");
+//
+//			columns.appendChild(newColumn);
+//		}
+
+//		gridSaldiGiornalieri.appendChild(columns);
 		//end---
     }
 	

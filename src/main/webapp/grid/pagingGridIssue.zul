@@ -7,8 +7,6 @@
 
 		<columns sizable="true" width="100%">
 			<column label="labels.stampings.employee" width="200px" />
-			<column style="text-align:right;" width="90px" forEach="${$composer.columns}"
-				label="${each}" />
 		</columns>
 
 		<template name="model">
