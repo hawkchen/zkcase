@@ -1,5 +1,5 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
-<div apply="org.zkoss.bind.BindComposer" width="100%"
+<vlayout apply="org.zkoss.bind.BindComposer" 
 	viewModel="@id('vm') @init('support.grid.PagingViewModel')" xmlns:n="native">
 	Test on Safari 5.1 in iPad
 	<groupbox >
@@ -82,6 +82,25 @@
 				totalSize="@bind(vm.totalSize)" pageSize="@bind(vm.pageSize)" activePage="@bind(vm.activePage)"
 				onPaging="@command('paging')">
 			</paging>
+			<popup id="tooltipPopup">
+		
+				<groupbox width="300px;" mold="3d" closable="false">
+					<caption label="Dettaglio giornata" />
+			
+					<vlayout>
+						<hlayout><label hflex="1" value="${labels.dettagli_giornata.ore_effettive }"/><label id="oreEffettive" hflex="1"/></hlayout>
+						<hlayout><label hflex="1" value="${labels.dettagli_giornata.ore_assenza }"/><label id="oreAssenza" hflex="1"/></hlayout>
+						<hlayout><label hflex="1" value="${labels.dettagli_giornata.ore_previste }"/><label id="orePreviste" hflex="1"/></hlayout>
+						<hlayout><label hflex="1" value="${labels.dettagli_giornata.ore_normali }"/><label id="oreNormali" hflex="1"/></hlayout>
+						<hlayout><label hflex="1" value="${labels.dettagli_giornata.ore_maggiorazione }"/><label id="oreMaggiorazione" hflex="1"/></hlayout>
+						<hlayout><label hflex="1" value="${labels.dettagli_giornata.ore_straordinarie }"/><label id="oreStraordinarie" hflex="1"/></hlayout>
+					</vlayout>
+					<hlayout></hlayout>
+			
+				</groupbox>
+			</popup>
+		
+			<menupopup id="contextMenu"></menupopup>			
 		</vlayout>
 	</groupbox>
-</div>
+</vlayout>
