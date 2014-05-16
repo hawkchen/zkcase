@@ -1,9 +1,14 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
-<vlayout apply="org.zkoss.bind.BindComposer" 
+<vlayout apply="org.zkoss.bind.BindComposer"
 	viewModel="@id('vm') @init('support.grid.PagingViewModel')" xmlns:n="native">
-	Test on Safari 5.1 in iPad
-	<groupbox >
+	
+	<hlayout sclass="content-header">
+		<n:h1>Saldi Giornalieri</n:h1>
+	</hlayout>
+	
+	<groupbox>
 		<vlayout>
+		
 			<groupbox id="ricercaGrid" mold="3d" closable="true" open="false">
 				
 				<attribute name="onOK">
@@ -18,20 +23,20 @@
 	            	}
 	            </attribute>
 			
-				<caption id="ricercaCaption" iconSclass="z-icon-plus-square" label="labels.general.search"/>		
+				<caption id="ricercaCaption" iconSclass="z-icon-plus-square" label="${labels.general.search }"/>		
 				
 				<vlayout>
 					<hlayout>
 						<vlayout>
-							<label value="labels.stampings.date_from" />
+							<label value="${labels.stampings.date_from }" />
 							<datebox id="dateFrom" format="dd/MM/yyyy"  mold="rounded" />
 						</vlayout>
 						<vlayout>
-							<label value="labels.stampings.date_to" />
+							<label value="${labels.stampings.date_to }" />
 							<datebox id="dateTo" format="dd/MM/yyyy" mold="rounded" />	
 						</vlayout>	
 						<vlayout>
-							<label value="labels.stamping.lastname " />
+							<label value="${labels.stamping.lastname }" />
 							<textbox id="cognomeTextbox" mold="rounded" />
 						</vlayout>	
 					</hlayout>
@@ -41,47 +46,55 @@
 							<checkbox id="soloAnomalieCheckbox" 
 								onCheck="@command('showOnlyInError', filtro=self)">
 							</checkbox>
-							<label value="labels.stamping.only_in_error"/>
+							<label value="${labels.stamping.only_in_error}"/>
 						</hlayout>
 					</vlayout>		
 					
 					<hlayout>
-						<button id="ricercaButton" class="btn-default btn" label="labels.general.search" 
+						<button id="ricercaButton" class="btn-default btn" label="${labels.general.search }" 
 							onClick="@command('ricerca')" />
 					</hlayout>
 				</vlayout>
 			</groupbox>
 			
-			<grid model="@load(vm.list)" id="gridSaldiGiornalieri" emptyMessage="empty"
-				width="100%">
-
+			<grid model="@load(vm.list)" id="gridSaldiGiornalieri" 
+				emptyMessage="${labels.general.empty_data}">
+		
 				<frozen columns="1" />
-
-				<columns sizable="true" width="100%">
-					<column label="labels.stampings.employee" width="200px" />
-					<column style="text-align:right;" width="70px" forEach="${vm.columns}"
-						label="${each}" />
+		
+				<columns sizable="true">
+					<column label="${labels.stampings.employee }" width="200px" />
+					<column forEach="${vm.columns}" label="${each}" width="55px" />
 				</columns>
-
+		
 				<template name="model" var="saldo">
-					<row width="100%" children="@load(vm.columnList)">
-					<template name="children">
-						<cell if="${forEachStatus.index eq 0 }">
-							<label width="55px" value="@load(saldo)" />
-						</cell>
-						<cell popup="tooltipPopup" context="contextMenu" if="${forEachStatus.index gt 0 }">
-							<label width="55px"
-								value="@load(forEachStatus.index gt 0 ? 'gt 0' : 'lt 0')" />
-						</cell>
-					</template>
+					<row children="@load(vm.columnList)">
+			
+						<template name="children">
+							
+							<cell if="${forEachStatus.index eq 0 }"
+								style="">
+								<label width="55px"
+									value="@load(saldo)" />
+							</cell>
+							
+							<cell if="${forEachStatus.index gt 0 }"
+								onRightClick="@command('openContextMenu', saldo=each, menupopup=contextMenu)"
+								onClick="@command('openTooltip', saldo=each, oreEffettiveLabel=oreEffettive, oreAssenzaLabel=oreAssenza, orePrevisteLabel=orePreviste, oreNormaliLabel=oreNormali, oreMaggiorazioneLabel=oreMaggiorazione, oreStraordinarieLabel=oreStraordinarie)"
+								popup="tooltipPopup" context="contextMenu"
+								style="">
+								<label width="55px"
+									value="@load(forEachStatus.index gt 0 ? 'gt 0' : 'no gt 0') " />
+							</cell>
+						</template>
 					</row>
 				</template>
 			</grid>
-
+		
 			<paging detailed="true" autohide="false" mold="default" id="paging"
-				totalSize="@bind(vm.totalSize)" pageSize="@bind(vm.pageSize)" activePage="@bind(vm.activePage)"
-				onPaging="@command('paging')">
+				totalSize="@bind(vm.totalSize)" pageSize="@bind(vm.pageSize)" activePage="@bind(vm.activePage)" onPaging="@command('paging')">
 			</paging>
+			
 			<popup id="tooltipPopup">
 		
 				<groupbox width="300px;" mold="3d" closable="false">
@@ -100,7 +113,10 @@
 				</groupbox>
 			</popup>
 		
-			<menupopup id="contextMenu"></menupopup>			
+			<menupopup id="contextMenu"></menupopup>
+	
 		</vlayout>
 	</groupbox>
+
 </vlayout>
+
