@@ -1,10 +1,57 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
-<window border="normal" mode="overlapped" apply="org.zkoss.bind.BindComposer" width="100%"
+<div apply="org.zkoss.bind.BindComposer" width="100%"
 	viewModel="@id('vm') @init('support.grid.PagingViewModel')" xmlns:n="native">
 	Test on Safari 5.1 in iPad
 	<groupbox >
 		<vlayout>
-
+			<groupbox id="ricercaGrid" mold="3d" closable="true" open="false">
+				
+				<attribute name="onOK">
+					Events.sendEvent("onClick", ricercaButton, null);
+				</attribute>
+				
+				<attribute name="onOpen">
+					if (ricercaCaption.getIconSclass().equals("z-icon-plus-square")) {
+						ricercaCaption.setIconSclass("z-icon-minus-square");
+					} else {
+	            		ricercaCaption.setIconSclass("z-icon-plus-square");
+	            	}
+	            </attribute>
+			
+				<caption id="ricercaCaption" iconSclass="z-icon-plus-square" label="labels.general.search"/>		
+				
+				<vlayout>
+					<hlayout>
+						<vlayout>
+							<label value="labels.stampings.date_from" />
+							<datebox id="dateFrom" format="dd/MM/yyyy"  mold="rounded" />
+						</vlayout>
+						<vlayout>
+							<label value="labels.stampings.date_to" />
+							<datebox id="dateTo" format="dd/MM/yyyy" mold="rounded" />	
+						</vlayout>	
+						<vlayout>
+							<label value="labels.stamping.lastname " />
+							<textbox id="cognomeTextbox" mold="rounded" />
+						</vlayout>	
+					</hlayout>
+					
+					<vlayout>
+						<hlayout>
+							<checkbox id="soloAnomalieCheckbox" 
+								onCheck="@command('showOnlyInError', filtro=self)">
+							</checkbox>
+							<label value="labels.stamping.only_in_error"/>
+						</hlayout>
+					</vlayout>		
+					
+					<hlayout>
+						<button id="ricercaButton" class="btn-default btn" label="labels.general.search" 
+							onClick="@command('ricerca')" />
+					</hlayout>
+				</vlayout>
+			</groupbox>
+			
 			<grid model="@load(vm.list)" id="gridSaldiGiornalieri" emptyMessage="empty"
 				width="100%">
 
@@ -37,4 +84,4 @@
 			</paging>
 		</vlayout>
 	</groupbox>
-</window>
+</div>

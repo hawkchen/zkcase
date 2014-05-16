@@ -1,0 +1,42 @@
+<?page title="ZF Web App"?>
+<?meta name="viewport" content="width=1190"?>
+
+<zk xmlns:n="native">
+	<div >
+				
+	<div id="header" sclass="header">
+		<n:h1>
+			<a onClick="@command('datiAzienda')">
+					<label style="font-size: 24px" value="@load(vm.nomeAzienda)" tooltiptext="@load(vm.aziendaDipendenza)"/>
+			</a>
+		</n:h1>
+	</div>
+
+	<div sclass="user-nav">
+		<menubar>
+			<menuitem id="profile" iconSclass="icon icon-white icon-user" label="${authentication.principal.username}" onClick="@command('profilo')"/>
+			<menu id="messages" iconSclass="icon icon-white icon-envelope"/>
+			<menuitem iconSclass="icon icon-white icon-share-alt" label="Logout" href="/j_spring_security_logout"/>
+		</menubar>
+	</div>
+	
+	<button id="menubarButton" iconSclass="z-icon-reorder" visible="false" onClick="@command('toggleMenu')"/>
+	<navbar id="menubar" orient="vertical" sclass="sidebar"/>
+
+	<div sclass="style-switcher" visible="false">
+		<n:i class="icon-arrow-left icon-white"></n:i> <label>Style:</label>
+			<a id="grey" href="javascript: changeTheme('grey');"
+			style="background-color: #555555; border-color: #AAAAAA;"></a>
+			<a id="light-blue" href="javascript: changeTheme('light-blue');"
+			style="background-color: #8399b0;"></a>
+			<a id="red" href="javascript: changeTheme('red');"
+			style="background-color: #673232;"></a>		
+	</div>
+	
+	<div id="content" sclass="content">			
+		<div id="breadcrumb" zclass="breadcrumb"/>			
+		<div id="mainContent" self="@insert(content)" width="100%"/>
+	</div>
+	
+</div>
+</zk>
