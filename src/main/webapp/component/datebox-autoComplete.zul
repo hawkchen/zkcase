@@ -1,0 +1,12 @@
+<!-- 7.0.1 -->
+<zk>
+	<vlayout xmlns:c="client">
+	<datebox format="dd.MM.yyyy" onChanging="stop(event)" onChange=""/>
+	<datebox format="dd.MM.yyyy" instant="true"  c:onChanging="event.stop()"/>
+	<zscript><![CDATA[
+		public void stop(InputEvent event){
+			System.out.println(event.getValue());
+		}
+	]]></zscript>
+	</vlayout>
+</zk>
