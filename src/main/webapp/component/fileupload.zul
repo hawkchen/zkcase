@@ -1,0 +1,21 @@
+<!-- 7.0.1 -->
+<zk>
+<fileupload label="Upload">
+   <attribute name="onUpload"><![CDATA[
+		System.out.println("upload");
+		org.zkoss.util.media.Media[] media = event.getMedias();
+		if (media != null) {
+			for (int i = 0; i < media.length; i++) {
+				if (media[i] instanceof org.zkoss.image.Image) {
+					image.setContent(media[i]);
+				} else {
+					Messagebox.show("Not an image: " + media[i], "Error", Messagebox.OK,
+							Messagebox.ERROR);
+					break; //not to show too many errors
+				}
+			}
+		}
+]]></attribute>
+</fileupload>
+		<image id="image" />
+</zk>
