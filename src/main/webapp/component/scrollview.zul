@@ -1,0 +1,7 @@
+<scrollview vflex="1" hflex="1">
+    <zk forEach="1,2,3,4,5">
+        <window title="window ${each}" border="normal" width="255px" height="200px">
+        This is Window ${each}
+        </window>
+    </zk>
+</scrollview>
