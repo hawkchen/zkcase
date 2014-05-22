@@ -1,3 +1,6 @@
+/*
+ * avoid secutive clicking.
+ */
 zk.afterLoad('zul.sel', function () {
 	var _oldDoClick = {};
 	zk.override(zul.sel.Treeitem.prototype, _oldDoClick, {
