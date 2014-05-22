@@ -1,0 +1,58 @@
+<zk>
+<style>
+.z-listcell-content{
+font-size:10px;
+height:20px
+}
+</style>
+	when mouse hovers to a listbox, horizontal scrollbar cover the last item to be clicked.
+	<!-- workaround
+	<custom-attributes org.zkoss.zul.nativebar="true"/>
+	 -->
+	<listbox id="listbox" width="600px" rows="3">
+		<listhead>
+			<listheader width="300px">1111</listheader>
+			<listheader width="300px">2222</listheader>
+			<listheader width="300px">3333</listheader>
+			<listheader width="300px">4444</listheader>
+		</listhead>
+
+		<listitem height="10px">
+			<listcell label="1111-1" />
+			<listcell label="2222-2" />
+			<listcell label="3333-3" />
+			<listcell label="4444-4" />
+		</listitem>
+		<listitem>
+			<listcell label="1111-1" />
+			<listcell label="2222-2" />
+			<listcell label="3333-3" />
+			<listcell label="4444-4" />
+		</listitem>
+		<listitem>
+			<listcell label="1111-1" />
+			<listcell label="2222-2" />
+			<listcell label="3333-3" />
+			<listcell label="4444-4" />
+		</listitem>
+		<listitem>
+			<listcell label="1111-1" />
+			<listcell label="2222-2" />
+			<listcell label="3333-3" />
+			<listcell label="4444-4" />
+		</listitem>
+		<listitem>
+			<listcell label="1111-1" />
+			<listcell label="2222-2" />
+			<listcell label="3333-3" />
+			<listcell label="4444-4" />
+		</listitem>
+		<listitem>
+			<listcell label="1111-1" />
+			<listcell label="2222-2" />
+			<listcell label="3333-3" />
+			<listcell label="4444-4" />
+		</listitem>
+				
+	</listbox>
+</zk>
