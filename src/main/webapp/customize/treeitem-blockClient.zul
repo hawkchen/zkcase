@@ -1,0 +1,46 @@
+<zk>
+	<window border="normal" title="hello" apply="support.customize.BlockClientComposer">
+		<script>
+
+		</script>
+		<borderlayout height="300px">
+			<north>
+				<vbox>
+					<label value="How do i prevent double click for a treeitem?" />
+					<label
+						value="We are doing some heavy lifting when clicking a treeitem and are having trouble with customers that double click everything in our application." />
+					<label
+						value="For menuitem the autodisable feature solved this, but how to do we solve the problem for treeitems?" />
+					<separator />
+					<label
+						value="Would it not be better if the double click event was sent before the two click events?" />
+					<label
+						value="If so we could listen to the double click and just set some flag to ignore one of the click events" />
+					<separator />
+					<label style="font-weight:bold;"
+						value="Please implement the autodisable feature for everything that can be double clicked!!" />
+					<separator />
+				</vbox>
+			</north>
+			<west width="50%">
+
+				<tree id="tree" vflex="1">
+					<treecols sizable="true">
+						<treecol label="Test" />
+					</treecols>
+					<treechildren>
+						<treeitem
+							label="Double click me. The two click events will be fired before the double click event"
+							id="treeitm" />
+						<treeitem label="2nd" />
+					</treechildren>
+				</tree>
+
+			</west>
+			<east width="50%">
+				<textbox multiline="true" width="100%" height="100%" id="txtbox" />
+			</east>
+		</borderlayout>
+
+	</window>
+</zk>

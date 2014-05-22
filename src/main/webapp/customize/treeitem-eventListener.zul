@@ -1,0 +1,63 @@
+<zk xmlns:w="client">
+	<script><![CDATA[
+	    function eventInfo(eventName, listener) {
+	    	var info = {};
+	    	info[eventName] = listener;
+	    	return info;
+	    }
+
+	    function preventDuplicate(widget, eventName) {
+	    	var handlers = {};
+	    	
+		 	handlers.firstListener = function(evt) {
+		 			widget.setDisabled(true);
+					widget.unlisten(eventInfo(eventName, handlers.firstListener));
+					zWatch.listen({onResponse : handlers});
+		    };
+	    	
+		    handlers.onResponse = function() {
+	 			widget.setDisabled(false);
+				zWatch.unlisten({onResponse: this});
+				widget.listen(eventInfo(eventName, handlers.firstListener));
+				console.log("clear");
+		    }
+		    
+	    	widget.listen(eventInfo(eventName, handlers.firstListener));
+	    }
+	]]>
+	</script>
+
+	<window title="prevent duplicate events" border="normal">
+		<tree width="300px">
+			<treecols>
+				<treecol label="test"/>
+			</treecols>
+			<treechildren>
+				<treeitem onClick='org.zkoss.lang.Threads.sleep(2000); Clients.showNotification("treeitem took a long time 2 sec", null, null, null, 700);'
+					w:onBind="preventDuplicate(this, 'onClick')" >
+					<treerow>
+						<treecell>
+							My treeItem with a long operation
+						</treecell>
+					</treerow>
+				</treeitem>
+				<treeitem onClick='org.zkoss.lang.Threads.sleep(2000); Clients.showNotification("treeitem took a long time 2 sec", null, null, null, 700);'
+					w:onBind="preventDuplicate(this, 'onClick')">
+					<treerow>
+						<treecell>
+							My treeItem 2 with a long operation
+						</treecell>
+					</treerow>
+				</treeitem>
+			</treechildren>
+		</tree>
+	
+		<button onClick='org.zkoss.lang.Threads.sleep(2000); Clients.showNotification("button took a long time 2 sec", null, null, null, 500);'
+			w:onBind="preventDuplicate(this, 'onClick')" 
+			label="click and wait"/>
+
+		<textbox onOK='org.zkoss.lang.Threads.sleep(2000); Clients.showNotification("textbox took a long time 2 sec", null, null, null, 500);'
+			w:onBind="preventDuplicate(this, 'onOK')" 
+			/>press enter in input
+	</window>
+</zk>

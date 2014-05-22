@@ -1,0 +1,36 @@
+<zk>
+	<window border="normal" title="hello" apply="support.customize.TreeitemClickComposer">
+		
+		<script>
+			zk.afterLoad('zul.sel', function () {
+	var _oldDoClick = {};
+	zk.override(zul.sel.Treeitem.prototype, _oldDoClick, {
+		doClick_: function (evt, popupOnly) {
+			if (evt.domEvent.originalEvent.detail >1){
+				return;
+			}
+			_oldDoClick.doClick_.apply(this, arguments); //call the original method
+		}
+	});
+});
+		</script>
+		<vlayout >
+		https://developer.mozilla.org/en-US/docs/Web/API/event.detail
+		avoid sending event that event.detail is greater than 1.
+		<tree id="tree" vflex="1">
+			<treecols sizable="true">
+				<treecol label="Test" />
+			</treecols>
+			<treechildren>
+				<treeitem
+					label="Double click me. The two click events will be fired before the double click event"
+					id="treeitm" />
+				<treeitem label="2nd" />
+			</treechildren>
+		</tree>
+
+		<textbox multiline="true" width="100%" height="300px" id="txtbox" />
+		</vlayout>
+
+	</window>
+</zk>

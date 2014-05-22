@@ -9,7 +9,7 @@
 		<treecol label="Description" />
 	</treecols>
 	<treechildren>
-		<treeitem>
+		<treeitem onClick='org.zkoss.lang.Threads.sleep(2000); Clients.showNotification("treeitem took a long time 2 sec", null, null, null, 700);'>
 			<treerow>
 				<treecell label="Item 1" />
 				<treecell label="Item 1 description" />
