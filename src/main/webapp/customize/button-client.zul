@@ -1,0 +1,5 @@
+<zk xmlns:c="client">
+	<button id="myButton" c:onClick="jq(this).attr('disabled', true);" >click to disable by jq</button>
+	<separator></separator>
+	<button style="opacity: .4;pointer-events: none;">disabled by CSS</button>
+</zk>

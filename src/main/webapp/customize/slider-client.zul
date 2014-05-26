@@ -1,0 +1,64 @@
+<zk xmlns:c="client">
+	<script type="text/javascript" defer="true">
+		//console.log(jq(".z-slider-horizontal"));
+		/* 
+		jq(".z-slider").click(function(event){
+			console.log(event);
+			console.log('click z-slider,'+ 'x:'+event.pageX+' y:'+event.pageY); 
+		});
+		*/
+	</script>
+	<script type="text/javascript">
+		function setPosition(slider){
+			var position = 50;
+			slider.setCurpos(position);
+			slider.fire('onScroll', slider.isDecimal() ? {decimal: position} : position);
+		}
+		function click(slider){
+			jq(slider).click();
+		}
+	</script>
+	<slider id="hslider" onScroll="printPosition()" onClick=""></slider>
+	<label id="posLabel"/>
+	<button c:onClick="setPosition(this.$f('hslider'))">set position</button>
+	<button c:onClick="click(this.$f('hslider'))">click </button>
+	<zscript><![CDATA[
+		public void printPosition(){
+			posLabel.setValue(Integer.toString(hslider.getCurpos()));
+		}
+	]]>		
+	</zscript>
+	
+	<separator bar="true"/>
+	Disable slider
+	<slider style="opacity: .4;pointer-events: none;"/>
+
+	<separator height="20px"/>
+	<slider id="vslider" orient="vertical" >
+	</slider>
+	<script type="text/javascript" >
+		var handler ;
+		zk.afterMount(function(){
+			//keep original event handlers
+			var vslider = zk.Widget.$('$vslider');
+			handler = {
+				doClick_ : vslider.doClick_,
+				ignoredrag: vslider._drag.opts.ignoredrag
+			}
+		}, 0);
+		
+	</script>
+	<script type="text/javascript">
+		function disable(slider){
+			slider.doClick_ = function(){};
+			slider._drag.opts.ignoredrag = function(){ return true;};
+		}
+		
+		function enable(slider){
+			slider.doClick_ = handler.doClick_;
+			slider._drag.opts.ignoredrag = handler.ignoredrag;
+		}
+	</script>
+	<button c:onClick="disable(this.$f('vslider'))">disable</button>
+	<button c:onClick="enable(this.$f('vslider'))">enable</button>
+</zk>
