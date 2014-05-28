@@ -1,0 +1,47 @@
+<?page title="Twigo-support" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<div apply="org.zkoss.bind.BindComposer" width="100%"
+		viewModel="@id('vm') @init('support.rendering.RatesViewModel')">
+
+		FAQ
+		<grid height="500px" model="@load(vm.rateList)" width="500px">
+			<columns></columns>
+				<!-- template for group
+				<template name="model:Title">
+					<group label="@load(each)" height="75px" />
+				</template>
+				 -->
+				<!-- template for each element in model -->
+				<template name="model">
+					<row height="70px">
+						<label value="@load(each)" />
+					</row>
+				</template>
+		</grid>
+		<zscript><![CDATA[
+String[] countries = {
+"China", "France", "Germany", "United Kindom", "United States"};
+List list = Arrays.asList(countries);
+ListModelList model = new ListModelList(list);
+]]></zscript>
+		<grid model="${model}" width="500px">
+			<columns></columns>
+			<template name="model">
+				<row height="70px">
+					<label value="${each}" />
+				</row>
+			</template>
+		</grid>
+		<listbox model="${model}" width="500px">
+			<listhead><listheader></listheader>
+			</listhead>
+			<template name="model">
+				<listitem>
+				<listcell>
+					<label value="${each}" />
+				</listcell>
+				</listitem>
+			</template>
+		</listbox>
+	</div>
+</zk>
