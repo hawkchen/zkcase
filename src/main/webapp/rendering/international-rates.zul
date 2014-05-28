@@ -1,0 +1,158 @@
+<?page title="Twigo Calling Rates - Cheap international calls" contentType="text/html;charset=UTF-8"?>
+<?link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"?>
+<?link rel="icon" href="images/favicon.ico" type="image/x-icon"?>
+<zk>
+<html id="html"><head>
+<?meta name="Description" content="Twigo offers you the low-cost rates for international calls and SMS. Find out just how cheap our rates are!" ?>
+<?meta name="keywords" content="Country, pay, less, long, distance, usa" ?>
+
+</head>
+<body style="margin:0;padding:0"></body>
+</html>
+<style>
+		.hide-header .z-grid-header 		
+		{
+			height: 0px;
+			overflow: hidden;
+		}
+</style>
+<n:div xmlns:n="native" style="margin:0; padding:0">
+	<n:div  id="image_frame"><n:div sclass="backg"><image src="images/large2_1551_265.jpg"></image></n:div></n:div>
+    <n:div align="center" id="titleHolder"><n:div class="centered" ><n:div class="twi_bold pTitle" >Rates</n:div><n:div class="twi_lig pSub">Free &amp; Cheaper International Calls and SMS,<n:br />You Always Pay less!</n:div></n:div></n:div>
+  	
+  	<div  apply="org.zkoss.bind.BindComposer" 	viewModel="@id('vm') @init('support.rendering.RatesViewModel',type='viewrates')" >
+    
+    <n:div  style="position:absolute;top:300px;z-index:20000; width:100px; height:150px;left:950px;" >
+    <image src="images/sticker1.png"></image>
+    </n:div>
+    <n:div  style="position:absolute;top:300px;z-index:19000;  height:150px;left:800px;" >
+    <image src="images/Sticker2.png"></image>
+ 	</n:div>
+  <!-- 	<div id="coming_soon" style="color: #0000FF; text-decoration: underline; cursor: pointer; position: fixed; top:10%; right: 0px; z-index: 1000;"> -->
+   			<!-- <n:div  class="twi_lig pSub"  style="margin-left:20px; color:#c23636">
+   			<n:ul>
+            <n:li>No Hidden charges</n:li>
+            <n:li>No additional charges</n:li>
+            <n:li>Worldwide flat SMS rate coming soon...</n:li>
+            </n:ul>
+            </n:div> -->
+           <!--  </div> -->
+  <!--    </div> -->
+     
+    <n:div  align="center" style="position:relative; height:130px; background-color:#FFBA00; ">
+    	<vlayout style="position:relative; width:906px; height:130px; text-align:left;" >
+    		<n:div  class="twi_bold" style="padding-top:15px; margin-left:7px;  font-size:36px; color:#fff; text-align:left; font-weight:bold">Where would you like to call to today?</n:div>
+             <n:div  style="position:relative; height:51px; background:url(images/transpa/transpa_6_7.png); margin-top:5px; width:380px; margin-left:4px;"> 
+                <div  align="left" style="position:relative; float:left; padding-top:9px; padding-left:8px; width:220px; height:44px; border:none; ">
+	                <listbox sclass="chosen-select" style="width:210px;height:30px" mold="select"  model="@bind(vm.rateList)" >
+						<template name="model" var="item">
+							<listitem style="text-align:left">
+								<listcell label="@load(item.country)"  style="vertical-align:center"></listcell>
+							</listitem>
+						</template>
+					</listbox>                      
+                </div>              
+             <a class="twi_disp" style="position:relative; float:left; padding-top:5px; padding-left:5px; font-size:19px; color:#fff; text-align:left; ">
+             <image src="images/rates_126_43.png"  onClick="@command('FindRates')" /></a> <!-- onClick="@command('getFilteredRate')" --> 
+            </n:div>  
+      </vlayout>     
+    </n:div>      
+    
+    <n:div align="center" style="position:relative; background-color:#fff; overflow:hidden;">
+    	<n:div  style="position:relative; width:906px;">
+            <n:div  class="twi_bold" style="margin-top:25px; margin-left:7px;  font-size:23px; color:#FFBA00; text-align:left;  ">Check All Rates</n:div>
+            <n:div id="letters" style="position:relative; width:906px;  margin-top:10px; ">				
+				<a href="international-rates.zul?i=A">A</a><a href="international-rates.zul?i=B">B</a><a href="international-rates.zul?i=C">C</a>
+				<a href="international-rates.zul?i=D">D</a><a href="international-rates.zul?i=E">E</a><a href="international-rates.zul?i=F">F</a>
+				<a href="international-rates.zul?i=G">G</a><a href="international-rates.zul?i=H">H</a><a href="international-rates.zul?i=I">I</a>
+				<a href="international-rates.zul?i=J">J</a><a href="international-rates.zul?i=K">K</a><a href="international-rates.zul?i=L">L</a>
+				<a href="international-rates.zul?i=M">M</a><a href="international-rates.zul?i=N">N</a><a href="international-rates.zul?i=O">O</a>
+				<a href="international-rates.zul?i=P">P</a><a href="international-rates.zul?i=Q">Q</a><a href="international-rates.zul?i=R">R</a>
+				<a href="international-rates.zul?i=S">S</a><a href="international-rates.zul?i=T">T</a><a href="international-rates.zul?i=U">U</a>
+				<a href="international-rates.zul?i=V">V</a><a href="international-rates.zul?i=W">W</a><a href="international-rates.zul?i=X">X</a>
+				<a href="international-rates.zul?i=Y">Y</a><a href="international-rates.zul?i=Z">Z</a>
+            </n:div>
+        </n:div>
+    </n:div>  
+      <div align="center" >
+       <n:div align="center" style="position:relative;  background-color:#fff; overflow:hidden;">
+    	<n:div style="position:relative; width:906px;">
+    		<n:div class="twi_bold" style="margin-top:20px; margin-left:7px;  font-size:23px; color:#FFBA00; text-align:left;">Popular calling destinations</n:div>
+    		</n:div></n:div>
+   			  <grid  model="@load(vm.rateList)" style="border: none;" width="450px" height="100%"  sclass="hide-header" >
+			<columns sizable="true"> 			
+				<column label=""  width="50px" style="background-color: gray; color: black;" />
+				<column label="Country" width="250px"  style="background-color: gray; color: black;"/>
+				<column label="Rate" width="130px" style="background-color: gray; color: black;"/> 	
+			</columns>				    
+		    <template name="model">
+             <row style="background-color:#ffffff; text-align:left; font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;">               
+              	<image src="${each.countryISOCode}.png"></image>               
+                <label value="@load(each.country)" style="font-size:12px;" />
+            <label value="@load((each.rate).concat(' ').concat('&#162;'))" style="font-size:12px;"/>                                        
+             </row>
+            </template> 
+		</grid>
+		</div>    
+    <n:div align="center" style="position:relative; height:300px; background-color:#fff; overflow:hidden;">
+    	<n:div style="position:relative; width:906px;">
+    		<!-- <n:div class="twi_bold" style="margin-top:20px; margin-left:7px;  font-size:23px; color:#FFBA00; text-align:left;">Popular calling destinations</n:div> -->
+            <n:div style="position:relative; width:936px; height:300px; margin-top:10px;">   
+                
+		<hbox>       	
+        <grid  model="@load(vm.rateList)" style="border: 0px; overflow:none;" width="450px"  height="100%" sclass="hide-header">
+			<columns sizable="true"> 			
+				<column label=""  width="50px" style="background-color: gray; color: black;" />
+				<column label="Country" width="250px"  style="background-color: gray; color: black;"/>
+				<column label="Rate" width="130px" style="background-color: gray; color: black;"/> 	
+			</columns>				    
+		    <template name="model">
+             <row style="background-color:#ffffff; text-align:left; font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;">               
+              	<image src="images/flags/${each.countryISOCode}.png"></image>               
+                <label value="@load(each.country)" style="font-size:12px;" />
+                <label value="@load((each.rate).concat(' ').concat('&#162;'))" style="font-size:12px;"/>                                       
+             </row>
+            </template> 
+		</grid>	
+		<grid model="@load(vm.rateList)"  style="border: 0px; overflow:none;" width="450px" height="100%" sclass="hide-header">
+			<columns sizable="true"> 			
+				<column label=""  width="50px" style="background-color: gray; color: black;" />
+				<column label="Country" width="250px"  style="background-color: gray; color: black;"/>
+				<column label="Rate" width="130px" style="background-color: gray; color: black;"/> 	
+			</columns>				    
+		    <template name="model">
+             <row  style="background-color:#ffffff; text-align:left; font-family: MyriadPro-Regular, 'Myriad Pro Regular', MyriadPro, 'Myriad Pro', Helvetica, Arial, sans-serif;">               
+              	<image src="images/flags/${each.countryISOCode}.png"></image>               
+                <label value="@load(each.country)" style="font-size:12px;" />
+                <label value="@load((each.rate).concat(' ').concat('&#162;'))" style="font-size:12px;"/>                                      
+             </row>
+            </template> 
+		</grid>	
+		</hbox>
+		<!-- <hbox> -->
+		
+		<!-- </hbox> -->
+          </n:div>
+        </n:div> 
+           
+    </n:div>
+   
+ </div>
+<script src="chosen.jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		var config = {
+		  '.chosen-select'           : {}
+		}
+		for (var selector in config) {
+		  $(selector).chosen(config[selector]);
+		}
+		$('#fild1').bind('focus', function() { $('#fild1ov').hide();}); 
+		$('#fild1').bind('blur', function() { if ($('#fild1').val() == '') {$('#fild1ov').show(); }    });	
+		$('#main1').addClass('men_sel');
+		$('.chosen-single').append('<div style="position:absolute; top:17px; left:394px; background:url(images/tri_14_9.png); width:14px; height:9px; "></div>');
+		
+    </script>
+    <script src="js/menu.js" type="text/javascript"></script>
+    <script type = "text/javascript" src = "http://portal.twigo.com/promptchat/MasterServer/Public/ScriptProvider.php"></script>
+</n:div>
+</zk>
