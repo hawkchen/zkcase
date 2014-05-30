@@ -7,51 +7,45 @@ height:20px
 </style>
 	when mouse hovers to a listbox, horizontal scrollbar cover the last item to be clicked.
 	<!-- workaround
-	<custom-attributes org.zkoss.zul.nativebar="true"/>
 	 -->
+	<custom-attributes org.zkoss.zul.nativebar="false"/>
 	<listbox id="listbox" width="600px" rows="3">
 		<listhead>
-			<listheader width="300px">1111</listheader>
-			<listheader width="300px">2222</listheader>
-			<listheader width="300px">3333</listheader>
-			<listheader width="300px">4444</listheader>
+			<listheader width="300px">aaaa</listheader>
+			<listheader width="300px">bbbb</listheader>
+			<listheader width="300px">cccc</listheader>
+			<listheader width="300px">dddd</listheader>
 		</listhead>
 
-		<listitem height="10px">
-			<listcell label="1111-1" />
-			<listcell label="2222-2" />
-			<listcell label="3333-3" />
-			<listcell label="4444-4" />
+		<listitem>
+			<listcell label="aaaa-1" />
+			<listcell label="bbbb-1" />
+			<listcell label="cccc-1" />
+			<listcell label="dddd-1" />
 		</listitem>
 		<listitem>
-			<listcell label="1111-1" />
-			<listcell label="2222-2" />
-			<listcell label="3333-3" />
-			<listcell label="4444-4" />
+			<listcell label="aaaa-2" />
+			<listcell label="bbbb-2" />
+			<listcell label="cccc-2" />
+			<listcell label="dddd-2" />
 		</listitem>
 		<listitem>
-			<listcell label="1111-1" />
-			<listcell label="2222-2" />
-			<listcell label="3333-3" />
-			<listcell label="4444-4" />
+			<listcell label="aaaa-3" />
+			<listcell label="bbbb-3" />
+			<listcell label="cccc-3" />
+			<listcell label="dddd-3" />
 		</listitem>
 		<listitem>
-			<listcell label="1111-1" />
-			<listcell label="2222-2" />
-			<listcell label="3333-3" />
-			<listcell label="4444-4" />
+			<listcell label="aaaa-4" />
+			<listcell label="bbbb-4" />
+			<listcell label="cccc-4" />
+			<listcell label="dddd-4" />
 		</listitem>
 		<listitem>
-			<listcell label="1111-1" />
-			<listcell label="2222-2" />
-			<listcell label="3333-3" />
-			<listcell label="4444-4" />
-		</listitem>
-		<listitem>
-			<listcell label="1111-1" />
-			<listcell label="2222-2" />
-			<listcell label="3333-3" />
-			<listcell label="4444-4" />
+			<listcell label="aaaa-5" />
+			<listcell label="bbbb-5" />
+			<listcell label="cccc-5" />
+			<listcell label="dddd-5" />
 		</listitem>
 				
 	</listbox>

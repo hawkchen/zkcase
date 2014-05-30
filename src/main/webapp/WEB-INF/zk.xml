@@ -11,7 +11,8 @@
 	</preference>
 
 	<!-- Turn on if you want to debug JavaScript. Once turned on, the uncompressed JavaScript files will 
-		be loaded. -->
+		be loaded. 
+		-->
 	<client-config>
 		<debug-js>true</debug-js>
 	</client-config>
@@ -36,6 +37,15 @@
 		<name>org.zkoss.zul.listbox.rod</name>
 		<value>true</value>
 	</library-property>
+	
+<!--
+	replace JS in a jar 
+	<library-property> 
+		<name>org.zkoss.web.util.resource.dir</name> 
+		<value>/WEB-INF/patch</value> 
+	</library-property>
+ -->	
+	
 
 	<!-- To customize "Processing" message <device-config> <device-type>ajax</device-type> <embed><![CDATA[ 
 		<script type="text/javascript"> zk.startProcessing = function (timeout) { console.log("enter start processing"); 
@@ -46,7 +56,7 @@
 		]]></embed> </device-config> -->
 
 
-	<!-- <library-property> <name>org.zkoss.zul.nativebar</name> <value>true</value> </library-property> -->
+<!-- 	<library-property> <name>org.zkoss.zul.nativebar</name> <value>false</value> </library-property> -->
 
 	<!-- Apply zk bootstrap <library-property> <name>org.zkoss.zul.Button.mold</name> <value>bs</value> 
 		</library-property> <library-property> <name>org.zkoss.zul.Menupopup.mold</name> <value>bs</value> </library-property> 
@@ -244,10 +254,7 @@
 	<!-- Uncommet to control the encoding of the labe properties files Default: UTF-8 <library-property> 
 		<name>org.zkoss.util.label.web.charset</name> <value>UTF-8</value> </library-property> -->
 
-	<!-- Uncommet to specify a directory, where ZK will load the so-called Class-Web Resources (CWR), including 
-		JavaScript files, CSS files, and other resources (~./xxx), in addition to the class path. Default: null 
-		(they are loaded only from the class path) <library-property> <name>org.zkoss.web.util.resource.dir</name> 
-		<value>/WEB-INF/cwr</value> </library-property> -->
+
 	<!-- Defines a client package (and all of its sub-packages) provided by this server. It is used only 
 		if client packages might be loaded from different servers, such as Ajax-as-Service. <client-config> <package> 
 		<package-name></package-name> </package> </client-config> -->
