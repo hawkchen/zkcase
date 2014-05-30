@@ -1,10 +1,12 @@
 <!-- 7.0.1 -->
 <zk>
-  <button id="attachBtn" upload="true,maxsize=10240" label="Attach" onUpload="myProcessUpload(event.getMedia())"/>
+  <button id="attachBtn" upload="true,maxsize=102400000" label="Attach" onUpload="myProcessUpload()"/>
   <label id="status"/>
   <zscript><![CDATA[
 	import org.zkoss.util.media.Media;;
-  	public void myProcessUpload(Media media){
+  	public void myProcessUpload(){
+  		Media media = event.getMedia();
+  		Thread.sleep(2000);
   		status.setValue("uploaded "+media.getName()+", size:"+(media.getByteData().length/1024)+" k bytes");
   	}
   ]]>
