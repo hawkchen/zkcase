@@ -1,0 +1,37 @@
+
+<zk>
+in 7.0.1 CE
+    <hlayout apply="support.component.MultipleDragDropComposer">
+        <listbox id="left" height="250px" width="200px"
+         droppable="true" multiple="true" >
+            <listitem draggable="true" droppable="true" >
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK Forge" />
+            </listitem>
+            <listitem draggable="true" droppable="true" > 
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK Mobile" />
+            </listitem>
+            <listitem draggable="true" droppable="true" >
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK GWT" />
+            </listitem>
+            <listitem draggable="true" droppable="true" >
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK JSF" />
+            </listitem>
+            <listitem draggable="true" droppable="true" >
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK JSP" />
+            </listitem>
+            <listitem draggable="true" droppable="true" >
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK Spring" />
+            </listitem>
+        </listbox>
+        <separator orient="vertical" spacing="8px" />
+        <listbox id="right" height="250px" width="200px" 
+             droppable="true" oddRowSclass="non-odd">
+            <listitem draggable="true" droppable="true" >
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK" />
+            </listitem>
+            <listitem draggable="true" droppable="true" >
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK Studio" />
+            </listitem>
+        </listbox>
+    </hlayout>
+</zk>
