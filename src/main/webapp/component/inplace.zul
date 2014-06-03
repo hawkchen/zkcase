@@ -1,0 +1,17 @@
+<zk>
+<div apply="support.component.InplaceComposer" >
+<grid model="${$composer.people}">
+	<rows>
+	<template name="model">
+		<row> 
+			<hlayout>
+				<label value="${each.checked}" ></label>
+				<checkbox visible="false"></checkbox>
+			</hlayout> 
+		</row>
+		</template>
+	</rows>
+</grid>
+</div>
+
+</zk>
