@@ -1,0 +1,41 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/navigation/template.zul"?>
+<zk>
+	<div self="@define(title)">
+		<label value="Client" sclass="brass_title" />
+	</div>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('support.navigation.ClientVM')">
+		<div id="inner" self="@define(menu)">
+		 	<grid model="@bind(vm.model)">
+		 		<template name="model" >
+		 			<row >
+		 				<label value="@bind(each.label)" onClick="@command('content',src=each.src)"></label>
+		 			</row>
+		 		</template>
+		 	</grid>
+		 	<button onClick="@command('resetModel')" label="reset"/>
+		 	<label value="@load(vm.contentSrc)" />
+		</div>
+		<div self="@define(toolbar)">
+			<toolbar>
+				<toolbarbutton label="Search" iconSclass="z-icon-search" />
+				<toolbarbutton label="New" iconSclass="z-icon-asterisk" />
+				<toolbarbutton label="Save" iconSclass="z-icon-save" />
+				<toolbarbutton label="Help" iconSclass="z-icon-question" />
+			</toolbar>
+		</div>
+		<include self="@define(content)" src="@load(vm.contentSrc)" />
+		
+	</div>
+</zk>
+		<!-- 
+			<tree model="@bind(vm.treeModel)">
+				<template name="model" >
+					<treeitem selected="@bind(each.selected)">
+						<treerow>
+							<treecell label="@bind(each.label)" onClick="@command('content',src=each.src)"/>						
+						</treerow>
+					</treeitem>
+				</template>
+			</tree>
+		 -->

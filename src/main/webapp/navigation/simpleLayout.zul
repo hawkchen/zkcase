@@ -1,0 +1,20 @@
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/navigation/template.zul"?>
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('support.navigation.ClientVM')">
+		<div self="@define(menu)">
+		 	<grid model="@bind(vm.model)">
+		 		<template name="model" >
+		 			<row >
+		 				<label value="@bind(each.label)" onClick="@command('content',src=each.src)"></label>
+		 			</row>
+		 		</template>
+		 	</grid>
+		 	<button onClick="@global-command('nav', src='.zul')" label="reset"/>
+		</div>
+		<div self="@define(content)">
+			<label value="@load(vm)"/>
+			<include  src="@load(vm.contentSrc)" />
+		</div> 	
+	</div>
+</zk>

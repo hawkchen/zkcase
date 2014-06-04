@@ -1,0 +1,45 @@
+<zk>
+	<borderlayout hflex="1" vflex="1" width="100%">
+		<north height="150px" border="none">
+			<div>
+				<div
+					style="height:35px;background-color:#444;width:100%;font-family: 
+					Segoe, Tahoma , Helvetica , Arial , sans-serif ;color:white;padding:5px;text-align:right;">
+					<label value="Corrie Bauckham Batts Limited" />
+				</div>
+				<div
+					style="background-color:#6C6E70;width:100%;height:45px;font-family: 
+					Segoe, Tahoma , Helvetica , Arial , sans-serif ;color:white;padding:5px;">
+					<div self="@insert(title)" />
+				</div>
+				<div>
+					<menubar>
+						<menu label="Client" iconSclass="z-icon-building">
+							<menupopup>
+								<menuitem label="Client" />
+							</menupopup>						
+						</menu>
+						<menuitem label="Accounts" iconSclass="z-icon-money" />
+						<menuitem label="Placing" iconSclass="z-icon-briefcase"/>
+						<menuitem label="Claims" iconSclass="z-icon-fire"/>
+						<menu label="Setup" iconSclass="z-icon-cogs">
+							<menupopup>
+								<menuitem label="Currency" />
+								<menuitem label="Country" />
+								<menuitem label="Risk Code" />
+							</menupopup>							
+						</menu>
+						<menuitem label="Michael Rose" iconSclass="z-icon-user"/>						
+					</menubar>
+				</div>
+				<div self="@insert(toolbar)" />
+			</div>
+		</north>
+		<west self="@insert(menu)" border="none" margins="5,5,5,5"
+			collapsible="true" width="200px">
+		</west>
+		<center id="mainContent" autoscroll="true" border="none"
+			margins="5,5,5,5" self="@insert(content)" hflex="true">
+		</center>
+	</borderlayout>
+</zk>

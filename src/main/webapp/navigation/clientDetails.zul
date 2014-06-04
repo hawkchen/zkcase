@@ -1,0 +1,73 @@
+<zk>
+	<grid>
+		<columns>
+			<column label="" width="150px" />
+			<column label="" />
+		</columns>
+		<rows>
+			<row>
+				<cell>
+					<label value="Name" />
+				</cell>
+				<cell>
+					<textbox width="400px" />
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label value="Short Name" />
+				</cell>
+				<cell>
+					<textbox width="100px" />
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label value="Street Address" />
+				</cell>
+				<cell>
+					<textbox width="200px" />
+				</cell>
+			</row>
+			<row>
+				<cell>
+				</cell>
+				<cell>
+					<textbox width="200px" />
+				</cell>
+			</row>	
+			<row>
+				<cell>
+					<label value="City" />
+				</cell>
+				<cell>
+					<textbox width="200px" />
+				</cell>
+			</row>		
+			<row>
+				<cell>
+					<label value="County" />
+				</cell>
+				<cell>
+					<textbox width="200px" />
+				</cell>
+			</row>	
+			<row>
+				<cell>
+					<label value="State" />
+				</cell>
+				<cell>
+					<textbox width="100px" />
+				</cell>
+			</row>						
+			<row>
+				<cell>
+					<label value="Postal Code" />
+				</cell>
+				<cell>
+					<textbox width="200px" />
+				</cell>
+			</row>					
+		</rows>
+	</grid>
+</zk>
