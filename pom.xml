@@ -42,9 +42,21 @@
 			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind-debugger</artifactId>
+			<version>0.8.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/zkbind-debugger.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zkforge</groupId>
+			<artifactId>ckez</artifactId>
+			<version>4.1.1.0</version>
+		</dependency>
 	</dependencies>
 	<properties>
-		<zk.version>6.5.7.FL.20140526</zk.version>
+		<zk.version>7.0.1</zk.version>
 	</properties>
 	<description>Store sample or reproducible cases done in ZK support team.</description>
 </project>

@@ -1,0 +1,3 @@
+<ckeditor id="ckeditFreeText"
+    filebrowserImageBrowseUrl="/images"
+    filebrowserImageUploadUrl="/images/" />
