@@ -4,6 +4,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.*;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.*;
+import org.zkoss.zk.ui.sys.DesktopCtrl;
 import org.zkoss.zul.*;
 
 public class LongOperationComposer extends SelectorComposer<Component> {
@@ -11,16 +12,18 @@ public class LongOperationComposer extends SelectorComposer<Component> {
 	@Wire
 	Vbox inf;
 	String result;
+	EventQueue eq ; //create a queue
 
-	@Listen("onClick = [label='async long op']")
-	public void start(){
-		if (EventQueues.exists("longop")) {
-			print("It is busy. Please wait");
-			return; //busy
-		}
-
-		final EventQueue eq = EventQueues.lookup("longop"); //create a queue
-
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		super.doAfterCompose(comp);
+		eq = EventQueues.lookup("longop", "session", true);
+		/*
+		 have to enable server push manually when using desktop scope event queue
+		((DesktopCtrl)comp.getDesktop()).enableServerPush(
+				new org.zkoss.zk.ui.impl.PollingServerPush(1000,15000,5));
+		eq = EventQueues.lookup("longop");
+		 */
 		//subscribe async listener to handle long operation
 		eq.subscribe(new EventListener() {
 			public void onEvent(Event evt) {
@@ -31,7 +34,7 @@ public class LongOperationComposer extends SelectorComposer<Component> {
 				}
 			}
 		}, true); //asynchronous
-
+		
 		//subscribe a normal listener to show the result to the browser
 		eq.subscribe(new EventListener() {
 			public void onEvent(Event evt) {
@@ -41,8 +44,11 @@ public class LongOperationComposer extends SelectorComposer<Component> {
 				}
 			}
 		}); //synchronous
-
-//		print("Wait for 3 seconds");
+		
+	}
+	
+	@Listen("onClick = [label='async long op']")
+	public void start(){
 		eq.publish(new Event("doLongOp")); //kick off the long operation		
 	}
 
