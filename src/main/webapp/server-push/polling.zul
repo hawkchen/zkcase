@@ -1,0 +1,27 @@
+<zk>
+send dummy AU to server to get back long operation result.
+ <zscript>
+  desktop.enableServerPush(new org.zkoss.zk.ui.impl.PollingServerPush(50000, 1000, -1));
+  
+  void longOp() {
+   final Desktop dt = Executions.getCurrent().getDesktop();
+      new Thread() {
+          public void run() {
+           try {
+            Executions.activate(dt);
+         Clients.showNotification("hi");
+           } catch(Exception e) {
+            
+           } finally {
+         Executions.deactivate(dt);
+           }
+          }
+      }.start();
+      
+      
+  }
+ </zscript>
+
+ <button label="longOp();" onClick="longOp();"/>
+ <button label="dummyclick" onClick=""/>
+</zk>
