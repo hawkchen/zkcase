@@ -1,0 +1,24 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="msgDlg" border="normal" width="600px" height="600px"
+		apply="support.event.Desktop1" closable="true" sizable="true">
+		Desktop1
+		<separator />
+		<button id="btn1" width="80px" forward="onClick=onOK"
+			label="ok" />
+		<separator />
+		<button id="open" width="80px" onClick="openWin()"
+			label="open desktop2" />
+	</window>
+	<zscript>
+	void openWin() {
+		Window win = (Window) Executions.createComponents("desktop2.zul", null,
+				null);
+		if (win.getDesktop() != null) {
+			win.setPosition("center,center");
+			win.doOverlapped();
+		}
+	}
+</zscript>
+</zk>
+

@@ -1,0 +1,10 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="win2" border="normal" width="600px" height="600px"
+		apply="support.event.Desktop2" closable="true" sizable="true">
+		Desktop2
+		<separator />
+		<button id="send2" width="80px" forward="onClick=onSend2SameDesktop" label="send to desktop"/>
+		<button id="sendGroup" width="80px"  forward="onClick=onSendEventQueue" label="send to event queue"/>
+	</window>
+</zk>
