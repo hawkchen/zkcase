@@ -1,0 +1,76 @@
+<zk>
+ 
+Textbox:
+<textbox id="box" rows="10" width="350px"/>
+<zscript><![CDATA[
+	box.setValue("<?xml version\"1.0\" encoding=\"UTF-8\"?>\n<note>\n    <to> Tove</to>\n    <from>Jani</from>\n    <heading>Reminder</heading>\n    <body>Don't forget me this weekend!</body>\n</note>");
+]]>
+</zscript>
+<separator bar="true"></separator>
+
+
+static label + unparsed character
+<label multiline="true" pre="true" ><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<note> 
+	<to> Tove</to>
+    <from>Jani</from>
+    <heading>Reminder</heading>
+    <body>Don't forget me this weekend!</body>
+</note>                
+]]></label>
+
+<separator bar="true"></separator>
+
+label set by API
+<separator/>
+<label id="xLabel" multiline="true" pre="true" />
+<zscript><![CDATA[
+	xLabel.setValue("<?xml version\"1.0\" encoding=\"UTF-8\"?>\n<note>\n    <to> Tove</to>\n    <from>Jani</from>\n    <heading>Reminder</heading>\n    <body>Don't forget me this weekend!</body>\n</note>");
+]]>
+</zscript>
+
+<separator bar="true"></separator>
+label + parsed character
+cannot contain directive
+
+<label multiline="true" >
+
+<note> 
+<to> Tove</to>
+    <from>Jani</from>
+    <heading>Reminder</heading>
+    <body>Don't forget me this weekend!</body>
+</note>                
+</label>
+
+<separator bar="true"></separator>
+label + attribute
+<label multiline="true" pre="true">
+    <attribute name="value"><![CDATA[
+      <?xml version="1.0" encoding="UTF-8"?>
+      <note> 
+          <to> Tove</to>
+          <from>Jani</from>
+          <heading>Reminder</heading>
+          <body>Don't forget me this weekend!</body>
+      </note>
+    ]]></attribute>
+</label>
+
+
+<separator bar="true"></separator>
+html
+<html><![CDATA[
+               
+<?xml version="1.0" encoding="UTF-8"?>
+<note>
+    <to> Tove</to>
+    <from>Jani</from>
+    <heading>Reminder</heading>
+    <body>Don't forget me this weekend!</body>
+</note>"/>
+]]></html>
+<separator></separator>
+
+</zk>
