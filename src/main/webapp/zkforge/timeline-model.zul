@@ -1,0 +1,30 @@
+<zk>
+
+	<div apply="support.zkforge.timeline.TimelineComposer">
+		<timeline id="timeline" height="300px" width="850px" >
+			<bandinfo width="70%" id="bandinfoMonth" intervalUnit="month" intervalPixels="100" />
+		</timeline>
+	</div>
+			<zscript><![CDATA[
+	//work-around 2: set timezone
+//	SimpleTimeZone bst = new SimpleTimeZone(1 * 60 * 60 * 1000, "BST");
+//	bandinfoMonth.setTimeZone(bst);
+]]></zscript>
+	<script defer="true"><![CDATA[
+   		//work-around 1: display date with broswer timezone
+   		Timeline.GregorianDateLabeller.prototype.labelPrecise = function(date) {
+   				return date.toString(); //or date.toLocaleString()
+   		}
+   		/* work-around 2: display date with server specified time zone
+        Timeline.GregorianDateLabeller.prototype.labelPrecise = function(date) {
+   			return SimileAjax.DateTime.removeTimeZoneOffset(
+		        date, 
+		        this._timeZone).toUTCString() + timeZoneOffsetString(this._timeZone);
+		};           
+        function timeZoneOffsetString(timeZoneOffsetHour){
+        	var offsetOperator = timeZoneOffsetHour >0? "+" : '-';
+        	return  offsetOperator + '0'+timeZoneOffsetHour+'00';
+        }
+		*/
+]]> </script>     		
+</zk>
