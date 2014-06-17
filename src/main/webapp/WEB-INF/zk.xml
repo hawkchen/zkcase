@@ -10,6 +10,13 @@
 		<value>zkcase</value>
 	</preference>
 
+<!-- 
+<device-config>
+    <device-type>ajax</device-type>
+    <server-push-class>org.zkoss.zk.ui.impl.PollingServerPush</server-push-class>
+</device-config>
+ -->
+
 	<!-- Turn on if you want to debug JavaScript. Once turned on, the uncompressed JavaScript files will 
 		be loaded. 
 		-->
