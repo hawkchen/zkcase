@@ -33,43 +33,20 @@
 	<!-- <listener> <listener-class>support.push.EnableServerPushComposer</listener-class> </listener> -->
 
 	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for grid. It improves the performance 
-		for huge grid. Default: false -->
+		for huge grid. Default: false 
 	<library-property>
 		<name>org.zkoss.zul.grid.rod</name>
 		<value>true</value>
 	</library-property>
+		-->
 	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for listbox. It improves the 
-		performance for huge listbox. Default: false -->
+		performance for huge listbox. Default: false 
 	<library-property>
 		<name>org.zkoss.zul.listbox.rod</name>
 		<value>true</value>
 	</library-property>
+		-->
 	
-<!--
-	replace JS in a jar 
-	<library-property> 
-		<name>org.zkoss.web.util.resource.dir</name> 
-		<value>/WEB-INF/patch</value> 
-	</library-property>
- -->	
-	
-
-	<!-- To customize "Processing" message <device-config> <device-type>ajax</device-type> <embed><![CDATA[ 
-		<script type="text/javascript"> zk.startProcessing = function (timeout) { console.log("enter start processing"); 
-		zk.processingTimer = setTimeout (function () { zAu.cmd0.showBusy('Doing...'); zk.processingTimer = null; 
-		console.log("show busy"); }, timeout); }; zk.endProcessing = function () { console.log("enter end processing"); 
-		if (jq('.z-loading-indicator')[0]){ zAu.cmd0.clearBusy(null); console.log("clear busy"); } if (zk.processingTimer) 
-		{ clearTimeout(zk.processingTimer); zk.processingTimer = null; console.log("clear timeout"); } }; </script> 
-		]]></embed> </device-config> -->
-
-
-<!-- 	<library-property> <name>org.zkoss.zul.nativebar</name> <value>false</value> </library-property> -->
-
-	<!-- Apply zk bootstrap <library-property> <name>org.zkoss.zul.Button.mold</name> <value>bs</value> 
-		</library-property> <library-property> <name>org.zkoss.zul.Menupopup.mold</name> <value>bs</value> </library-property> 
-		<library-property> <name>org.zkoss.zkmax.zul.Navbar.mold</name> <value>bs</value> </library-property> 
-		<library-property> <name>org.zkoss.zul.Paging.mold</name> <value>bs</value> </library-property> <library-property> 
-		<name>org.zkoss.zul.Panel.mold</name> <value>bs</value> </library-property> -->
 
 <library-property>
     <name>org.zkoss.bind.DebuggerFactory.enable</name>
@@ -81,16 +58,5 @@
 </library-property>
 
 
-
-
-
-
-
-	<session-config>
-		<!-- Turn on the following if you want a different timeout Note: The unit is seconds (while that of 
-			web.xml is minute) <session-timeout>1800</session-timeout> -->
-		<!-- Turn on the following if you want to reset the session-timeout counter when receiving onTimer, 
-			like any other request In other words, the session is never timeoout if the desktop has a timer. <timer-keep-alive>true</timer-keep-alive> -->
-	</session-config>
 
 </zk>

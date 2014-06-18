@@ -1,0 +1,58 @@
+<div apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('support.rod.LoadOnDemandViewModel')">
+	<!-- ROD default is false -->
+	<custom-attributes org.zkoss.zul.listbox.rod="true"/>
+	<custom-attributes org.zkoss.zul.listbox.initRodSize="20"/>
+	<custom-attributes org.zkoss.zul.listbox.preloadSize="10"/>
+	<listbox id="list" model="@bind(vm.hugeList)" rows="10">
+		<listhead>
+			<listheader label="col 1" sort="auto" />
+			<listheader label="col 2" sort="auto" />
+			<listheader label="col 3" sort="auto" />
+			<listheader label="col 4" sort="auto" />
+			<listheader label="col 5" sort="auto" />
+			<listheader label="col 6" sort="auto" />
+			<listheader label="col 7" sort="auto" />
+			<listheader label="col 8" sort="auto" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>				
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>				
+			</listitem>
+		</template>
+	</listbox>
+	<!-- 
+	<listbox id="list2" model="@bind(vm.hugeList)" rows="20">
+		<listhead>
+			<listheader label="col 1" sort="auto" />
+			<listheader label="col 2" sort="auto" />
+			<listheader label="col 3" sort="auto" />
+			<listheader label="col 4" sort="auto" />
+			<listheader label="col 5" sort="auto" />
+			<listheader label="col 6" sort="auto" />
+			<listheader label="col 7" sort="auto" />
+			<listheader label="col 8" sort="auto" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>				
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>				
+			</listitem>
+		</template>
+	</listbox>	
+	 -->
+
+</div>
