@@ -1,16 +1,24 @@
 <zk>
 
-	<div apply="support.zkforge.timeline.MyTimelineComposer">
+	<div>
 		<timeline id="timeline" height="300px" width="850px" >
-			<bandinfo width="70%" id="bandinfoMonth" intervalUnit="month" intervalPixels="100" />
+			<bandinfo width="70%" id="dayBand" intervalUnit="day" intervalPixels="100"
+				eventSourceUrl="/zkforge/timeline-data.xml" />
+			<bandinfo width="70%" id="bandinfoMonth" intervalUnit="month" intervalPixels="100"
+				eventSourceUrl="/zkforge/timeline-data.xml" />
 		</timeline>
-	</div>
-			<zscript><![CDATA[
+		<zscript><![CDATA[
+	import java.text.DateFormat;
+	import java.text.SimpleDateFormat;
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	Date currentDate = dateFormat.parse("2010-06-29");
+	bandinfoMonth.setDate(currentDate);
 	//work-around 2: set timezone
 //	SimpleTimeZone bst = new SimpleTimeZone(1 * 60 * 60 * 1000, "BST");
 //	bandinfoMonth.setTimeZone(bst);
-]]></zscript>
-	<script defer="true"><![CDATA[
+]]>
+    </zscript>
+<script defer="true"><![CDATA[
    		//work-around 1: display date with broswer timezone
    		Timeline.GregorianDateLabeller.prototype.labelPrecise = function(date) {
    				return date.toString(); //or date.toLocaleString()
@@ -21,10 +29,11 @@
 		        date, 
 		        this._timeZone).toUTCString() + timeZoneOffsetString(this._timeZone);
 		};           
-        function timeZoneOffsetString(timeZoneOffsetHour){
-        	var offsetOperator = timeZoneOffsetHour >0? "+" : '-';
-        	return  offsetOperator + '0'+timeZoneOffsetHour+'00';
+        function timeZoneOffsetString(timeZone){
+        	var offsetOperator = timeZone>0? "+" : '-';
+        	return  offsetOperator + timeZone
         }
 		*/
-]]> </script>     		
+]]> </script>    
+	</div>
 </zk>

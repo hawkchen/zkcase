@@ -1,39 +1,21 @@
 <zk>
 
-	<div>
-		<timeline id="timeline" height="300px" width="850px" >
-			<bandinfo width="70%" id="dayBand" intervalUnit="day" intervalPixels="100"
-				eventSourceUrl="/zkforge/timeline-data.xml" />
-			<bandinfo width="70%" id="bandinfoMonth" intervalUnit="month" intervalPixels="100"
-				eventSourceUrl="/zkforge/timeline-data.xml" />
-		</timeline>
-		<zscript><![CDATA[
-	import java.text.DateFormat;
-	import java.text.SimpleDateFormat;
-	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	Date currentDate = dateFormat.parse("2010-06-29");
-	bandinfoMonth.setDate(currentDate);
-	//work-around 2: set timezone
-//	SimpleTimeZone bst = new SimpleTimeZone(1 * 60 * 60 * 1000, "BST");
-//	bandinfoMonth.setTimeZone(bst);
-]]>
-    </zscript>
-<script defer="true"><![CDATA[
-   		//work-around 1: display date with broswer timezone
-   		Timeline.GregorianDateLabeller.prototype.labelPrecise = function(date) {
-   				return date.toString(); //or date.toLocaleString()
-   		}
-   		/* work-around 2: display date with server specified time zone
-        Timeline.GregorianDateLabeller.prototype.labelPrecise = function(date) {
-   			return SimileAjax.DateTime.removeTimeZoneOffset(
-		        date, 
-		        this._timeZone).toUTCString() + timeZoneOffsetString(this._timeZone);
-		};           
-        function timeZoneOffsetString(timeZone){
-        	var offsetOperator = timeZone>0? "+" : '-';
-        	return  offsetOperator + timeZone
-        }
-		*/
-]]> </script>    
+	<div apply="org.zkoss.bind.BindComposer" binder="@init(queueName='myqueue')"
+   viewModel="@id('vm') @init('support.zkforge.timeline.TimelineVM')">
+		<tabbox>
+			<tabs>
+				<tab></tab>
+				<tab id="timelineTab" onClick="@command('update')">timeline</tab>
+			</tabs>
+			<tabpanels>
+				<tabpanel>first panel</tabpanel>
+				<tabpanel apply="support.zkforge.timeline.TimelineComposer">
+					<timeline id="timeline" height="300px" width="850px" >
+						<bandinfo width="70%" id="dayBand" intervalUnit="day" intervalPixels="100"	/>
+						<bandinfo width="70%" id="bandinfoMonth" intervalUnit="month" intervalPixels="100" />
+					</timeline>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
 	</div>
 </zk>
