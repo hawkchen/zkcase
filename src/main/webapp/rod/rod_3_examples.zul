@@ -1,0 +1,51 @@
+<zk>
+
+<zscript>
+	<![CDATA[
+	ListModelList bigList = new ListModelList();
+	for(int i = 0; i < 5000; i++) {
+		bigList.add("item-" + i);
+	} 
+    ]]>
+</zscript>
+
+<hlayout>
+	<listbox model="${bigList}" width="200px" height="400px">
+		<listhead>
+			<listheader label="1) CE ROD On (default)"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+
+	<listbox model="${bigList}" width="200px" height="400px">
+		<custom-attributes org.zkoss.zul.listbox.rod="true"/>
+		<custom-attributes org.zkoss.zul.listbox.initRodSize="1000"/>
+		<listhead>
+			<listheader label="2) EE ROD On"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+
+	<listbox model="${bigList}" width="200px" height="400px" >
+		<custom-attributes org.zkoss.zul.listbox.rod="false"/>
+		<listhead>
+			<listheader label="3) EE ROD off"/>
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+</hlayout>
+
+
+</zk>
