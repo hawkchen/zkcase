@@ -8,6 +8,7 @@ import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zkmax.ui.select.annotation.Subscribe;
+import org.zkoss.zul.ListModel;
 
 public class TimelineComposer extends SelectorComposer<Component> {
 
@@ -34,8 +35,9 @@ public class TimelineComposer extends SelectorComposer<Component> {
 		if(event instanceof GlobalCommandEvent){
 			GlobalCommandEvent gcEvent = (GlobalCommandEvent)event;
 			if("update".equals(gcEvent.getCommand())){
-				OccurEvent oEvent = (OccurEvent)gcEvent.getArgs().get("event");
-				bandinfoMonth.addOccurEvent(oEvent);
+				ListModel<OccurEvent> timelineListModel = (ListModel<OccurEvent>)gcEvent.getArgs().get("event");
+				bandinfoMonth.setModel(timelineListModel);
+				 System.out.println(timelineListModel);
 			}               
 		}
 	}
