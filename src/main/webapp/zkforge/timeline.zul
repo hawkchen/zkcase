@@ -4,8 +4,8 @@
    viewModel="@id('vm') @init('support.zkforge.timeline.TimelineVM')">
 		<tabbox>
 			<tabs>
-				<tab></tab>
-				<tab id="timelineTab" onClick="@command('update')">timeline</tab>
+				<tab label="Status History"></tab>
+				<tab id="timelineTab" label="Timeline" onClick="@command('update')">timeline</tab>
 			</tabs>
 			<tabpanels>
 				<tabpanel>first panel</tabpanel>
