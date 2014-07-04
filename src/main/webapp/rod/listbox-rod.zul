@@ -1,58 +1,105 @@
 <div apply="org.zkoss.bind.BindComposer"
 	viewModel="@id('vm') @init('support.rod.LoadOnDemandViewModel')">
-	<!-- ROD default is false -->
-	<custom-attributes org.zkoss.zul.listbox.rod="true"/>
-	<custom-attributes org.zkoss.zul.listbox.initRodSize="20"/>
+	<custom-attributes org.zkoss.zul.listbox.initRodSize="30"/>
 	<custom-attributes org.zkoss.zul.listbox.preloadSize="10"/>
-	<listbox id="list" model="@bind(vm.hugeList)" rows="10">
+	<!-- ROD default is false 
+
+		<script><![CDATA[
+			zk.afterLoad('zul.sel', function () {
+			var _oldMethod = {};		
+				zk.override(zul.sel.Listbox.prototype, _oldMethod, {
+					_fireOnScrollPos: function (time) {
+						if (this._listbox$rod) {
+							if (!this.inPagingMold() && !this.inSelectMold()) {
+								clearTimeout(this._timeoutId);
+								
+								this._timeoutId = setTimeout(this.proxy(this._scrollPage), time >= 0 ? time :  (zk.gecko || zk.ie6_) ? 1000 : 2000);
+							}
+						} else
+							listbox$overrode._fireOnScrollPos.apply(this, arguments);
+						}
+				});
+			});
+		]]></script>	
+	-->
+	<custom-attributes org.zkoss.zul.listbox.rod="true"/>
+	<listbox id="list" model="@bind(vm.hugeList)" rows="40" itemRenderer="support.rendering.ManyCellsRenderer" >
 		<listhead>
-			<listheader label="col 1" sort="auto" />
-			<listheader label="col 2" sort="auto" />
-			<listheader label="col 3" sort="auto" />
-			<listheader label="col 4" sort="auto" />
-			<listheader label="col 5" sort="auto" />
-			<listheader label="col 6" sort="auto" />
-			<listheader label="col 7" sort="auto" />
-			<listheader label="col 8" sort="auto" />
+			<listheader label="col 1" sort="auto" width="100px"/>
+			<listheader label="col 2" sort="auto" width="100px"/>
+			<listheader label="col 3" sort="auto" width="100px"/>
+			<listheader label="col 4" sort="auto" width="100px"/>
+			<listheader label="col 5" sort="auto" width="100px" />
+			<listheader label="col 6" sort="auto" width="100px" />
+			<listheader label="col 7" sort="auto" width="100px" />
+			<listheader label="col 8" sort="auto" width="100px" />
+			<listheader label="col 9" sort="auto" width="100px" />
+			<listheader label="col 10" sort="auto" width="100px" />
+			<listheader label="col 11" sort="auto" width="100px" />
+			<listheader label="col 12" sort="auto" width="100px" />
+			<listheader label="col 13" sort="auto" width="100px" />
+			<listheader label="col 14" sort="auto" width="100px" />
+			<listheader label="col 15" sort="auto" width="100px" />
+			<listheader label="col 16" sort="auto" width="100px" />
+			<listheader label="col 17" sort="auto" width="100px" />
+			<listheader label="col 18" sort="auto" width="100px" />
+			<listheader label="col 19" sort="auto" width="100px" />
+			<listheader label="col 20" sort="auto" width="100px" />
+			<listheader label="col 21" sort="auto" width="100px" />
+			<listheader label="col 22" sort="auto" width="100px" />
+			<listheader label="col 23" sort="auto" width="100px" />
+			<listheader label="col 24" sort="auto" width="100px" />
+			<listheader label="col 25" sort="auto" width="100px" />
+			<listheader label="col 26" sort="auto" width="100px" />
+			<listheader label="col 27" sort="auto" width="100px" />
+			<listheader label="col 28" sort="auto" width="100px" />
+			<listheader label="col 29" sort="auto" width="100px" />
+			<listheader label="col 30" sort="auto" width="100px" />									
 		</listhead>
+		<!-- 
 		<template name="model">
 			<listitem>
 				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"/></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>				
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>		
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"/></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>				
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>	
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"/></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>				
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
+				<listcell><label value="@load(each)"></label></listcell>
 				<listcell><label value="@load(each)"></label></listcell>
 				<listcell><label value="@load(each)"></label></listcell>
 				<listcell><label value="@load(each)"></label></listcell>				
 				<listcell><label value="@load(each)"></label></listcell>
 				<listcell><label value="@load(each)"></label></listcell>
 				<listcell><label value="@load(each)"></label></listcell>
-				<listcell><label value="@load(each)"></label></listcell>				
+				<listcell><label value="@load(each)"></label></listcell>					
 			</listitem>
 		</template>
+		 -->
 	</listbox>
-	<!-- 
-	<listbox id="list2" model="@bind(vm.hugeList)" rows="20">
-		<listhead>
-			<listheader label="col 1" sort="auto" />
-			<listheader label="col 2" sort="auto" />
-			<listheader label="col 3" sort="auto" />
-			<listheader label="col 4" sort="auto" />
-			<listheader label="col 5" sort="auto" />
-			<listheader label="col 6" sort="auto" />
-			<listheader label="col 7" sort="auto" />
-			<listheader label="col 8" sort="auto" />
-		</listhead>
-		<template name="model">
-			<listitem>
-				<listcell><label value="@load(each)"></label></listcell>
-				<listcell><label value="@load(each)"></label></listcell>
-				<listcell><label value="@load(each)"></label></listcell>
-				<listcell><label value="@load(each)"></label></listcell>				
-				<listcell><label value="@load(each)"></label></listcell>
-				<listcell><label value="@load(each)"></label></listcell>
-				<listcell><label value="@load(each)"></label></listcell>
-				<listcell><label value="@load(each)"></label></listcell>				
-			</listitem>
-		</template>
-	</listbox>	
-	 -->
+	<zscript><![CDATA[
+		class MyItemRenderer implements ListitemRenderer{
+			public void render(Listitem item, Object data, int index) throws Exception{
+				item.setLabel(data.toString());
+			}
+		}
+	]]>
+	</zscript>
 
 </div>
