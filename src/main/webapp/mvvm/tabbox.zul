@@ -1,0 +1,54 @@
+<tabbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('support.mvvm.TabboxVM')" validationMessages="@id('vmsgs')">
+	<tabs
+		children="@bind(vm.riskSectionList)">
+		<template name="children"
+			var="eachRiskSection">
+			<tab 
+				label="@load(eachRiskSection.title)" closable="true"
+				onClose="@command('removeRiskSection',riskSection=eachRiskSection)"
+				selected="@load((eachRiskSection==vm.selectedRiskSection)?'true':'false')" />
+		</template>
+	</tabs>
+	<tabpanels
+		children="@bind(vm.riskSectionList)">
+		<template name="children"
+			var="eachRiskSection">
+			<tabpanel >				
+				<toolbar>
+					<toolbarbutton
+						label="New" 
+						onClick="@command('newRiskSectionRiskCode',riskSection=eachRiskSection)" />
+					<toolbarbutton
+						label="Update"
+						visible="@bind(eachRiskSection.showRiskSectionRiskCodeForm)"
+						onClick="@command('updateRiskSectionRiskCode',riskSection=eachRiskSection,close=false)"
+						/>
+					<toolbarbutton
+						label="Update and Close"
+						visible="@bind(eachRiskSection.showRiskSectionRiskCodeForm)"
+						onClick="@command('updateRiskSectionRiskCode',riskSection=eachRiskSection,close=true)"
+						/>
+					<toolbarbutton
+						label="Close"
+						visible="@bind(eachRiskSection.showRiskSectionRiskCodeForm)"
+						onClick="@command('closeRiskSectionRiskCode')"
+						 />
+				</toolbar>		
+				<groupbox 
+					form="@id('fxRiskSectionRiskCode')
+								@load(eachRiskSection)
+								@save(eachRiskSection,before='updateRiskSectionRiskCode') "
+					open="@bind(eachRiskSection.showRiskSectionRiskCodeForm)">
+					<grid >
+						<rows>
+							<row><intbox value="@bind(fxRiskSectionRiskCode.riskSectionRiskCode)@validator(eachRiskSection.riskSectionRiskCodeValidator) "/>
+							<label  value="@load(vmsgs[self.previousSibling])"/>
+							</row>
+						</rows>
+					</grid>
+				</groupbox>
+			</tabpanel>
+		</template>
+	</tabpanels>
+</tabbox>	
+	
