@@ -1,0 +1,21 @@
+<zk>
+
+	<div>
+		<timeline id="timeline" height="300px" width="850px" >
+			<bandinfo width="70%" id="dayBand" intervalUnit="day" intervalPixels="100"
+				eventSourceUrl="/zkforge/timeline-data.xml" />
+			<bandinfo width="70%" id="bandinfoMonth" intervalUnit="month" intervalPixels="100"
+				eventSourceUrl="/zkforge/timeline-data.xml" />
+		</timeline>
+		<zscript><![CDATA[
+	import java.text.DateFormat;
+	import java.text.SimpleDateFormat;
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	Date currentDate = dateFormat.parse("2010-06-29");
+	bandinfoMonth.setDate(currentDate);
+	SimpleTimeZone bst = new SimpleTimeZone(1 * 60 * 60 * 1000, "BST");
+	bandinfoMonth.setTimeZone(bst);
+]]>
+    </zscript>
+	</div>
+</zk>
