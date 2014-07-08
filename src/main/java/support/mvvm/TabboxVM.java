@@ -16,11 +16,11 @@ public class TabboxVM {
 	public void init(){
 		RiskSection r1 = new RiskSection();
 		r1.setTitle("risk secion 1");
-		r1.setRiskSectionRiskCode(11);
+		r1.setRiskSectionRiskCode(new RiskSectionRiskCode(1, 11));
 		
 		RiskSection r2 = new RiskSection();
 		r2.setTitle("risk secion 2");
-		r2.setRiskSectionRiskCode(22);
+		r2.setRiskSectionRiskCode(new RiskSectionRiskCode(2, 22));
 		
 		riskSectionList.add(r1);
 		riskSectionList.add(r2);
@@ -29,19 +29,42 @@ public class TabboxVM {
 	
 	@Command
 	public void updateRiskSectionRiskCode(@BindingParam("riskSection") RiskSection riskSection){
-		System.out.println("risk code: "+riskSection.getRiskSectionRiskCode());
+		System.out.println("risk code value: "+riskSection.getRiskSectionRiskCode().getValue());
+		/*
+		riskSection.getRiskSectionRiskCodeList().add(riskSection.getRiskSectionRiskCode());
+		riskSection.setSelectedRiskSectionRiskCode(riskSection.getRiskSectionRiskCode());
+		this.modified = true;
+
+		int index = this.risk.getRiskSectionList().indexOf(riskSection);
+		if (index == -1) {
+			this.risk.getRiskSectionList().add(riskSection);
+		} else {
+			this.risk.getRiskSectionList().set(index, riskSection);
+		}
+
+		if (close) {
+			this.newRiskSectionRiskCode(riskSection);
+			riskSection.setShowRiskSectionRiskCodeForm(false);
+		} else {
+			this.newRiskSectionRiskCode(riskSection);
+		}
+
+		BindUtils.postNotifyChange(null, null, risk.getRiskSectionList().get(index), "showRiskSectionRiskCodeForm");
+		BindUtils.postNotifyChange(null, null, risk.getRiskSectionList().get(index), "riskSectionRiskCode");
+		BindUtils.postNotifyChange(null, null, risk.getRiskSectionList().get(index), "riskSectionRiskCodeList");	
+		*/
 	}
 	
 	
 	static public class RiskSection{
 		String title;
-		Integer riskSectionRiskCode;
+		RiskSectionRiskCode riskSectionRiskCode;
 		Validator riskSectionRiskCodeValidator = new AbstractValidator() {
 	        public void validate(ValidationContext ctx) {
 	        	 Map<String,Property> beanProps = ctx.getProperties(ctx.getProperty().getBase());
-	             Integer code = (Integer)beanProps.get("riskSectionRiskCode").getValue();
-	            if(code<10 || code>100){
-	                addInvalidMessage(ctx, "value must not < 10 or > 100, but is "+code);
+	             Integer value = (Integer)ctx.getProperty().getValue();;
+	            if(value<10 || value>100){
+	                addInvalidMessage(ctx, "value must not < 10 or > 100, but is "+value);
 	            }
 	        }
 	    };
@@ -73,14 +96,38 @@ public class TabboxVM {
 			this.showRiskSectionRiskCodeForm = showRiskSectionRiskCodeForm;
 		}
 
-		public Integer getRiskSectionRiskCode() {
+		public RiskSectionRiskCode getRiskSectionRiskCode() {
 			return riskSectionRiskCode;
 		}
 
-		public void setRiskSectionRiskCode(Integer riskSectionRiskCode) {
+		public void setRiskSectionRiskCode(RiskSectionRiskCode riskSectionRiskCode) {
 			this.riskSectionRiskCode = riskSectionRiskCode;
 		}
 		
+	}
+	
+	static public class RiskSectionRiskCode{
+		private int id;
+		private int value;
+
+		public RiskSectionRiskCode(int id, int value) {
+			this.id = id;
+			this.value = value;
+		}
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+		
+		public int getValue() {
+			return value;
+		}
+		public void setValue(int value) {
+			this.value = value;
+		}
 	}
 
 	public RiskSection getSelectedRiskSection() {

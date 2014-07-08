@@ -36,12 +36,13 @@
 				</toolbar>		
 				<groupbox 
 					form="@id('fxRiskSectionRiskCode')
-								@load(eachRiskSection)
-								@save(eachRiskSection,before='updateRiskSectionRiskCode') "
+								@load(eachRiskSection.riskSectionRiskCode)
+								@save(eachRiskSection.riskSectionRiskCode,before='updateRiskSectionRiskCode') "
 					open="@bind(eachRiskSection.showRiskSectionRiskCodeForm)">
 					<grid >
 						<rows>
-							<row><intbox value="@bind(fxRiskSectionRiskCode.riskSectionRiskCode)@validator(eachRiskSection.riskSectionRiskCodeValidator) "/>
+							<row>Id: <label value="@load(fxRiskSectionRiskCode.id)"></label></row>
+							<row><intbox value="@bind(fxRiskSectionRiskCode.value) @validator(eachRiskSection.riskSectionRiskCodeValidator) "/>
 							<label  value="@load(vmsgs[self.previousSibling])"/>
 							</row>
 						</rows>
