@@ -1,4 +1,4 @@
-<tabbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('support.mvvm.TabboxVM')" validationMessages="@id('vmsgs')">
+<tabbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('support.mvvm.FormInTemplateVM')" validationMessages="@id('vmsgs')">
 	<tabs
 		children="@bind(vm.riskSectionList)">
 		<template name="children"

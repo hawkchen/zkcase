@@ -7,10 +7,10 @@ import org.zkoss.bind.annotation.*;
 import org.zkoss.bind.validator.AbstractValidator;
 
 
-public class TabboxVM {
+public class FormInTemplateVM {
 	
 	RiskSection selectedRiskSection;
-	List<RiskSection> riskSectionList = new LinkedList<TabboxVM.RiskSection>();
+	List<RiskSection> riskSectionList = new LinkedList<FormInTemplateVM.RiskSection>();
 	
 	@Init
 	public void init(){
