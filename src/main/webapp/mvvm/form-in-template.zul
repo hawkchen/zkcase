@@ -4,7 +4,7 @@
 		<template name="children"
 			var="eachRiskSection">
 			<tab 
-				label="@load(eachRiskSection.title)" closable="true"
+				label="@load(eachRiskSection.title)" closable="true" onSelect="@command('select', selected=eachRiskSection)"
 				onClose="@command('removeRiskSection',riskSection=eachRiskSection)"
 				selected="@load((eachRiskSection==vm.selectedRiskSection)?'true':'false')" />
 		</template>
@@ -42,7 +42,7 @@
 					<grid >
 						<rows>
 							<row>Id: <label value="@load(fxRiskSectionRiskCode.id)"></label></row>
-							<row><intbox value="@bind(fxRiskSectionRiskCode.value) @validator(eachRiskSection.riskSectionRiskCodeValidator) "/>
+							<row><intbox value="@bind(fxRiskSectionRiskCode.value) @validator(eachRiskSection.riskSectionRiskCodeValidator, enable=(eachRiskSection==vm.selectedRiskSection)) "/>
 							<label  value="@load(vmsgs[self.previousSibling])"/>
 							</row>
 						</rows>

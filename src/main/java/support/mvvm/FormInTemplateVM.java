@@ -55,17 +55,25 @@ public class FormInTemplateVM {
 		*/
 	}
 	
+	@Command
+	public void select(@BindingParam("selected") RiskSection riskSection){
+		setSelectedRiskSection(riskSection);
+	}
+	
 	
 	static public class RiskSection{
 		String title;
 		RiskSectionRiskCode riskSectionRiskCode;
 		Validator riskSectionRiskCodeValidator = new AbstractValidator() {
 	        public void validate(ValidationContext ctx) {
-	        	 Map<String,Property> beanProps = ctx.getProperties(ctx.getProperty().getBase());
-	             Integer value = (Integer)ctx.getProperty().getValue();;
-	            if(value<10 || value>100){
-	                addInvalidMessage(ctx, "value must not < 10 or > 100, but is "+value);
-	            }
+	        	Boolean enable =(Boolean)ctx.getBindContext().getValidatorArg("enable");
+	        	if(enable){
+	        		Map<String,Property> beanProps = ctx.getProperties(ctx.getProperty().getBase());
+	        		Integer value = (Integer)ctx.getProperty().getValue();;
+	        		if(value<10 || value>100){
+	        			addInvalidMessage(ctx, "value must not < 10 or > 100, but is "+value);
+	        		}
+	        	}
 	        }
 	    };
 	    
