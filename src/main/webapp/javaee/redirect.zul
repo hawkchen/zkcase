@@ -1,0 +1,9 @@
+<zk>
+	<window id="main" apply="support.javaee.LoginComposer">
+		<button id="login" label="Login" />
+		<button label="Redirect with java" onClick='execution.sendRedirect("~/bla/bla.html")'></button>
+		<button label="Redirect with JS"
+			onClick='Clients.response(new org.zkoss.zk.au.out.AuSendRedirect("/my/url.html", "_blank"));'>
+		</button>
+	</window>
+</zk>
