@@ -1,0 +1,47 @@
+<zk>
+<label style="font-weight:bold">Click a bar item to see the onPlotDrillDown event.</label>
+	<zscript>
+	import org.zkoss.chart.*;
+	Map map = org.zkoss.json.JSONValue.parse("{\"Animals\": [{\"name\": \"Cows\", \"value\": 3}, {\"name\": \"Sheep\", \"value\": 8}],\"Fruits\": [{\"name\": \"Apples\", \"value\": 6},{\"name\": \"Oranges\", \"value\": 2},{\"name\": \"Bananas\", \"value\": 4}],\"Cars\": [{\"name\": \"Toyota\", \"value\": 3},{\"name\": \"Volkswagen\", \"value\": 12},{\"name\": \"Opel\", \"value\": 4}],\"Cows\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}],\"Sheep\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}],\"Apples\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}],\"Oranges\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}],\"Bananas\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}],\"Toyota\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}],\"Volkswagen\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}],\"Opel\": [{\"name\": \"Q1\", \"value\": 5},{\"name\": \"Q2\", \"value\": 8},{\"name\": \"Q3\", \"value\": 4},{\"name\": \"Q4\", \"value\": 6}]}");
+	</zscript>
+	<charts id="chart" width="400" title="Category Model" type="column">
+		<attribute name="onPlotDrillDown">
+		//	alert("Series: " + event.getSeriesIndex() + "\n Category: " + event.getCategory() + "\n Data: " + event.getPoint());
+			org.zkoss.chart.Series series = new org.zkoss.chart.Series();
+			for (Map p : map.get(event.getPoint().getName())) {
+				Point point = new Point(p.get("name"), p.get("value"));
+				series.addPoint(point);
+				if (map.get(point.getName()) != null)
+					point.setDrilldown(true);
+			}
+				
+			series.setName(event.getPoint().getName());
+			chart.addSeriesAsDrilldown(event.getPoint(), series);
+		</attribute>
+		<attribute name="onPlotDrillUp">
+			//alert("Series: " + event.getSeries().getName());
+		</attribute>
+	</charts>
+	 <zscript><![CDATA[
+	Series s0 = chart.getSeries();
+	s0.setName("Things");
+	chart.getPlotOptions().getColumn().setColorByPoint(true);
+	
+	Point p1 = new Point("Animals", new Integer(15));
+	p1.setDrilldown(true);
+	s0.addPoint(p1);
+
+	Point p2 = new Point("Fruits", new Integer(5));
+	p2.setDrilldown(true);
+	s0.addPoint(p2);
+
+	Point p3 = new Point("Cars", new Integer(3));
+	p3.setDrilldown(true);
+	s0.addPoint(p3);
+	
+	chart.getXAxis().setType("category");
+	//chart.getLegend().setEnabled(false);
+	chart.getDrilldown().setSeries(new LinkedList());
+    ]]></zscript>    
+        
+</zk>
