@@ -1,19 +1,31 @@
 <zk>
 	<style>
-		.z-listcell{ border: 1px solid black;}
-	
+		.z-listbox-body { 
+		position: relative;
+		overflow-x: hidden !important; 
+		}
+
 	</style>
-	resize a browser window width, column borders become mis-aligned to listbox header's border.
+	scroll to right-most position
 		<custom-attributes org.zkoss.zul.nativebar="true"/>
-<!-- 		<listbox id="listbox" hflex="min" rows="3" > -->
-		<listbox id="listbox" width="100%" rows="3" >
+		<listbox id="listbox" hflex="min" rows="3" >
+<!-- 		<listbox id="listbox" width="100%" rows="3" > -->
 			<listhead>
 				<listheader width="100px">1111</listheader>
 				<listheader width="100px">2222</listheader>
 				<listheader width="100px">3333</listheader>
 				<listheader width="300px">4444</listheader>
 				<listheader width="300px">555</listheader>
-				<listheader  >666</listheader>
+				<listheader width="100px">1111</listheader>
+				<listheader width="100px">2222</listheader>
+				<listheader width="100px">3333</listheader>
+				<listheader width="300px">4444</listheader>
+				<listheader width="300px">555</listheader>
+				<listheader width="100px">1111</listheader>
+				<listheader width="100px">2222</listheader>
+				<listheader width="100px">3333</listheader>
+				<listheader width="300px">4444</listheader>
+				<listheader width="300px">555</listheader>				
 			</listhead>
 
 			<listitem >
@@ -22,7 +34,16 @@
 				<listcell label="3333-3" />
 				<listcell label="4444-4" />
 				<listcell label="555" />
-				<listcell label="6666" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />								
 			</listitem>
 			<listitem >
 				<listcell label="1111-1" />
@@ -30,7 +51,16 @@
 				<listcell label="3333-3" />
 				<listcell label="4444-4" />
 				<listcell label="555" />
-				<listcell label="6666" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />				
 			</listitem>
 			<listitem >
 				<listcell label="1111-1" />
@@ -38,7 +68,16 @@
 				<listcell label="3333-3" />
 				<listcell label="4444-4" />
 				<listcell label="555" />
-				<listcell label="6666" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />				
 			</listitem>
 			<listitem >
 				<listcell label="1111-1" />
@@ -46,7 +85,16 @@
 				<listcell label="3333-3" />
 				<listcell label="4444-4" />
 				<listcell label="555" />
-				<listcell label="6666" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />
+				<listcell label="1111-1" />
+				<listcell label="2222-2" />
+				<listcell label="3333-3" />
+				<listcell label="4444-4" />
+				<listcell label="555" />				
 			</listitem>						
 		</listbox>
 </zk>
