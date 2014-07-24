@@ -1,0 +1,6 @@
+<zk>
+	<hlayout>
+		<label value="@load(vm.label)"/>
+		<textbox value="@load(vm.who)" />
+	</hlayout>
+</zk>

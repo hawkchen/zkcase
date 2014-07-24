@@ -1,0 +1,11 @@
+<zk>
+<?component name="username" macroURI="/macro/username.zul"?>
+<window border="normal" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.macro.UserNameVM')">
+    <username/>
+    <separator/>
+    <textbox value="@bind(vm.who)"/>
+</window>
+<window>
+    <username who="John" label="Username"/>
+</window>
+</zk>
