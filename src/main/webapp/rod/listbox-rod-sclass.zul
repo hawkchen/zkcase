@@ -1,0 +1,84 @@
+<div apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('support.rod.LoadOnDemandViewModel')">
+<style>
+.nowrap{
+	white-space:nowrap;
+}
+.align-right{
+	text-align:right;
+}
+.align-center{
+		text-align:center;
+}
+</style>	
+	<custom-attributes org.zkoss.zul.listbox.preloadSize="50"/>
+	<custom-attributes org.zkoss.zul.listbox.rod="true"/>
+	<listbox id="list" model="@bind(vm.hugeList)" rows="25" >
+		<listhead>
+			<listheader label="col 1" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 2" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 3" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 4" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 5" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 6" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 7" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 8" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 9" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 10" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 11" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 12" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 13" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 14" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 15" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 16" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 17" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 18" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 19" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 20" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 21" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 22" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 23" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 24" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 25" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 26" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 27" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 28" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 29" sort="auto" width="100px" style="text-align:center"/>
+			<listheader label="col 30" sort="auto" width="100px" style="text-align:center"/>									
+		</listhead>
+		<template name="model">
+			<listitem sclass="nowrap">
+				<listcell label="@load(each)" ></listcell>
+				<listcell label="@load(each)" sclass="align-right"></listcell>
+				<listcell label="@load(each)" sclass="align-right"></listcell>
+				<listcell label="@load(each)"></listcell>				
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>		
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>				
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>	
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>				
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>				
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>
+				<listcell label="@load(each)"></listcell>					
+			</listitem>
+		</template>
+	</listbox>
+</div>
