@@ -1,0 +1,19 @@
+<div apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('templateVM') @init('support.mvvm.NotifyVM')" >
+	<separator />
+	<tabbox vflex="1" model="@bind(templateVM.screenList)"
+		>
+		<template name="model:tab" var="eachScreen">
+			<tab label="@load(eachScreen.url)" closable="true"
+				onClose="@global-command('closeScreen',screen=eachScreen)"
+				/>
+		</template>
+		<template name="model:tabpanel" var="eachScreen">
+			<tabpanel vflex="1" style="overflow:auto">
+				URL: <label value="@load(eachScreen.url)" />
+				<textbox/>
+			</tabpanel>
+		</template>
+	</tabbox>
+	<button onClick="@global-command('updateScreen', url='abc')">update</button>
+</div>
