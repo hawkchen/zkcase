@@ -1,0 +1,9 @@
+<zk>
+	<columnlayout>
+		<columnchildren>column 1</columnchildren>
+		<columnchildren><window border="normal">
+		parameter pageIdTest: ${param.pageIdTest}
+		</window>
+		</columnchildren>
+	</columnlayout>
+</zk>

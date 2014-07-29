@@ -1,0 +1,7 @@
+<zk>
+	<iframe id="testFrame"/>
+	<zscript><![CDATA[
+		testFrame.setSrc("/include/menuPage.zul?layoutType=1&pageIdTest=mytest");
+	]]>
+	</zscript>
+</zk>

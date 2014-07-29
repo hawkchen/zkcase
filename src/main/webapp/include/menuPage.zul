@@ -1,0 +1,6 @@
+<zk>
+      <div id="divIncCnt" align="center" height="100%">
+            <include src="/include/${param.layoutType}ColumnLayout.zul?pageIdTest=${param.pageIdTest}"
+                  width="100%" />
+      </div>
+</zk>
