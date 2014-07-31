@@ -1,0 +1,41 @@
+<zk>
+	test: adding items in a model, will listbox keep scrollbar position 
+ update list model and keep scroll position
+	<zscript type="text/javascript">
+  <![CDATA[
+	ListModelList listModel = new ListModelList(Locale.getAvailableLocales());
+]]>
+ </zscript>
+	<custom-attributes org.zkoss.zul.listbox.rod="true" />
+	
+	<listbox model="${listModel}" width="150px" height="300px"></listbox>
+	<label id="countLabel"/>
+	<button
+		onClick='retain()'>
+	add items</button>
+	<zscript type="text/javascript">
+  <![CDATA[
+    import org.zkoss.lang.*;
+    
+	countLabel.setValue(""+listModel.size());
+	
+	public void update(){
+		listModel.clear(); 
+		listModel.addAll(Arrays.asList(Locale.getAvailableLocales()).subList(10, 100));
+		countLabel.setValue(""+listModel.size());
+	}
+	public void updateWithoutClear(){
+		listModel.removeRange(1, listModel.size()-1);
+		listModel.addAll(Arrays.asList(Locale.getAvailableLocales()).subList(10, 100));
+		listModel.remove(0);
+		countLabel.setValue(""+listModel.size());
+	}
+	
+	public void retain(){
+		listModel.retainAll(Arrays.asList(Locale.getAvailableLocales()).subList(10, 50));
+		countLabel.setValue(""+listModel.size());
+	}
+	
+]]>
+ </zscript>	
+</zk>
