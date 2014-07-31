@@ -1,4 +1,4 @@
-<div>
+<div >
 <style>
 .nowrap{
 	white-space:nowrap;
@@ -16,8 +16,20 @@ import support.rod.*;
 ListModel hugeList = new FakeListModel(2000);
 ]]>
 </zscript>	
+	<script><![CDATA[
+		zk.afterLoad('zul.sel', function () {
+			var _oldMethod = {};		
+			zk.override(zul.sel.Listbox.prototype, _oldMethod, {
+				stripe: function () {
+					return this;
+				},
+				onChildReplaced_: function (oldc, newc) {
+				}
+			});
+		});
+	]]></script>		
 	<custom-attributes org.zkoss.zul.listbox.rod="true"/>
-	<listbox id="list" model="${hugeList}" rows="25" sizedByContent="true" vflex="1" >
+	<listbox id="list" model="${hugeList}" rows="25"  sizedByContent="true" vflex="1" >
 		<listhead>
 			<listheader label="col 1" sort="auto" width="100px" style="text-align:center"/>
 			<listheader label="col 2" sort="auto" width="100px" style="text-align:center"/>
