@@ -1,0 +1,13 @@
+<div apply="support.rod.ManualGroupComposer">
+<style>
+.my-group{
+background: linear-gradient(to bottom, #ffffff 0%, #00BFFF 100%);
+}
+</style>
+	<listbox id="listbox" width="150px" rows="20" height="300px"  itemRenderer="support.rod.ManualGroupRenderer" >
+		<listhead>
+			<listheader label="name" sort="auto" />
+		</listhead>
+		
+	</listbox>
+</div>
