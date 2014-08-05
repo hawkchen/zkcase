@@ -1,0 +1,22 @@
+<zk xmlns:w="client" >
+	<window id="win" border="normal" width="100%" height="100%" sizable="true"
+	onSize="log(event)" onAfterSize="log(event)" 
+	w:onHide="jsLog(this, event)" w:onShow="jsLog(this, event)" w:onSize="jsLog(this, event)" w:onAfterSize="jsLog(this, event)" >
+	explore size related event</window>
+	<button onClick="toggle()">Toggle visibility</button>
+	
+	<script type="text/javascript">
+		jsLog = function(target, event){
+			console.log(target.widgetName+' '+event.name)
+		};
+	</script>
+	<zscript><![CDATA[
+		public void log(Event e){
+			System.out.println(e.getTarget()+" "+e.getName());
+		}
+		public void toggle(){
+			win.setVisible(!win.isVisible());
+		}
+	]]>
+	</zscript>
+</zk>

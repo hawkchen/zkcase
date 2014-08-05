@@ -1,0 +1,27 @@
+<zk xmlns:w="client" >
+	<hlayout id="div" hflex="1" vflex="1" style="border:solid;border-color:black"
+	 onAfterSize="resizeInside(event)" 
+	w:onHide="jsLog(this, event)" w:onShow="jsLog(this, event)" w:onSize="jsLog(this, event)" w:onAfterSize="jsLog(this, event)">
+		<div id="leftD" style="border:solid;border-color:blue">left</div>
+		<div id="rightD" style="border:solid;border-color:red">right</div>
+	</hlayout>
+	
+	
+	<zscript><![CDATA[
+		public void resizeInside(AfterSizeEvent e){
+			System.out.println(e.toString());
+			int halfWidth = e.getWidth()/2;
+			leftD.setWidth(halfWidth+"px");
+			rightD.setWidth(halfWidth+"px");
+		}
+		public void toggle(){
+			div.setVisible(!div.isVisible());
+		}
+	]]>
+	</zscript>
+		<script type="text/javascript">
+		jsLog = function(target, event){
+			console.log(target.widgetName+' '+event.name)
+		};
+	</script>
+</zk>
