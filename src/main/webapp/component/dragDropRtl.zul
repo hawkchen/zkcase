@@ -1,12 +1,15 @@
 
 <zk>
-in 7.0.1 CE
+<script type="text/javascript">
+//$('body').attr('dir','rtl');
+</script>
 <style>
-body {
+/*
+:lang(ar) body {
     direction: rtl;
 }
-/*
-.z-drop-icon{
+*/
+:lang(ar) .z-drop-icon{
 	font-size: 12px;
 	width: 16px;
 	height: 16px;
@@ -17,8 +20,23 @@ body {
 	text-align: center;
 	position: static
 }
-*/
+
+body[dir='rtl'] .z-drop-icon{
+	font-size: 12px;
+	width: 16px;
+	height: 16px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	line-height: 16px;
+	background: #fff;
+	text-align: center;
+	position: static
+}
+
 </style>
+<div style="display:block">
+123<label zclass="z-drop-icon z-icon-times">rtl test</label>
+</div>
     <hlayout apply="support.component.MultipleDragDropComposer">
         <listbox id="left" height="250px" width="200px"
          droppable="true" multiple="true" >
@@ -38,7 +56,7 @@ body {
                 <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK JSP" />
             </listitem>
             <listitem draggable="true" droppable="true" >
-                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK Spring" />
+                <listcell src="/widgets/effects/drag_n_drop/img/document.png" label="ZK Spring 123456789" />
             </listitem>
         </listbox>
         <separator orient="vertical" spacing="8px" />
