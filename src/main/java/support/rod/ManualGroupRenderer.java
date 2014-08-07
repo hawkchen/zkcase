@@ -22,7 +22,8 @@ public class ManualGroupRenderer implements ListitemRenderer<Object> {
 			final Listbox listbox = listitem.getListbox();
 			listitem.addEventListener("onClick", new EventListener<Event>() {
 				public void onEvent(Event event) throws Exception {
-					if (listitem.getAttribute("status")==null || "close".equals(listitem.getAttribute("status")) ){
+					String status = (String)listitem.getAttribute("status");
+					if (status==null || "close".equals(status) ){
 						Events.sendEvent(new Event("onOpen", listbox, group));
 						listitem.setAttribute("status", "open");
 					}else{
