@@ -1,0 +1,48 @@
+<zk >
+	<window id="win" border="normal" hflex="1" sizable="true" onClick="">
+	explore size related event</window>
+	<panel title="size event" border="normal"  width="80%" height="50%" maximizable="true"  framable="true" onClick="">
+		<panelchildren>
+		explore size related event
+		</panelchildren>
+	</panel>
+	<script type="text/javascript" ><![CDATA[
+		zk.afterLoad('zul.wnd', function() {
+		   var old = {};
+			zk.override(zul.wnd.Window.prototype, old, {
+		      bind_: function() {
+					old.bind_.apply(this, arguments);
+					//listen onAfterSize, you should put the line in widget's bind_
+					this.listen({
+						onAfterSize: function () {console.log('handling onAfterSize');},
+						onSize: function () {
+							console.log('handling onSize');},
+								});
+					zWatch.listen({
+						onFitSize: this,
+					});
+		      },
+		      onFitSize: function(ctrl ){
+		    	  console.log('widget handles onfitSize');
+		      },
+		   });
+		});
+		
+		//monitor client activity
+		MyListener = zk.$extends(zk.Object, {
+			onSend: function(ctrl) { 
+				console.log('zWatch handles ' + ctrl.origin +' onSend'); 
+				console.log(ctrl); },
+			onResponse: function (ctrl) {console.log('zWatch handles '+ctrl.origin+ ' onResponse');},
+			onScroll: function (ctrl) {console.log('zWatch handles '+ctrl.origin+' onScroll');},
+			
+		});
+		var ml = new MyListener();
+		zWatch.listen({
+			onSend: ml,
+			onResponse: ml,
+			onScroll: ml,
+		});
+	]]>
+	</script>
+</zk>
