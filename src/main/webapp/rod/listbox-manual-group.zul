@@ -1,4 +1,4 @@
-<div apply="support.rod.ManualGroupComposer">
+<div apply="support.rod.ManualGroupForwardComposer">
 <style>
 .my-group{
 background: linear-gradient(to bottom, #ffffff 0%, #00BFFF 100%);
