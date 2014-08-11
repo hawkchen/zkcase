@@ -1,3 +1,12 @@
-<ckeditor id="ckeditFreeText"
-    filebrowserImageBrowseUrl="/images"
-    filebrowserImageUploadUrl="/images/" />
+<zk>
+<!-- 3600
+	<ckeditor 
+	customConfigurationsPath="/component/config.js" />
+ -->
+	<ckeditor id="ed" filebrowserImageBrowseUrl="/images" filebrowserImageUploadUrl="/component/upload" 
+	customConfigurationsPath="/component/config.js"
+		toolbar="full"/>
+<!-- 3602
+ -->
+
+</zk>
