@@ -1,0 +1,11 @@
+<zk>
+	<button id="startWizard" label="click to create" onClick="wizard.doModal();wizard.setVisible(true)"/>
+	<window id="wizard" title="on demand" border="normal" closable="true" fulfill="../startWizard.onClick" visible="false" >
+		created on demand  
+		<vlayout>
+			<textbox/>
+			<textbox/>
+			<textbox/>
+		</vlayout>
+	</window>
+</zk>  
