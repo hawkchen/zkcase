@@ -1,10 +1,12 @@
 package support.mvvm;
 
 import org.zkoss.bind.annotation.*;
+import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zul.ListModelList;
 
 
-public class NotifyVM {
+public class FulfillVM {
 
 	ListModelList<Screen> screenList  = null;
 
@@ -35,23 +37,6 @@ public class NotifyVM {
 
 	}
 	
-	@GlobalCommand
-	public void updateScreen(@BindingParam("url") String url) {
-
-		//            int index = this.screenList.indexOf(this.selectedScreen);
-		int index  = 1;
-
-		Screen screen = this.screenList.get(index);
-//		screen.setScreenName(name);
-		screen.setUrl("url "+System.currentTimeMillis());
-
-//		this.screenList.set(index, screen);
-		screenList.remove(index);
-		screenList.add(0,screen);
-//		BindUtils.postNotifyChange(null, null, screen, "*");
-//		BindUtils.postNotifyChange(null, "application", screen, "*");
-		return;
-	}
 
 	public ListModelList<Screen> getScreenList() {
 		return screenList;
@@ -60,4 +45,9 @@ public class NotifyVM {
 	public void setScreenList(ListModelList<Screen> screenList) {
 		this.screenList = screenList;
 	}	
+	
+	@Command
+	public void render(@BindingParam("target") Component target){
+		Events.postEvent("onInitRender", target, null);
+	}
 }

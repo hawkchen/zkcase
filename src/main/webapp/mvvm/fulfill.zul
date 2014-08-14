@@ -1,0 +1,9 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.FulfillVM')">
+		<combobox model="@load(vm.screenList)" fulfill="onOpen" onFulfill="@command('render', target=self)">
+			<template name="model">
+				<comboitem label="@load(each.url)" />
+			</template>
+		</combobox>
+	</div>
+</zk>
