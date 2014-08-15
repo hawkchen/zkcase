@@ -1,0 +1,8 @@
+<zk>
+	<popup id="pp" />
+	<button onClick='Clients.showNotification("test", pp); '>show notification on invisible component</button>
+	<textbox id="tb" />
+	<button onClick="tb.visible=!tb.visible" label="visible"/>
+	<button onClick='Clients.showNotification("test", tb) '>show notification on invisible component</button>
+	<button label="detach" onClick="tb.detach()"/>
+</zk>
