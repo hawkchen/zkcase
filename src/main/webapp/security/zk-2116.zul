@@ -1,0 +1,8 @@
+<zk>
+	If you can see this page without any JS error, that's correct.
+	<listbox>
+		<listitem>
+			<attribute name="label"><![CDATA[ </script ><script src=//a/e> ]]></attribute>
+		</listitem>
+	</listbox>
+</zk>
