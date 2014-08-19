@@ -1,0 +1,11 @@
+<?xml version="1.0"?> 
+<!DOCTYPE html [ 
+<!ENTITY times "&#215;"> 
+]> 
+
+<zk xmlns:n="native">
+<vlayout >
+	<n:span>&times;</n:span>
+	<n:span><![CDATA[&times;]]></n:span>
+</vlayout>
+</zk>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?> 
+<!DOCTYPE xhtml [ 
+<!ENTITY % HTMLlat1 PUBLIC
+   "-//W3C//ENTITIES Latin 1 for XHTML//EN"
+   "xhtml-lat1.ent">
+%HTMLlat1;
+]> 
+
+<zk xmlns:n="native">
+	<n:span>&times;</n:span>
+</zk>

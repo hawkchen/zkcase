@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:zk="zk" xmlns:z="zul">
+  <head>
+    <title>ZHTML Demo</title>
+    <zkhead/><!-- a special tag to indicate where to generate ZK CSS and JS files -->
+  </head>
+  <body style="height:auto">
+    <h1>ZHTML Demo</h1>
+    <span>&times;</span>
+    <ul id="ul">
+        <li>The first item.</li>
+        <li id="li2" zk:onClick='self.setId("li2".equals(self.getId()) ? "":"li2")'>Click me to change Id.</li>
+    </ul>
+  </body>
+</html>
