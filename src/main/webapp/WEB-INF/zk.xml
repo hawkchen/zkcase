@@ -9,12 +9,16 @@
 		<name>org.zkoss.zk.ui.WebApp.name</name>
 		<value>zkcase</value>
 	</preference>
-
+	
 <!-- 
 <device-config>
     <device-type>ajax</device-type>
     <server-push-class>org.zkoss.zk.ui.impl.PollingServerPush</server-push-class>
 </device-config>
+<library-property>
+	<name>org.zkoss.web.util.resource.dir</name>
+	<value>/zkpatch</value>
+</library-property>
  -->
 
 	<!-- Turn on if you want to debug JavaScript. Once turned on, the uncompressed JavaScript files will 
@@ -48,6 +52,7 @@
 		-->
 	
 
+<!-- 
 <library-property>
     <name>org.zkoss.bind.DebuggerFactory.enable</name>
     <value>true</value>
@@ -57,6 +62,7 @@
     <value>org.zkoss.bind.addon.sys.debugger.ChromeExtensionDebuggerFactory</value>
 </library-property>
 
+ -->
 
 
 </zk>
