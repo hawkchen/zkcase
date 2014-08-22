@@ -1,0 +1,30 @@
+<zk>
+Issue with IE 9 /10, 7.0.2
+ZK-2414 Incorrect width calculation with hflex in IE9 / IE10
+	<window id="mainWin" width="100%" height="100%" sclass="page-bg" >
+		<div width="100%" vflex="80">
+			<hbox hflex="1" vflex="1">
+				<!-- empty div for alignment -->
+				<div hflex="15">left</div>
+				<div id="contentDiv" hflex="70" vflex="1">
+				    <div id="financialDetailsWin" vflex="1" >
+				        <panel id="contentPanel" height="100%" hflex="1">
+				            <panelchildren style="overflow:auto;border:solid 1px black">
+				            	center
+				            </panelchildren>
+				        </panel>
+				        <!-- SPACE element here causes the problem;
+				           -    - caused ZK 7 width-calculation on IE to explode the width to 1600+ pixels.
+				        -->
+				        <space/>
+				    </div>				 
+				</div>
+				<div hflex="15">right</div>
+			</hbox>
+		</div>
+	</window>
+</zk>
+				    	<!-- 
+				    	<panel id="contentPanel" height="100%" >
+				    	 -->
+
