@@ -9,7 +9,13 @@
 		<name>org.zkoss.zk.ui.WebApp.name</name>
 		<value>zkcase</value>
 	</preference>
-	
+
+<!--  
+<language-config>
+    <addon-uri>/WEB-INF/lang-addon-slider.xml</addon-uri>
+</language-config>	
+ -->
+ 
 <!-- 
 <device-config>
     <device-type>ajax</device-type>
@@ -20,13 +26,23 @@
 	<value>/zkpatch</value>
 </library-property>
  -->
-
+ 
+ <!-- 
+<device-config>
+   <device-type>ajax</device-type>
+   <embed><![CDATA[
+        <script type="text/javascript" src="/zkcase/zkpatch/listbox-keyNavigationPatch.js"></script>
+    ]]></embed>
+</device-config>
+  -->
+  
 	<!-- Turn on if you want to debug JavaScript. Once turned on, the uncompressed JavaScript files will 
 		be loaded. 
 		-->
 	<client-config>
 		<debug-js>true</debug-js>
 	</client-config>
+
 
 <!-- 
 	<language-config>
