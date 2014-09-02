@@ -1,10 +1,9 @@
 <zk>
 	<div apply="org.zkoss.bind.BindComposer"
 		viewModel="@id('vm')@init('support.component.SliderDoubleVM')">
-		<slider mode="decimal" maxpos="5.0" step="0.5" curpos="@bind(vm.potentialRisk)" />
-		<slider mode="decimal" maxpos="5.0" step="0.5" curposInDouble="@save(vm.potentialRisk)" curpos="@load(vm.potentialRisk)" />
+		<dslider mode="decimal" maxpos="5.0" step="0.5" curposInDouble="@bind(vm.potentialRisk)"   />
 		<label value="@load(vm.potentialRisk)"></label>
 	</div>
-	<slider id="slider" mode="decimal" maxpos="25.0" step="1.5"  onScroll='pos.setValue(""+slider.getCurposInDouble())'/>
+	<slider id="slider" mode="decimal" maxpos="5.0" step="0.5"  onScroll='pos.setValue(""+slider.getCurposInDouble())'/>
 	<label id="pos" ></label>
 </zk>
