@@ -1,0 +1,6 @@
+<zk>
+
+<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.ChildVM')">
+	<label value="@load(vm.value)"/>
+</div>
+</zk>

@@ -1,0 +1,8 @@
+<zk>
+
+<div apply="org.zkoss.bind.BindComposer" viewModel="@id('outerVm')@init('support.mvvm.OuterVM')">
+	<div apply="org.zkoss.bind.BindComposer" viewModel="@id('innerVm')@init(outerVm.innerVm)">
+		<button label="myCommand" onClick="@command('myCommand')"/>
+	</div>
+</div>
+</zk>
