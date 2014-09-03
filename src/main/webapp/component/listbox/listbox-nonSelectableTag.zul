@@ -1,0 +1,33 @@
+<zk>
+<listbox nonselectableTags="">
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><button label="button"/></listcell></listitem>
+    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
+    <listitem><listcell><datebox/></listcell></listitem>
+    <listitem><listcell><label>a label</label></listcell></listitem>
+</listbox>
+
+<listbox nonselectableTags="textbox">
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><button label="button"/></listcell></listitem>
+    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
+    <listitem><listcell><datebox/></listcell></listitem>
+    <listitem><listcell>a label</listcell></listitem>
+</listbox>
+
+<listbox nonselectableTags="input, span">
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><button label="button"/></listcell></listitem>
+    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
+    <listitem><listcell><datebox/></listcell></listitem>
+    <listitem><listcell><label>a label</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext</label></listcell></listitem>
+</listbox>
+<listbox nonselectableTags="*" checkmark="true">
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><button label="button"/></listcell></listitem>
+    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
+    <listitem><listcell><datebox/></listcell></listitem>
+    <listitem><listcell><label>a label</label></listcell></listitem>
+</listbox>
+</zk>
