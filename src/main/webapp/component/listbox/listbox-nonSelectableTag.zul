@@ -1,33 +1,68 @@
-<zk>
-<listbox nonselectableTags="">
+<zk xmlns:w="client">
+<listbox nonselectableTags="span, a">
+	<listhead><listheader> nonselectableTags=" span, a"</listheader></listhead>
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><a href="http://www.zkoss.org">www.zkoss.org</a></listcell></listitem>
+    <listitem><listcell><label>looooongtext_without_space</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext2</label></listcell></listitem>
+    <listitem><listcell><label>looooong text3</label></listcell></listitem>
+</listbox>
+
+<zscript></zscript>
+<script type="text/javascript"><![CDATA[
+zk.afterLoad('zul.sel', function () {
+	var oldMethod = {};
+	zk.override(zul.sel.SelectWidget.prototype, oldMethod, {		
+		_shallIgnore: function(evt, bSel){
+		 	var selection = window.getSelection();
+		 	 if(selection.type == "Range") {
+			    //evt.stop({propagation:true});
+			    return true;
+			 }else{
+				return oldMethod._shallIgnore.apply(this, arguments); //call the original method
+			 }
+		}
+	
+	});
+});	
+]]>
+</script>
+<listbox >
+	<listhead><listheader>default no nonselectableTags specified</listheader></listhead>
     <listitem><listcell><textbox/></listcell></listitem>
     <listitem><listcell><button label="button"/></listcell></listitem>
     <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
-    <listitem><listcell><datebox/></listcell></listitem>
-    <listitem><listcell><label>a label</label></listcell></listitem>
+    <listitem><listcell><a href="http://www.zkoss.org">www.zkoss.org</a></listcell></listitem>
+    <listitem ><listcell><label>looooongtext</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext2</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext3</label></listcell></listitem>
 </listbox>
 
+<listbox nonselectableTags="">
+	<listhead><listheader>everything select</listheader></listhead>
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><button label="button"/></listcell></listitem>
+    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
+    <listitem><listcell><a href="http://www.zkoss.org">www.zkoss.org</a></listcell></listitem>
+    <listitem ><listcell><label>looooongtext</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext2</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext3</label></listcell></listitem>
+</listbox>
+
+<listbox nonselectableTags="*" checkmark="true">
+	<listhead><listheader>nonselectableTags is "*"</listheader></listhead>
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><button label="button"/></listcell></listitem>
+    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
+    <listitem><listcell><a href="http://www.zkoss.org">www.zkoss.org</a></listcell></listitem>
+    <listitem><listcell><label>looooongtext</label></listcell></listitem>
+</listbox>
 <listbox nonselectableTags="textbox">
+	<listhead><listheader>nonselectableTags="textbox"</listheader></listhead>
     <listitem><listcell><textbox/></listcell></listitem>
     <listitem><listcell><button label="button"/></listcell></listitem>
     <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
     <listitem><listcell><datebox/></listcell></listitem>
     <listitem><listcell>a label</listcell></listitem>
-</listbox>
-
-<listbox nonselectableTags="input, span">
-    <listitem><listcell><textbox/></listcell></listitem>
-    <listitem><listcell><button label="button"/></listcell></listitem>
-    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
-    <listitem><listcell><datebox/></listcell></listitem>
-    <listitem><listcell><label>a label</label></listcell></listitem>
-    <listitem><listcell><label>looooongtext</label></listcell></listitem>
-</listbox>
-<listbox nonselectableTags="*" checkmark="true">
-    <listitem><listcell><textbox/></listcell></listitem>
-    <listitem><listcell><button label="button"/></listcell></listitem>
-    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
-    <listitem><listcell><datebox/></listcell></listitem>
-    <listitem><listcell><label>a label</label></listcell></listitem>
 </listbox>
 </zk>
