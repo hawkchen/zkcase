@@ -1,0 +1,479 @@
+
+<zk>
+test with patch
+    <style>
+        .z-listcell {
+        width: 200px !important;
+        }
+
+        .z-listheader{
+        width: 200px !important;
+
+        }
+
+        .z-listbox-body{
+        height: 300px;
+        }
+    </style>
+    <window>
+        <panel height="400px" width="1000px" style="margin-bottom:10px"
+               title="Panel1" border="normal" maximizable="true"
+               collapsible="true">
+            <panelchildren>
+                <listbox id="box" mold="paging" pageSize="5" >
+                    <custom-attributes org.zkoss.zul.nativebar="true"/>
+                    <listhead>
+                        <listheader label="Name"/>
+                        <listheader label="Gender"/>
+                        <listheader label="Age"/>
+                        <listheader label="Description"/>
+                        <listheader label="Occupation"/>
+                        <listheader label="Job"/>
+                        <listheader label="Experience"/>
+                        <listheader label="School"/>
+                        <listheader label="College"/>
+                        <listheader label="Degree"/>
+                        <listheader label="Salary"/>
+                        <listheader label="Description"/>
+                        <listheader label="Company Name"/>
+                        <listheader label="Home Address"/>
+                        <listheader label="Office Address"/>
+                        <listheader label="Designation"/>
+                        <listheader label="Date of joining"/>
+                        <listheader label="Date of Birth"/>
+                        <listheader label="City"/>
+                        <listheader label="District"/>
+                        <listheader label="Country"/>
+                        <listheader label="State"/>
+                        <listheader label="Hobby"/>
+                    </listhead>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"/>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Mary"></listcell>
+                        <listcell label="IT"/>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"/>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="IT"/>
+                        <listcell label="3"/>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Senior engineer"/>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                    <listitem>
+                        <listcell label="Mary"/>
+                        <listcell label="FEMALE"/>
+                        <listcell label="18"/>
+                        <listcell label="A young lady."/>
+                        <listcell label="Engineer"/>
+                        <listcell label="IT"/>
+                        <listcell label="Mary"><intbox/></listcell>
+                        <listcell label="School name"/>
+                        <listcell label="College Name"/>
+                        <listcell label="M Tech"/>
+                        <listcell label="12Lac"/>
+                        <listcell label="Job Desc"/>
+                        <listcell label="Comapany"/>
+                        <listcell label="Address1"/>
+                        <listcell label="Address2"/>
+                        <listcell label="Senior engineer"/>
+                        <listcell label="24/09/1991"/>
+                        <listcell label="24/03/1960"/>
+                        <listcell label="XYZ"/>
+                        <listcell label="ABCA young lady."/>
+                        <listcell label="DEF"/>
+                        <listcell label="123"/>
+                        <listcell label="456"/>
+                    </listitem>
+                </listbox>
+            </panelchildren>
+        </panel>
+    </window>
+</zk>
