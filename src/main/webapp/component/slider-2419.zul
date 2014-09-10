@@ -3,6 +3,6 @@
 		viewModel="@id('vm')@init('support.component.SliderDoubleVM')">
 		<slider mode="decimal" maxpos="5.0" step="0.5" curpos="@bind(vm.potentialRisk)" width="100px"/>
 		<label value="@load(vm.potentialRisk)"></label>
-		<slider mode="decimal" maxpos="5.0" step="0.5" curpos="@bind(vm.potentialRisk)" width="300px"/>
+		<slider maxpos="5.0"  curpos="@bind(vm.potentialRisk)" width="300px"/>
 	</div>
 </zk>
