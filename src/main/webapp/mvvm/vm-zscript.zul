@@ -1,0 +1,32 @@
+<zk>
+<zscript><![CDATA[
+	public class ZscriptVM{
+		String value = "test";
+		
+		public String getValue(){
+			return value;
+		}
+		
+		public void setValue(String v){
+			value = v;
+		}
+	}
+]]></zscript>
+<zscript language="Groovy"><![CDATA[
+public class GvyVM {
+	String str="init";
+	int num = 10;
+
+	public int getNum(){
+		return num; 
+	}
+}
+
+]]>
+</zscript>	
+<div apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('ZscriptVM')" >
+	<label value="@load(vm.value)"/>
+</div>
+
+</zk>
