@@ -1,0 +1,29 @@
+<zk>
+	<style>input::-ms-clear{ display:none; }</style>
+	<window border="normal" title="hello" height="300px">
+		<decimalbox id="loanAmount" scale="2" maxlength="13" style="text-align: right;" />
+		<label/>
+		<div/>
+		<space/>
+		<iframe/>
+	</window>
+	<groupbox>
+		<vlayout>
+			<decimalbox id="loanAmount" scale="2" maxlength="13" style="text-align: right;" />
+			<textbox style="text-align: right;" />
+			<intbox style="text-align: right;" />
+		</vlayout>
+	</groupbox>
+	<datebox style="text-align: right;" />
+	<spinner style="text-align: right;" />
+	<decimalbox  scale="2" maxlength="13"  />
+	<!-- 
+		<style>
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+		.z-textbox{
+		padding-right:0px;
+		}  
+		}
+		</style>
+	-->
+</zk>
