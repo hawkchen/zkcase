@@ -1,0 +1,55 @@
+<zk>
+
+	<zscript>
+	<![CDATA[
+	ListModelList bigList = new ListModelList();
+	for (int i = 0; i < 5000; i++) {
+		bigList.add("item-" + i);
+	}
+	
+	public class MyListbox extends Listbox{
+		public int getSelectedIndex(){
+			ListModelList model = (ListModelList)getModel();
+			int index = model.indexOf(model.getSelection().iterator().next());
+			
+			return index;
+		}
+	}
+]]>
+</zscript>
+
+	<custom-attributes org.zkoss.zul.listbox.rod="true" />
+
+	<listbox id="listbox2" model="${bigList}" width="400px" mold="paging" onSelect="printIndex(listbox2)" use="MyListbox">
+		<listhead>
+			<listheader label="2) EE ROD On" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+
+	<label id="indexLabel"/>
+	<zscript><![CDATA[
+	public void printIndex(Listbox listbox) {
+		indexLabel.setValue("Selected index "+listbox.getSelectedIndex()+"");
+		
+//		ListModelList model = (ListModelList)listbox.getModel();
+//		int index = model.indexOf(model.getSelection().iterator().next());
+//		indexLabel.setValue("Selected index "+index+"");
+	}
+	
+]]></zscript>
+	<listbox model="${bigList}" width="400px" mold="paging" >
+		<listhead>
+			<listheader label="issue" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+</zk>
