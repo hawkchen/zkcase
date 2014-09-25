@@ -1,0 +1,51 @@
+<zk>
+<button onClick="timer.start()">start</button>
+<button onClick="timer.stop()">stop</button>
+<button onClick="invalidate()">Invalidate</button>
+<label id="iterationLabel"/>
+<tabbox id="tabbox">
+	<tabs id="tabs">
+	</tabs>
+	<tabpanels id="tabpanels">
+	</tabpanels>
+</tabbox>
+<timer id="timer" delay="500" repeats="true" onTimer="addRemove()" running="false"></timer>
+<zscript><![CDATA[
+int iteration = 0;
+
+public void addRemove(){
+	if (tabbox.getTabs().getChildren().size()<1){//add
+		for (int i=0 ; i<5; i++){
+			add();
+		}
+	iterationLabel.setValue(++iteration+"");
+	}else{//remove
+		tabbox.getTabs().getChildren().clear();
+		tabbox.getTabpanels().getChildren().clear();
+	}
+}
+
+
+public void add(){
+	Tab newTab = new Tab();
+	newTab.setClosable(true);
+	tabs.appendChild(newTab);
+	
+	Tabpanel newPanel = new Tabpanel();
+	for (int i = 0 ; i<500 ;i ++){
+		Textbox tbox = new Textbox();
+		tbox.setValue("1234567890");
+		newPanel.appendChild(tbox);
+		Button button = new Button();
+		button.setLabel("my button 12345");
+		newPanel.appendChild(button);
+	}
+	tabpanels.appendChild(newPanel);
+	
+}
+
+public void invalidate(){
+	tabbox.invalidate();
+}
+]]></zscript>
+</zk>
