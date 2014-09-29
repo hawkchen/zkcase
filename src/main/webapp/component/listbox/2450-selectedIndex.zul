@@ -20,6 +20,19 @@
 
 	<custom-attributes org.zkoss.zul.listbox.rod="true" />
 
+	<listbox id="listbox" model="${bigList}" width="400px" mold="paging" onSelect="printIndex(listbox)">
+		<listhead>
+			<listheader label="issue" />
+		</listhead>
+		<template name="model">
+			<listitem>
+				<listcell label="${each}"></listcell>
+			</listitem>
+		</template>
+	</listbox>
+	
+	<label id="indexLabel"/>
+	<!-- workaround -->
 	<listbox id="listbox2" model="${bigList}" width="400px" mold="paging" onSelect="printIndex(listbox2)" use="MyListbox">
 		<listhead>
 			<listheader label="2) EE ROD On" />
@@ -31,7 +44,6 @@
 		</template>
 	</listbox>
 
-	<label id="indexLabel"/>
 	<zscript><![CDATA[
 	public void printIndex(Listbox listbox) {
 		indexLabel.setValue("Selected index "+listbox.getSelectedIndex()+"");
@@ -42,14 +54,4 @@
 	}
 	
 ]]></zscript>
-	<listbox model="${bigList}" width="400px" mold="paging" >
-		<listhead>
-			<listheader label="issue" />
-		</listhead>
-		<template name="model">
-			<listitem>
-				<listcell label="${each}"></listcell>
-			</listitem>
-		</template>
-	</listbox>
 </zk>
