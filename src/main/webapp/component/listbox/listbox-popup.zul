@@ -1,0 +1,50 @@
+<zk>
+	<listbox nonselectableTags="span, a" onSelect="print(event)">
+		<listhead>
+			<listheader>nonselectableTags=" span, a"</listheader>
+		</listhead>
+		<listitem context="pp">
+			<listcell>
+				<textbox />
+			</listcell>
+		</listitem>
+		<listitem context="pp">
+			<listcell>
+				<a href="http://www.zkoss.org">www.zkoss.org</a>
+			</listcell>
+		</listitem>
+		<listitem context="pp">
+			<listcell>
+				<label>looooongtext_without_space</label>
+			</listcell>
+		</listitem>
+		<listitem context="pp">
+			<listcell>
+				<label>looooongtext2</label>
+			</listcell>
+		</listitem>
+		<listitem context="pp">
+			<listcell>
+				<label>looooong text3</label>
+			</listcell>
+		</listitem>
+	</listbox>
+	
+	
+	<popup id="pp" onOpen="print(event)" >
+		<menubar orient="vertical">
+			<menuitem label="item 1"/>
+			<menuitem label="item 2"/>
+			<menuitem label="item 3"/>
+		</menubar>
+	</popup>
+	<menupopup id="mp" onOpen="print(event)">
+		<menuitem label="item 1"/>
+	</menupopup>
+	<zscript><![CDATA[
+	public void print(Event event){
+		System.out.println(event.getName());
+	}
+	]]></zscript>
+	
+</zk>
