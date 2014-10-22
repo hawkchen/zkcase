@@ -10,75 +10,51 @@
 		<value>zkcase</value>
 	</preference>
 
-<!--  
-<language-config>
-    <addon-uri>/WEB-INF/lang-addon-slider.xml</addon-uri>
-</language-config>	
- -->
- 
-<!-- 
-<device-config>
-    <device-type>ajax</device-type>
-    <server-push-class>org.zkoss.zk.ui.impl.PollingServerPush</server-push-class>
-</device-config>
-<library-property>
-	<name>org.zkoss.web.util.resource.dir</name>
-	<value>/zkpatch</value>
-</library-property>
- -->
- 
- <!-- 
-<device-config>
-   <device-type>ajax</device-type>
-   <embed><![CDATA[
-        <script type="text/javascript" src="/zkcase/zkpatch/listbox-keyNavigationPatch.js"></script>
-    ]]></embed>
-</device-config>
-  -->
-  
 	<!-- Turn on if you want to debug JavaScript. Once turned on, the uncompressed JavaScript files will 
-		be loaded. 
-		-->
+		be loaded. -->
 	<client-config>
 		<debug-js>true</debug-js>
 	</client-config>
 
 
+
+	<library-property>
+		<name>org.zkoss.util.logging.config.file</name>
+		<value>/log4j.properties</value>
+	</library-property>
+
 <!-- 
-	<language-config>
-		<addon-uri>/WEB-INF/lang-addon-treeitem.xml</addon-uri>
-	</language-config>
+<language-config>
+    <addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
+</language-config>	
  -->
-	
+
+	<!-- <library-property> <name>org.zkoss.zul.listbox.DataLoader.class</name> <value>support.component.ListboxDataLoader</value> 
+		</library-property> <language-config> <addon-uri>/WEB-INF/lang-addon-slider.xml</addon-uri> </language-config> -->
+
+	<!-- <device-config> <device-type>ajax</device-type> <server-push-class>org.zkoss.zk.ui.impl.PollingServerPush</server-push-class> 
+		</device-config> <library-property> <name>org.zkoss.web.util.resource.dir</name> <value>/zkpatch</value> 
+		</library-property> -->
+
+	<!-- <device-config> <device-type>ajax</device-type> <embed><![CDATA[ <script type="text/javascript" 
+		src="/zkcase/zkpatch/button-ie11.js"></script> ]]></embed> </device-config> -->
+
+
+	<!-- <language-config> <addon-uri>/WEB-INF/lang-addon-treeitem.xml</addon-uri> </language-config> -->
+
 	<!-- <listener> <listener-class>support.push.EnableServerPushComposer</listener-class> </listener> -->
 
 	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for grid. It improves the performance 
-		for huge grid. Default: false 
-	<library-property>
-		<name>org.zkoss.zul.grid.rod</name>
-		<value>true</value>
-	</library-property>
-		-->
+		for huge grid. Default: false <library-property> <name>org.zkoss.zul.grid.rod</name> <value>true</value> 
+		</library-property> -->
 	<!-- [ZK EE] Turn on if you want to enable the render-on-demand feature for listbox. It improves the 
-		performance for huge listbox. Default: false 
-	<library-property>
-		<name>org.zkoss.zul.listbox.rod</name>
-		<value>true</value>
-	</library-property>
-		-->
-	
+		performance for huge listbox. Default: false <library-property> <name>org.zkoss.zul.listbox.rod</name> 
+		<value>true</value> </library-property> -->
 
-<!-- 
-<library-property>
-    <name>org.zkoss.bind.DebuggerFactory.enable</name>
-    <value>true</value>
-</library-property>
-<library-property>
-    <name>org.zkoss.bind.DebuggerFactory.class</name>
-    <value>org.zkoss.bind.addon.sys.debugger.ChromeExtensionDebuggerFactory</value>
-</library-property>
 
- -->
+	<!-- <library-property> <name>org.zkoss.bind.DebuggerFactory.enable</name> <value>true</value> </library-property> 
+		<library-property> <name>org.zkoss.bind.DebuggerFactory.class</name> <value>org.zkoss.bind.addon.sys.debugger.ChromeExtensionDebuggerFactory</value> 
+		</library-property> -->
 
 
 </zk>
