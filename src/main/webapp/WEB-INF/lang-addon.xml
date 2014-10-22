@@ -1,0 +1,14 @@
+<language-addon>
+	<addon-name>override-listbox</addon-name>
+	<language-name>xul/html</language-name>
+
+	<component>
+		<component-name>listbox</component-name>
+		<extends>listbox</extends>
+		<property>
+			<property-name>nonselectableTags</property-name>
+			<property-value>*</property-value>
+		</property>
+	</component>
+
+</language-addon>
