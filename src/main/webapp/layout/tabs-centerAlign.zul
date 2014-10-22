@@ -1,0 +1,50 @@
+<zk>
+	server approach: calculate padding tab's width. - use CCS "pointer-events: none" to disalbe tab
+	clicking
+	<tabbox width="100%" onClientInfo="centerMenubar(event)">
+		<tabs id="menuTabs" width="100%">
+			<tab id="startTab" style="pointer-events: none" />
+			<tab label="DEVICES" selected="true" />
+			<tab label="MONITORING" />
+			<tab label="LOGS AND REPORTS" />
+			<tab label="SUPPORT" />
+			<tab label="CUSTOMER PROFILE" />
+			<tab id="endTab" style="pointer-events: none" />
+		</tabs>
+	</tabbox>
+	<zscript><![CDATA[
+	public void centerMenubar(ClientInfoEvent event) {
+		int totalMenuWidth = 560;
+		int paddingWidth = (event.getDesktopWidth() - totalMenuWidth) / 2;
+		startTab.setWidth(paddingWidth + "px");
+		endTab.setWidth(paddingWidth + "px");
+	}
+]]>
+</zscript>
+	<separator bar="true" height="50px"></separator>
+	<style>.z-hlayout-inner{ border:1px solid #cfcfcf; }
+	</style>
+
+	hlayout with flex
+	<hlayout>
+		<div hflex="1" vflex="1"></div>
+		<div vflex="1">
+			<label value="DEVICES" />
+		</div>
+		<div vflex="1">
+			<label value="MONITORING" />
+		</div>
+		<div vflex="1">
+			<label value="LOGS AND REPORTS" />
+		</div>
+		<div vflex="1">
+			<label value="SUPPORT" />
+		</div>
+		<div vflex="1">
+			<label value="CUSTOMER PROFILE" />
+		</div>
+		<div hflex="1" vflex="1"></div>
+	</hlayout>
+</zk>
+
+

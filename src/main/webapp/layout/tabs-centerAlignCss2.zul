@@ -1,0 +1,26 @@
+<zk>
+  <style>
+    
+    ul.z-tabs-cnt {
+       text-align: center;
+    }
+    li.z-tab {
+       float: none;
+       display: inline-block;
+    }
+  </style>
+  <tabbox width="100%">
+    <tabs>
+    	<tab label="DEVICES" />
+    	<tab label="MONITORING" />
+    	<tab label="LOGS AND REPORTS" />
+    	<tab label="SUPPORT" />
+    	<tab label="CUSTOMER PROFILE" />
+    </tabs>
+    <tabpanels>
+      <tabpanel/>
+      <tabpanel/>
+      <tabpanel/>
+    </tabpanels>
+  </tabbox>
+</zk>

@@ -1,0 +1,40 @@
+<zk>
+<style>
+.z-tabs .z-tabs-cnt {
+	width: auto;
+	margin-left:auto;
+	margin-right:auto;
+	display: table;
+}
+
+.z-tabs{
+	margin-bottom: -1px;
+	z-index: 1;
+}
+
+.z-tabpanels{
+	border-top: 1px solid #cfcfcf;
+}
+</style>
+CSS customization
+
+	<tabbox>
+		<tabs>
+			<tab label="DEVICES" />
+			<tab label="MONITORING" />
+			<tab label="LOGS AND REPORTS" />
+			<tab label="SUPPORT" />
+			<tab label="CUSTOMER PROFILE" />
+		</tabs>
+		<tabpanels>
+			<tabpanel>DEVICES</tabpanel>
+			<tabpanel>MONITORING</tabpanel>
+			<tabpanel>LOGS AND REPORTS</tabpanel>
+			<tabpanel>SUPPORT</tabpanel>
+			<tabpanel>CUSTOMER PROFILE</tabpanel>
+		</tabpanels>
+	</tabbox>
+
+</zk>
+
+
