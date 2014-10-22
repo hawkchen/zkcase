@@ -18,12 +18,12 @@
 
 
 
+<!-- 
 	<library-property>
 		<name>org.zkoss.util.logging.config.file</name>
 		<value>/log4j.properties</value>
 	</library-property>
 
-<!-- 
 <language-config>
     <addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
 </language-config>	
