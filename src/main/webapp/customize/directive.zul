@@ -1,0 +1,24 @@
+<? component name="listbox" extends="listbox" nonselectableTags="*" ?>
+<zk>
+http://books.zkoss.org/wiki/ZUML_Reference/ZUML/Processing_Instructions/component
+<listbox >
+	<listhead><listheader> test</listheader></listhead>
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><a href="http://www.zkoss.org">www.zkoss.org</a></listcell></listitem>
+    <listitem><listcell><label>looooongtext_without_space</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext2</label></listcell></listitem>
+    <listitem><listcell><label>looooong text3</label></listcell></listitem>
+</listbox>
+
+<listbox >
+	<listhead><listheader>default no nonselectableTags specified</listheader></listhead>
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><button label="button"/></listcell></listitem>
+    <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
+    <listitem><listcell><a href="http://www.zkoss.org">www.zkoss.org</a></listcell></listitem>
+    <listitem ><listcell><label>looooongtext</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext2</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext3</label></listcell></listitem>
+</listbox>
+
+</zk>
