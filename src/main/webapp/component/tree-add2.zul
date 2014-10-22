@@ -1,0 +1,37 @@
+<?page title="tree" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<tree id="tree1" width="400px" />
+
+	<button id="add" label="Add" onClick="add()"></button>
+	<zscript><![CDATA[
+	import java.util.Calendar;
+	import support.component.*;
+	
+	support.component.MyTreeModel model;
+	List children = new LinkedList();
+	children.add(new MyTreeNode("1st", new LinkedList()));
+	MyTreeNode root = new MyTreeNode("root", children);
+	
+	public void init() {
+		model = new support.component.MyTreeModel(root);
+		tree1.setModel(model);
+	}
+	public void initEmptyAsLeaf() {
+		model = new support.component.MyTreeModel(root, true);
+		tree1.setModel(model);
+	}
+	public void add() {
+		List children = new LinkedList();
+		MyTreeNode node = new MyTreeNode(Calendar.getInstance().getTime(),
+				children);
+		MyTreeNode parent = model.getSelection().iterator().next();
+		int index = parent.getChildCount(); // before add a node
+		parent.add(node);
+		model.fireEvent(org.zkoss.zul.event.TreeDataEvent.INTERVAL_ADDED,
+				model.getPath(parent), index, index);
+	}
+	
+	
+	initEmptyAsLeaf();
+]]></zscript>
+</zk>
