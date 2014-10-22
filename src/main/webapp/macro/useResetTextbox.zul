@@ -1,0 +1,5 @@
+<?component name="resettextbox" macroURI="/macro/resetTextbox.zul"
+   class="support.component.ResetTextbox" ?>
+<zk>
+<resettextbox hflex="1" />
+</zk>
