@@ -9,6 +9,7 @@
        display: inline-block;
     }
   </style>
+  <separator height="40px"/>
   <tabbox width="100%">
     <tabs>
     	<tab label="DEVICES" />
