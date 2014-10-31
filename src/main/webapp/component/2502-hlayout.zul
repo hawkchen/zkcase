@@ -1,0 +1,47 @@
+<zk>
+      <style>
+        .test{
+       	 font-size: 11px;
+        }
+      </style>	
+    
+    <vlayout >
+      Vlayout
+        <listbox multiple="true" mold="select" zclass="test" rows="5" >
+          <listitem label="test1"/>
+          <listitem label="test2"/>
+          <listitem label="test3"/>
+          <listitem label="test4"/>
+          <listitem label="test5"/>
+          <listitem label="test6"/>
+        </listbox>
+    </vlayout>
+    <!--
+    
+    <separator/>    
+    <vbox>
+      Vbox
+        <listbox multiple="true" mold="select" zclass="test">
+          <listitem label="test1"/>
+                <listitem label="test2"/>
+        </listbox>
+    </vbox>
+    <separator/>    
+
+    <hlayout>
+      Hlayout
+        <listbox multiple="true" mold="select" zclass="test">
+          <listitem label="test1"/>
+                <listitem label="test2"/>
+        </listbox>
+    </hlayout>
+    <separator/>
+    <hbox>
+      	Hbox
+        <listbox multiple="true" mold="select" zclass="test">
+          <listitem label="test1"/>
+                <listitem label="test2"/>
+        </listbox>
+     </hbox>
+      -->
+</zk>
