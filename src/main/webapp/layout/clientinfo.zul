@@ -1,0 +1,21 @@
+<zk>
+	<tabbox width="100%" onClientInfo="handler(event)" >
+		<tabs id="menuTabs" width="100%">
+			<tab id="startTab" style="pointer-events: none" />
+			<tab label="DEVICES" selected="true" />
+			<tab label="MONITORING" />
+			<tab label="LOGS AND REPORTS" />
+			<tab label="SUPPORT" />
+			<tab label="CUSTOMER PROFILE" />
+			<tab id="endTab" style="pointer-events: none" />
+		</tabs>
+	</tabbox>
+	<zscript><![CDATA[
+public void handler(ClientInfoEvent e){
+	
+}
+	]]>
+	</zscript>
+</zk>
+
+
