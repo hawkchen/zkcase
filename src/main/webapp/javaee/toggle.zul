@@ -1,0 +1,10 @@
+<zk>
+	<button id="startWizard" label="toggle visibility" onClick="wizard.setVisible(!wizard.isVisible())"/>
+	<window id="wizard" title="wizard" border="normal" visible="false" >
+		<vlayout>
+			<textbox/>
+			<textbox/>
+			<textbox/>
+		</vlayout>
+	</window>
+</zk>  
