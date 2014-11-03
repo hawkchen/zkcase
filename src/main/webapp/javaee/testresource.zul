@@ -1,0 +1,4 @@
+<zk>
+	<label value="hello from zk resource"/>
+	<image src="/testresource.png"/>
+</zk>
