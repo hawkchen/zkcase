@@ -1,0 +1,10 @@
+<zk>
+<?component name="barcodebox" macroURI="barcodebox.zul" class="support.macro.Barcodebox"?>
+	<div apply="support.macro.UseMacroComposer">
+		<button id="openButton" label="open barcodebox"></button>
+		<separator />
+		Barcode is
+		<label id="barcodeLabel"/>
+		<barcodebox/>
+	</div>
+</zk>

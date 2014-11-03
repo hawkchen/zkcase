@@ -1,0 +1,14 @@
+<zk>
+	<window border="normal" mode="modal" visible="false">
+		<caption label="Question" iconSclass="z-icon-question-circle" style="font-size:20px" />
+		Mold Barcode
+		<textbox />
+		<separator spacing="15px" bar="true"/>
+		<hbox pack="center" width="100%">
+			<button id="cancelBtn">Cancel</button>
+			<button id="okBtn" label="OK" />
+		</hbox>
+	</window>
+	<!--  
+	-->
+</zk>
