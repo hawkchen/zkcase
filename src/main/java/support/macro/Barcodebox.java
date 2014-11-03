@@ -29,6 +29,7 @@ public class Barcodebox extends HtmlMacroComponent  {
 	@Listen("onClick = window #okBtn")
 	public void ok(){
 		setVisible(false);
+		//you can use any event name you like
 		Events.postEvent("onOK", this, textbox.getValue());
 	}
 	
