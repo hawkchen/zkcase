@@ -1,0 +1,65 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="msgDlg" border="normal" width="600px" height="600px"
+		apply="support.event.Desktop1" closable="true" sizable="true">
+		Desktop1
+		<separator />
+		<button id="btn1" width="80px" forward="onClick=onOK"
+			label="ok" />
+		<separator />
+		<button id="open" width="80px" onClick="openWin()"
+			label="open desktop2" />
+	</window>
+	<zscript>
+	void openWin() {
+		Window win = (Window) Executions.createComponents("desktop2.zul", null,
+				null);
+		if (win.getDesktop() != null) {
+			win.setPosition("center,center");
+			win.doOverlapped();
+		}
+	}
+</zscript>
+<script type="text/javascript">
+<![CDATA[
+//log au request         
+     zk.afterLoad(function() {
+    	 var $xhr = zAu.ajaxSettings.xhr;
+         zAu.ajaxSettings.xhr = function() {
+             var xhReq = $xhr.apply(this, arguments);
+             var $send = xhReq.send;
+             xhReq.send = function() {
+				 //print request data when sending             
+            	 zk.log("send:");
+	             zk.log(decodeURI(arguments[0]));
+	             $send.apply(xhReq, arguments);
+              	 var sentArgs = arguments;
+              	 
+	             var $onreadystatechange = xhReq.onreadystatechange;
+	             xhReq.onreadystatechange = function() {
+	            	 var STATUS_CODE_OK = 200;
+	            	 if (xhReq.status != STATUS_CODE_OK){
+	            		//print request data when response status is not ok 
+		            	 zk.log("onreadystatechange:");
+			             zk.log(decodeURI(sentArgs[0]));
+			             zk.log(xhReq.responseXML);
+			             zk.log(xhReq.statusText);
+	            	 }
+		             $onreadystatechange.apply(xhReq, arguments);
+	             }
+             }
+             
+             xhReq.ontimeout = function(){
+            	 zk.log("ontimeout:");
+            	 zk.log(xhReq.timeout);
+             }
+             
+    
+             return xhReq;
+         }
+     });
+  ]]>
+</script>
+</zk>
+
+
