@@ -1,0 +1,18 @@
+<zk>
+<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.component.BandboxVM')">
+    <bandbox id="bd" mold="rounded" autodrop="true" value="@bind(vm.inputValue)">  
+        <bandpopup>
+            <listbox height="250px" width="450px" mold="paging" autopaging="true"
+                model="@load(vm.languages)">
+                <listhead>
+                    <listheader label="Programming Languages" />
+                </listhead>
+                <template name="model">
+                <listitem label="${each}" />
+                </template>
+            </listbox>
+        </bandpopup>
+    </bandbox>
+    <button onClick="@command('add')" >Add</button>
+</div>    
+</zk>

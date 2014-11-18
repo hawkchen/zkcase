@@ -17,6 +17,118 @@
             </hbox>
         </panelchildren>
     </panel>
+	<script type="text/javascript" ><![CDATA[
+		zk.afterLoad('zul.box', function() {
+		    var old = {};
+		    var endDragFix = function(draggable) {
+				var wgt = draggable.control,
+					vert = wgt.isVertical(),
+					node = wgt.$n(),
+					Splitter = zul.box.Splitter,
+					flInfo = Splitter._fixLayout(wgt),
+					bfcolps = 'before' == wgt.getCollapse(),
+					run = draggable.run, diff, fd, w;
+
+				if (vert) {
+					diff = run.z_point[1];
+					fd = 'height';
+
+					//We adjust height of TD if vert
+					if (run.next && run.next.cells.length) run.next = run.next.cells[0];
+					if (run.prev && run.prev.cells.length) run.prev = run.prev.cells[0];
+				} else {
+					diff = run.z_point[0];
+					fd = 'width';
+				}
+				//B70-ZK-2514: make runNext always the same block with the dragging direction, ex. drag to up, up is runNext
+				var runNext = run.next, runPrev = run.prev;
+				if (diff < 0) {
+					runNext = run.prev;
+					runPrev = run.next;
+					diff = -diff;
+					bfcolps = !bfcolps;
+				}
+				
+				if (!diff) return; //nothing to do
+
+				if (w = run.nextwgt) zWatch.fireDown('beforeSize', w);
+				if (w = run.prevwgt) zWatch.fireDown('beforeSize', w);
+				
+				//B70-ZK-2514: assign fd to each block separately and count on clientFd in the end
+				if (runNext && runPrev) {
+					var s = zk.parseInt(runNext.style[fd]),
+						s2 = zk.parseInt(runPrev.style[fd]),
+						totalFd = s + s2;
+					
+					s -= diff;
+					if (s < 0) s = 0;
+					var minusS = totalFd - s;
+					runNext.style[fd] = s + 'px';
+					runPrev.style[fd] = minusS + 'px';
+					var nextClientFd = runNext['client' + fd.charAt(0).toUpperCase() + fd.slice(1)];
+					var prevClientFd = totalFd - nextClientFd;
+					if (nextClientFd != s)
+						runNext.style[fd] = nextClientFd + 'px'; //count on clientFd
+					if (prevClientFd != minusS)
+						runPrev.style[fd] = prevClientFd + 'px'; //count on clientFd
+					
+					if (!bfcolps) 
+						runNext.style.overflow = 'hidden';
+					else
+						runPrev.style.overflow = 'hidden';
+				}
+
+				if (w = run.nextwgt)
+					zUtl.fireSized(w, -1); //no beforeSize
+				if (w = run.prevwgt)
+					zUtl.fireSized(w, -1); //no beforeSize
+
+				Splitter._unfixLayout(flInfo);
+					//Stange (not know the cause yet): we have to put it
+					//befor _fixszAll and after onSize
+
+				wgt._fixszAll();
+					//fix all splitter's size because table might be with %
+				draggable.run = null;//free memory
+			};
+			
+			zk.override(zul.box.Splitter.prototype, old, {
+			    bind_: function() {
+					//old.bind_.apply(this, arguments);
+					this.$supers(zul.box.Splitter, 'bind_', arguments);
+					
+					var box = this.parent;
+					if (box && !box._splitterKid) box._bindWatch();
+					
+					zWatch.listen({onSize: this, beforeSize: this});
+					
+					this._fixDomClass();
+						//Bug 1921830: if spiltter is invalidated...
+					
+					var node = this.$n(),
+						Splitter = this.$class;
+					
+					if (!this.$weave) {
+						var $btn = jq(this.$n('btn'));
+						$btn.click(Splitter.onclick);
+					}
+					
+					this._fixbtn();
+					this._drag = new zk.Draggable(this, node, {
+						constraint: this.getOrient(), 
+						ignoredrag: Splitter._ignoresizing,
+						ghosting: Splitter._ghostsizing, 
+						overlay: true, 
+						zIndex: 12000,
+						initSensitivity: 0,
+						snap: Splitter._snap, 
+						endeffect: endDragFix});
+					this._shallClose = !this._open;
+				}
+			});
+		});
+		]]>
+	</script>
     <zscript><![CDATA[
 		public void print(AfterSizeEvent e){
 			String message = msg.getValue();
