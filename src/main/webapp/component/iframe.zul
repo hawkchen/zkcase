@@ -1,0 +1,16 @@
+<zk>
+	<button onClick="show()" label="show"/>
+		<iframe id="iframe" ></iframe>
+	<zscript><![CDATA[
+	import org.zkoss.util.media.*;
+	import java.io.*;
+	String data = "<html><body>test</body></html>";
+//		Media media = new AMedia(null, null, null, new org.zkoss.io.FileReader(
+//				application.getRealPath("/component") + "/EventHandling.html", null));
+Media media = new AMedia(null, null, "text/html", data);
+		iframe.setContent(media);
+	public void show() {
+	}
+]]>
+	</zscript>
+</zk>

@@ -1,0 +1,47 @@
+<zk>
+<!-- 
+  <style>
+    .ie8 span.z-upload, .ie9 span.z-upload, .ie10 span.z-upload { display:inline-block; }
+    .ie8 span.z-upload input, .ie9 span.z-upload input, .ie10 span.z-upload input { z-index: 1; }
+  </style>
+<button id="upload" label="upload"  />
+ -->
+
+<div apply="support.component.UploadComposer">
+<button id="uploadBtn" label="browse" upload="true, native" tabindex="9"/>
+<button id="uploadBtn2" label="Upload"/>
+<image id="image" />
+</div>
+
+<!-- 
+    <vbox>
+       <button label="Upload">
+            <attribute name="onClick">
+                Fileupload.get(new EventListener(){
+                    public void onEvent(UploadEvent event) {
+                        org.zkoss.util.media.Media media = event.getMedia();
+                        if (media instanceof org.zkoss.image.Image) {
+                            org.zkoss.image.Image img = (org.zkoss.image.Image) media;
+                            if (img.getWidth() > img.getHeight()){
+                                if (img.getHeight() > 300) {
+//                                    pics.setHeight("300px");
+//                                    pics.setWidth(img.getWidth() * 300 / img.getHeight() + "px");
+                                }
+                            }
+                            if (img.getHeight() > img.getWidth()){
+                                if (img.getWidth() > 400) {
+//                                    pics.setWidth("400px");
+//                                    pics.setHeight(img.getHeight() * 400 / img.getWidth() + "px");
+                                }
+                            }
+                            image.setContent(img);
+                        } else {
+                            Messagebox.show("Not an image: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
+                        }
+                    }
+                });
+            </attribute>
+        </button>
+    </vbox>
+ -->
+</zk>

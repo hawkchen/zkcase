@@ -1,0 +1,14 @@
+<zk xmlns:w="client">
+<!-- 
+<custom-attributes org.zkoss.zul.listbox.selectOnHighlight.disabled="true"/>
+ -->
+<listbox >
+	<listhead><listheader> </listheader></listhead>
+    <listitem><listcell><textbox/></listcell></listitem>
+    <listitem><listcell><a href="http://www.zkoss.org">www.zkoss.org</a></listcell></listitem>
+    <listitem><listcell><label>looooongtext_without_space</label></listcell></listitem>
+    <listitem><listcell><label>looooongtext2</label></listcell></listitem>
+    <listitem><listcell><label>looooong text3</label></listcell></listitem>
+</listbox>
+
+</zk>

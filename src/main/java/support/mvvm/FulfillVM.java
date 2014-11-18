@@ -50,4 +50,9 @@ public class FulfillVM {
 	public void render(@BindingParam("target") Component target){
 		Events.postEvent("onInitRender", target, null);
 	}
+	
+	@GlobalCommand
+	public void gcmd(){
+		System.out.println("gcmd" + this);
+	}
 }
