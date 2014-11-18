@@ -1,7 +1,9 @@
 <zk>
 require jetty 8 that supports webfragment spec
 	<image src="/testresource.png"/>
-	<include src="/testresource.zul"/>
+	<!-- 
+	 -->
+	<include mode="defer" src="/testresource.zul"/>
 	<include src="/fragment.jsp"/>
 	<include src="/fragmentInFolder.jsp"/>
 	<button label="test event" onClick="hello()"/>
