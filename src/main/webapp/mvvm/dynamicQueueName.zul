@@ -1,0 +1,22 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+
+<zk>
+	<tabbox>
+		<tabs>
+			<tab>111</tab>
+			<tab>222</tab>
+		</tabs>
+		<tabpanels>
+			<tabpanel apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('support.mvvm.FulfillVM')"
+			binder="@init(queueName=c:cat('queue-',self.uuid))">
+			111
+    <button onClick="@global-command('gcmd')">gcmd</button>
+    </tabpanel>
+    			<tabpanel apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('support.mvvm.FulfillVM')"
+    binder="@init(queueName=c:cat('queue-',self.uuid))">
+    111
+    <button onClick="@global-command('gcmd')">gcmd</button>
+    </tabpanel>
+		</tabpanels>
+	</tabbox>
+</zk>
