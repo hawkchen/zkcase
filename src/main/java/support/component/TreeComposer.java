@@ -46,5 +46,6 @@ public class TreeComposer extends SelectorComposer<Component> {
 		//fire yourself because DefaultTreeModel only fire events for DefaultTreeModel
 		model.fireEvent(org.zkoss.zul.event.TreeDataEvent.INTERVAL_ADDED,
 				model.getPath(parent), index, index);
+		
 	}
 }

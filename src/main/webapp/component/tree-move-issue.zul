@@ -1,120 +1,51 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window title="new page title" border="normal">
-		<tree id="tree1" height="150px" zclass="z-dottree"
-			onSelect= "sel()" >
-				<treechildren>
-					 <treeitem>
-            <treerow>
-                <treecell label="Item 1"/>
-            </treerow>
-        </treeitem>
-        <treeitem>
-            <treerow>
-                <treecell label="Item 2"/>
-            </treerow>
-            <treechildren>
-                <treeitem>
-                    <treerow>
-                        <treecell label="Item 2.1"/>
-                    </treerow>
-                    <treechildren>
-                        <treeitem>
-                            <treerow>
-                                <treecell label="Item 2.1.1"/>
-                            </treerow>
-                        </treeitem>
-                        <treeitem>
-                            <treerow>
-                                <treecell label="Item 2.1.2"/>
-                            </treerow>
-                        </treeitem>
-                    </treechildren>
-                </treeitem>
-                <treeitem>
-                    <treerow>
-                        <treecell label="Item 2.2"/>
-                    </treerow>
-                </treeitem>
-            </treechildren>
-        </treeitem>
-        <treeitem label="Item 3"/>				</treechildren>
-			</tree>
-		<vbox>
-			<button id="btnUp" 
-				label="up" onClick="up()" />
-			<button id="btnDown"
-				label="down" onClick="down()" />
-		</vbox>
-		<zscript>
-		<![CDATA[
-	 void sel() {
-		Treeitem item = tree1.getSelectedItem();
-		if (item != null) {
-
-			//如果是上级的非第一个子，则设置 上移
-			List aryChildren = item.getParent().getChildren();
-			int index = aryChildren.indexOf(item);
-			if (index > 0) {
-				btnUp.setDisabled(false);
-			} else {
-				btnUp.setDisabled(true);
-			}
-			//如果是上级的非最后一个子，则设置 下移
-			if (index < aryChildren.size() - 1) {
-				btnDown.setDisabled(false);
-			} else {
-				btnDown.setDisabled(true);
-			}
-		}
-	}
-	 void up()  {
-		Treeitem	item = tree1.getSelectedItem();
-		if( item != null ){
-			
-		 //    int index = item.getIndex();
-		   //  if (index == 0 || index < 0)
-		  //          return;
-		  //   tree1.getTreechildren().getChildren().remove(item);
-		 //    tree1.getTreechildren().getChildren().add(--index, item);
-		 //    tree1.addItemToSelection(item);
-			
-			Treechildren	treeChildren = (Treechildren)item.getParent();
-			List	aryChildren = treeChildren.getChildren();
-			int				index = aryChildren.indexOf(item);
-			Treeitem		slibe = (Treeitem)aryChildren.get(index-1);
-			treeChildren.removeChild(item);
-			treeChildren.insertBefore(item, slibe);
-			if( index == 1){
-				btnUp.setDisabled(true);
-			}
-			btnDown.setDisabled(false);
-		}
-
-	}
-	
-	 void down(){
-		Treeitem	item = tree1.getSelectedItem();
-		if( item != null ){
-			Treechildren	treeChildren = (Treechildren)item.getParent();
-			List	aryChildren = treeChildren.getChildren();
-			int				index = aryChildren.indexOf(item);
-			if( index < aryChildren.size() -2){
-				Treeitem		slibe = (Treeitem)aryChildren.get(index+2);
-				treeChildren.removeChild(item);
-				treeChildren.insertBefore(item, slibe);
-			}else{
-				treeChildren.removeChild(item);
-				treeChildren.appendChild(item);
-				btnDown.setDisabled(true);
-			}
-			btnUp.setDisabled(false);
-		}
-		
-	}
-	
-]]>
-	</zscript>
+		<tree id="tree1" height="150px" zclass="z-dottree" >
+			<treechildren>
+				<treeitem >
+					<treerow>
+						<treecell label="Item 1" />
+					</treerow>
+				</treeitem>
+				<treeitem>
+					<treerow>
+						<treecell label="Item 2" />
+					</treerow>
+					<treechildren>
+						<treeitem>
+							<treerow>
+								<treecell label="Item 2.1" />
+							</treerow>
+							<treechildren>
+								<treeitem>
+									<treerow>
+										<treecell label="Item 2.1.1" />
+									</treerow>
+								</treeitem>
+								<treeitem>
+									<treerow>
+										<treecell label="Item 2.1.2" />
+									</treerow>
+								</treeitem>
+							</treechildren>
+						</treeitem>
+						<treeitem>
+							<treerow>
+								<treecell label="Item 2.2" />
+							</treerow>
+						</treeitem>
+					</treechildren>
+				</treeitem>
+				<treeitem label="Item 3" />
+			</treechildren>
+		</tree>
+		<button id="del" label="del" onClick="del()" />
+		<zscript><![CDATA[
+public void del(){
+	tree1.getSelectedItem().detach();
+}
+		]]></zscript>
 	</window>
-	
+
 </zk>

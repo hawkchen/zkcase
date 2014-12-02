@@ -2,4 +2,14 @@
 <window id="main" apply="support.component.ComboboxComposer">
 	<combobox id="cbox"></combobox>
 </window>
+<style>
+.mylabel{
+  font-size: 16px;
+}
+.mylabel .z-label{
+  font-size: 16px
+}
+</style>
+<label value="test" sclass="mylabel"></label>
+<label value="test" ></label>
 </zk>
