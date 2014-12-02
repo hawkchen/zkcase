@@ -1,0 +1,9 @@
+<?page title="tree" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<div apply="support.component.DefaultTreeComposer">
+		<tree id="tree1" width="400px" />
+
+		<button id="add" label="Add"/>
+		<button id="del" label="Del"/>
+	</div>
+</zk>

@@ -1,0 +1,85 @@
+<zk>
+	<custom-attributes org.zkoss.zul.listbox.rod="false" />
+	<listbox multiple="true" checkmark="true">
+		<listhead>
+			<listheader hflex="min" />
+			<listheader label="Name" />
+		</listhead>
+		<listitem>
+			<listcell />
+			<listcell label="David" />
+		</listitem>
+		<listitem checkable="false">
+			<listcell />
+			<listcell label="Thomas" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Lukas" />
+		</listitem>
+		<listitem checkable="false">
+			<listcell />
+			<listcell label="Jens" />
+		</listitem>
+	</listbox>
+    <script defer="true"><![CDATA[
+        zul.sel.SelectWidget.prototype.selectAll = function (notify, evt){
+			for (var it = this.getBodyWidgetIterator(), w; (w = it.next());)
+				if (!w.isDisabled() && w.isCheckable()){
+					this._changeSelect(w, true);
+				}
+			if (notify && evt !== true)
+				this.fireOnSelect(this.getSelectedItem(), evt);
+        }      
+        
+        zul.sel.SelectWidget.prototype._isAllSelected = function () {
+			//B70-ZK-1953: if selectedItems is empty return false.
+			if (!this._selItems.length)
+				return false;
+			var isGroupSelect = this.groupSelect;
+			for (var it = this.getBodyWidgetIterator({skipHidden:true}), w; (w = it.next());) {
+			    //ignore non-checkable
+			    if (!w.isCheckable()){
+			    	continue;
+			    }
+				//Bug ZK-1998: skip listgroup and listgroupfoot widget if groupSelect is false
+				if ((_isListgroup(w) || _isListgroupfoot(w)) && !isGroupSelect)
+					continue;
+				if (!w.isDisabled() && !w.isSelected())
+					return false;
+			}
+			return true;
+		}
+        
+    	function _isListgroup(w) {
+    		return zk.isLoaded('zkex.sel') && w.$instanceof(zkex.sel.Listgroup);
+    	}
+    	function _isListgroupfoot(w) {
+    		return zk.isLoaded('zkex.sel') && w.$instanceof(zkex.sel.Listgroupfoot);
+    	}
+    ]]></script>
+	<!-- 
+	 -->
+	<listbox multiple="true" >
+		<listhead>
+			<listheader hflex="min" />
+			<listheader label="Name" />
+		</listhead>
+		<listitem>
+			<listcell />
+			<listcell label="David" />
+		</listitem>
+		<listitem checkable="false">
+			<listcell />
+			<listcell label="Thomas" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Lukas" />
+		</listitem>
+		<listitem >
+			<listcell />
+			<listcell label="Jens" />
+		</listitem>
+	</listbox>    
+</zk>

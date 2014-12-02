@@ -1,0 +1,29 @@
+<window title="new page title" border="normal" apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('support.mvvm.EventCommand')"
+	onSelectEntry="@command('entrySelected2')"
+	onSelectEntryGlobal="@command('globalSelected')">
+	forward to a command
+	<listbox model="@load(vm.model)" selectedItem="@save(vm.selectedEntry, before='entrySelected2')@load(vm.selectedEntry)"
+		forward="onSelect=onSelectEntry">
+		<listhead>
+			<listheader label="Letter" width="110px"/>
+		</listhead>
+		<template name="model" var="entry">
+			<listitem value="@load(entry)">
+				<listcell label="@load(entry)" />
+			</listitem>
+		</template>
+	</listbox>
+	forward to command that call global command
+	<listbox model="@load(vm.model)" selectedItem="@save(vm.selectedEntry, before='globalSelected')@load(vm.selectedEntry)"
+		forward="onSelect=onSelectEntryGlobal">
+		<listhead>
+			<listheader label="Letter" width="110px"/>
+		</listhead>
+		<template name="model" var="entry">
+			<listitem value="@load(entry)" >
+				<listcell label="@load(entry)" />
+			</listitem>
+		</template>
+	</listbox>
+</window>
