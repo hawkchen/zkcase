@@ -1,0 +1,49 @@
+<zk>
+  	<custom-attributes org.zkoss.zul.listbox.rod="true"/>
+  	<window id="win" height="100%" apply="support.component.MenuPopupComposer">
+  	<listbox>
+  		<listhead>
+  			<listheader>test</listheader>
+  			<listheader>test</listheader>
+  			<listheader>test</listheader>
+  			<listheader>test</listheader>
+  		</listhead>
+  	</listbox>
+  	<menupopup id="contextMenu">
+  	<menuitem label="Show Holds / Permissions" id="CAP_UNIT_STATUS"/>
+  	<menuitem label="Show History" id="CAP_UNIT_HISTORY"/>
+  	<menuitem label="Query Charges" id="CAP_SHOW_UNIT_QUERY_CHARGES"/>
+  	<menuitem label="Guarantees" id="CAP_UNIT_GUARANTEE_VIEW"/>
+  	<menuitem label="Check Unit Availability" id="INV_UNIT_CHECK_AVAILABILITY_DETAILS"/>
+  	<menuitem label="Check Availability" id="INV_UNIT_CHECK_AVAILABILITY"/>
+  	<menuitem label="View Appointment(s)" id="CAP_UNIT_APPOINTMENT_VIEW"/>
+  	<menuitem label="Create Notice Request" id="ARG_CREATE_NOTICE_REQUEST"/>
+  	<menuitem label="View Notice Request(s)" id="ARG_VIEW_NOTICE_REQUEST"/>
+  	</menupopup>
+  	</window>
+<script type="text/javascript" defer="true"><![CDATA[
+
+		/*
+	zul.wgt.Popup.prototype.afterCloseAnima_ = function (opts) {
+		this.setVisible(false);
+		
+		var node = this.$n();
+		zk(node).undoVParent();
+		zWatch.fireDown('onVParent', this);
+
+		this.setFloating_(false);
+		if (opts && opts.sendOnOpen)
+			this.fire('onOpen', {open:false});
+		if (zk.ie < 11) { // re-create dom element to remove :hover state style
+			var that = this;
+			setTimeout(function() {
+				that.replaceHTML(node); // see also ZK-1216, ZK-1124, ZK-318
+			}, 1);
+		}
+		//this.replaceHTML(node); 
+		//remove extra CSS class
+		jq(node).removeClass(this.$s('open'));
+	}
+		*/
+	]]></script>
+</zk>
