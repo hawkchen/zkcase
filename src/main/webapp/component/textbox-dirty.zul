@@ -1,0 +1,11 @@
+<zk>
+<style>
+.dirty{
+border: solid 1px red;
+}
+</style>              
+<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.component.TextboxDirtyVM')">
+    <textbox value="@bind(vm.value)" instant="true" onChange="@command('dirtyCheck')" sclass="@load(vm.statusStyle)"></textbox>
+</div>                             
+</zk>
+       
