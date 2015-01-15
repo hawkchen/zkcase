@@ -1,0 +1,22 @@
+<zk>
+<window apply="support.javaee.PropertyBundleComposer">
+${labels.path}
+${labels.prop1}
+${labels.great}
+${labels.nice}
+<!-- 
+${labels.dbpath}
+${labels.a}
+ <button onClick="msg()">message</button>
+ -->
+ <zscript><![CDATA[
+                   import org.zkoss.mesg.*;
+//public void msg(){                   
+//	Messagebox.show("test");
+//}
+////String msg = Messages.get(123);
+ ]]>
+ </zscript>
+ ${msg}
+</window>
+</zk>
