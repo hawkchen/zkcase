@@ -1,0 +1,17 @@
+<zk>
+
+<script><![CDATA[
+//zk.loadScript('/zkcase/myscript.js', 'myscript');
+//zk.loadScript('http://ende.de/test.js', 'myscript');
+//console.log('at loading: '+myVar);
+/*
+zk.afterLoad(function(){
+	console.log('after loading: '+myVar);	
+});
+*/
+zk.afterLoad('myscript',function(){
+	console.log('after loading: '+myVar);	
+});
+]]></script>
+
+</zk>
