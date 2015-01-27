@@ -1,0 +1,39 @@
+<zk>
+<!-- 
+<style>
+.z-listitem:hover>.z-listcell{
+background: white;
+}
+</style>
+ -->
+<listbox>
+	<listhead>
+		<listheader label="" />
+		<listheader label="" />
+	</listhead>
+
+	<listitem>
+		<listcell label="">
+			<groupbox>groupbox</groupbox>
+		</listcell>
+		<listcell label="">
+			<textbox value="hello" />
+		</listcell>
+	</listitem>
+
+	<listitem>
+		<listcell label="">
+			<textbox value="hello" />
+		</listcell>
+		<listcell label="">
+			<textbox value="hello" />
+		</listcell>
+	</listitem>
+	<listitem>
+		<listcell label="test">
+		</listcell>
+		<listcell label="test">
+		</listcell>
+	</listitem>
+</listbox>
+</zk>
