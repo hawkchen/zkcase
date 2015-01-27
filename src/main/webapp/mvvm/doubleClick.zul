@@ -1,0 +1,17 @@
+<zk>
+<!-- 
+ -->
+<listbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.DooubleClickVM')"
+onSelect="@command('cmd1')">
+	<listitem>
+		<listcell label="name" onClick="@command('cmd1')" onDoubleClick="@command('cmd2')" />
+		<listcell label="value"  onDoubleClick="@command('cmd2')" />
+	</listitem>
+	<listitem>
+		<listcell label="name2" onClick="@command('cmd1')" onDoubleClick="@command('cmd2')" />
+		<listcell label="value2"  onDoubleClick="@command('cmd2')" />
+	</listitem>	
+</listbox>
+
+<label onClick="" >test</label>
+</zk>
