@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?page id="mypage" ?>
+<window id="mywindow" border="none" apply="support.component.tree.TestComposer" height="800px">
+
+	<style>
+		.green_class {
+			background: #00FF00;
+		}
+		.red_class {
+			background: #FF0000;
+		}
+		.white_class {
+			background: #FFFFFF;
+		}
+	</style>
+	<tabbox vflex="1" id="myTab">
+		<tabs>
+			<tab label="A" id="tab_a"/>
+			<!-- 
+			<tab label="B" id="tab_b" />
+			<tab label="C" id="tab_c"/>
+			 -->
+		</tabs>
+		<tabpanels vflex="1">
+			<tabpanel id="tabp_a" >
+				<tree id="myTreeA" mold="paging" autopaging="true" vflex="1" hflex="1" sclass="test">
+					<treecols sizable="true">
+				        <treecol label="c0" id="c0A"  sortAscending="&#36;{cA0_asc}" sortDescending="&#36;{cA0_dsc}" style="font-size:x-small" hflex="2"  />
+				        <treecol label="c1" id="c1A"  sortAscending="&#36;{cA1_asc}" sortDescending="&#36;{cA1_dsc}" style="font-size:x-small" hflex="1" visible="false" />
+				        <treecol label="c2" id="c2A"  sortAscending="&#36;{cA2_asc}" sortDescending="&#36;{cA2_dsc}" style="font-size:x-small" hflex="1"  />
+				        <treecol label="c3" id="c3A"  sortAscending="&#36;{cA3_asc}" sortDescending="&#36;{cA3_dsc}" style="font-size:x-small" hflex="1"  />
+				        <treecol label="c4" id="c4A"  sortAscending="&#36;{cA4_asc}" sortDescending="&#36;{cA4_dsc}" style="font-size:x-small" hflex="1" visible="false" />
+				        <treecol label="X"  style="font-size:x-small" hflex="1" visible="false" />
+				        <treecol label="X"  style="font-size:x-small" hflex="1" visible="false" />
+				        <treecol label="X"  style="font-size:x-small" hflex="1" visible="false" />
+				        <treecol label="X"  style="font-size:x-small" hflex="1" visible="false" />
+				        <treecol label="X"  style="font-size:x-small" hflex="1" visible="false" />
+				        <treecol label="X"  style="font-size:x-small" hflex="1" visible="false" />
+					</treecols>	
+					<treechildren>
+			        </treechildren>
+				</tree>
+			</tabpanel>
+			<!-- 
+			<tabpanel id="tabp_b" >
+				<tree id="myTreeB" mold="paging" autopaging="true" vflex="1"  hflex="1" >
+					<treecols sizable="true">
+				        <treecol label="c0" id="c0B" sortAscending="&#36;{cA0_asc}" sortDescending="&#36;{cA0_dsc}" hflex="1"/>
+				        <treecol label="c1" id="c1B" sortAscending="&#36;{cA1_asc}" sortDescending="&#36;{cA1_dsc}" hflex="1"/>
+				        <treecol label="c2" id="c2B" sortAscending="&#36;{cA2_asc}" sortDescending="&#36;{cA2_dsc}" hflex="1"/>
+				        <treecol label="c3" id="c3B" sortAscending="&#36;{cA3_asc}" sortDescending="&#36;{cA3_dsc}" hflex="1"/>
+				        <treecol label="c4" id="c4B" sortAscending="&#36;{cA4_asc}" sortDescending="&#36;{cA4_dsc}" hflex="1"/>
+					</treecols>	
+					<treechildren>
+			        </treechildren>
+				</tree>
+			</tabpanel>
+			<tabpanel id="tabp_c" >
+				<tree id="myTreeC" mold="paging" autopaging="true" vflex="1" hflex="1" >
+					<treecols sizable="true">
+				        <treecol label="c0" id="c0C" sortAscending="&#36;{cA0_asc}" sortDescending="&#36;{cA0_dsc}" hflex="1"/>
+				        <treecol label="c1" id="c1C" sortAscending="&#36;{cA1_asc}" sortDescending="&#36;{cA1_dsc}" hflex="1"/>
+				        <treecol label="c2" id="c2C" sortAscending="&#36;{cA2_asc}" sortDescending="&#36;{cA2_dsc}" hflex="1"/>
+				        <treecol label="c3" id="c3C" sortAscending="&#36;{cA3_asc}" sortDescending="&#36;{cA3_dsc}" hflex="1"/>
+				        <treecol label="c4" id="c4C" sortAscending="&#36;{cA4_asc}" sortDescending="&#36;{cA4_dsc}" hflex="1"/>
+					</treecols>	
+					<treechildren>
+			        </treechildren>
+				</tree>
+			</tabpanel>
+			 -->
+		</tabpanels>
+	</tabbox>
+	<popup id="tooltipA" width="100px">
+        <html><![CDATA[
+            A
+        ]]></html>
+    </popup>
+	<popup id="tooltipB" width="100px">
+        <html><![CDATA[
+            B
+        ]]></html>
+    </popup>
+	
+</window>

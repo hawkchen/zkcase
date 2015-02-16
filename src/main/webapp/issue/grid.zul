@@ -1,0 +1,118 @@
+<zk>
+	<zscript><![CDATA[
+	List names = new ArrayList();
+	names.add("Jasmin");
+	names.add("David");
+	names.add("Richard");
+	names.add("Jean");
+	names.add("Norman");
+	names.add("Thomas");
+	names.add("Leonard");
+	names.add("Janine");
+	names.add("Daniel");
+	names.add("Michael");
+	names.add("Julia");
+	names.add("Vitali");
+	names.add("Katharina");
+	names.add("Marie");
+	names.add("Jenny");
+	names.add("Reinhard");
+	names.add("Christoph");
+	names.add("Heiko");
+	names.add("Ludwig");
+	names.add("Nico");
+	names.add("Rolf");
+	ListModelList model = new ListModelList(names);
+]]>
+</zscript>
+	<listbox model="${model}" rows="5" checkmark="true" width="200px">
+		<listhead>
+			<listheader  />
+			<listheader label="Name" width="100px"/>
+			<listheader label="Name 2" width="100px"/>
+		</listhead>
+		<template name="model">
+			<listitem >
+				<listcell />
+				<listcell label="${each}" />
+				<listcell label="${each}" />
+			</listitem>
+		</template>
+	</listbox>
+	
+	Listbox:
+	<listbox width="400px">
+		<listhead>
+			<listheader>question</listheader>
+			<listheader>response</listheader>
+		</listhead>	
+		<listitem>
+			<listcell>Field 1</listcell>
+			<listcell><checkbox/> </listcell>
+		</listitem>
+		<listitem>
+			<listcell>Field 2</listcell>
+			<listcell><textbox/> </listcell>
+		</listitem>
+		<listitem>
+			<listcell>Field 3</listcell>
+			<listcell> Nothing </listcell>
+		</listitem>
+		<listitem>
+			<listcell>Field 4</listcell>
+			<listcell>
+				<listbox>
+					<listhead>
+					<listheader>sub1</listheader>
+					<listheader>sub2</listheader>
+					</listhead>
+					<listitem >
+						<listcell>steve</listcell>
+						<listcell>north</listcell>
+					</listitem>
+					<listitem >
+						<listcell>ann</listcell>
+						<listcell>south</listcell>
+					</listitem>
+				</listbox>
+			</listcell>
+		</listitem>
+	</listbox>
+	Grid:
+	<grid width="400px">
+		<columns>
+			<column>question</column>
+			<column>response</column>
+		</columns>
+		<rows>
+			<row>
+				<cell>Field 1</cell>
+				<textbox></textbox>
+			</row>
+			<row>
+				Field 2
+				<listbox>
+					<listhead>
+					<listheader>sub1</listheader>
+					<listheader>sub2</listheader>
+					</listhead>
+					<listitem >
+						<listcell>steve</listcell>
+						<listcell>north</listcell>
+					</listitem>
+					<listitem >
+						<listcell>ann</listcell>
+						<listcell>south</listcell>
+					</listitem>
+				</listbox>
+			</row>
+		</rows>
+	</grid>	
+	<!-- 
+	<grid model="${model}" height="100px">
+		<template name="model">
+			<row>${each}</row>
+		</template>
+	</grid>
+	 -->
+</zk>

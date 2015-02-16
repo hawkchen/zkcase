@@ -1,0 +1,28 @@
+<!-- 7.0.1 -->
+<zk>
+	<combobox width="150px" >
+			<comboitem label="A1" value="A1" />
+			<comboitem label="B1" value="B1" />
+			<comboitem label="1A" value="1A" />
+			<comboitem label="2A" value="2A" />
+	</combobox>
+	
+	<combobox width="150px" readonly="true" >
+			<comboitem label="A1" value="A1" />
+			<comboitem label="B1" value="B1" />
+			<comboitem label="C1" value="C1" />
+			<comboitem label="1A" value="1A" />
+			<comboitem label="2A" value="2A" />
+	</combobox>
+	
+	<combobox  width="150px" readonly="true" >
+			<comboitem label="1A" value="1A" />
+			<comboitem label="2A" value="2A" />
+			<comboitem label="A1" value="A1" />
+			<comboitem label="B1" value="B1" />
+			<comboitem label="abc" value="abc" />
+	</combobox>	
+<zscript><![CDATA[
+                  
+]]></zscript>	
+</zk>
