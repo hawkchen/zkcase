@@ -1,0 +1,74 @@
+<zk>
+  <window id="win" border="normal" title="hello" >
+
+    	<vbox spacing="20px">
+    
+    	<vlayout>
+          <label value="Listitem.setSelected does not always work."/>
+          <label value="Click the button to repopulate the list."/>
+          <label value="Listitem B will not be selected"/>
+          <label value="See TestComposer.java for two possible workarounds"/>
+          <label value="The bug seems to exist in both 7.0.3 and 6.5.7"/>
+    	</vlayout>    
+  	    	
+	<button id="btn" label="Repopulate the list. Listitem B will not be selected anymore" onClick="clearSelect()"/>
+	<button onClick="insertBefore()" label="insert before"/>
+	<button onClick="appendChild()" label="appendchild"/>
+	<button onClick="add()" label="add"/>
+    
+    	<listbox id="listbox">
+          <listhead>
+            <listheader label="Test" />
+          </listhead>
+          <listitem label="A" selected="true"/>
+          <listitem label="B"  />
+          
+    	</listbox>
+    
+	  </vbox>
+    
+    <zscript><![CDATA[
+		public void add(){
+			Button b = new Button();
+			b.setLabel("label before attach");
+			b.setParent(win);
+		}
+		public void clearSelect(){
+	          
+          	listbox.getItems().clear();
+          
+          	// Workaround 1 - Adding listbox.invalidate() here will make the bug go away
+           	//listbox.invalidate();
+          
+          	listbox.appendChild(new Listitem("A"));
+          
+          	Listitem listitemB = new Listitem("B");
+
+          	// Workaround 2 - Making sure that listitem has parent before setting it as selected also works
+	        //listitemB.setParent(listbox);
+          
+          	listitemB.setSelected(true);          
+          	//listitemB.setParent(listbox);
+          	listbox.appendChild(listitemB);
+		}
+		public void appendChild(){
+          	//listbox.getItems().get(1).detach();
+       		listbox.getItems().clear();
+          	listbox.appendChild(new Listitem("A"));
+          	
+          	Listitem listitemB = new Listitem("B");
+          	listitemB.setSelected(true);          
+          	listbox.appendChild(listitemB);
+		}
+		
+		public void insertBefore(){
+//          	listbox.getItems().get(1).detach();
+       		listbox.getItems().clear();
+          	listbox.appendChild(new Listitem("A"));
+          	Listitem listitemB = new Listitem("B");
+          	listitemB.setSelected(true);          
+          	listbox.insertBefore(listitemB, null);
+		}		
+    ]]></zscript>
+  </window>
+</zk>
