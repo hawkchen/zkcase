@@ -1,0 +1,9 @@
+<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.FormNullVM')">
+	<div form="@id('fx2') @load(vm.site) @save(vm.site, before='save')">
+		<textbox
+			value="@bind(fx2.invoiceAddress.businessName) @converter(vm.nullConverter,  form=fx2)" />
+		<button onClick="@command('save')">Save</button>
+	</div>
+	<!-- 
+ -->
+</div>

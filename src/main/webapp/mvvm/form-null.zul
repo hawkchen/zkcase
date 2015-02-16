@@ -1,0 +1,37 @@
+<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.FormNullVM')"
+validationMessages="@id('vmsgs')">
+<!-- 
+	<div form="@id('fx') @load(vm.site) @save(vm.site, before='save') @validator('formBeanValidator',prefix='p_')" >
+		<div children="@load(1) @template(vm.invoiceAddressEnabled?'enable':'disable')">
+			<template name="enable">
+				<textbox value="@bind(fx.invoiceAddress.businessName) " />
+				<label value="@load(vmsgs['p_invoiceAddress.businessName'])"/> 
+			</template>
+			<template name="disable">
+				<textbox disabled="true" />
+			</template>
+		</div>
+		<checkbox checked="@bind(vm.invoiceAddressEnabled)"
+			onCheck="@command('toggleInvoiceAddress', form=fx)"/>
+		<textbox value="@bind(fx.url) " />
+		<label value="@load(vmsgs['p_url'])"/>
+		<button onClick="@command('save')">Save</button>
+	</div>
+ -->
+
+
+	<div form="@id('fx') @load(vm.site) @save(vm.site.invoiceAddress, before='save') @validator('formBeanValidator',prefix='p_')" >
+		<div children="@load(1) @template(vm.invoiceAddressEnabled?'enable':'disable')">
+			<template name="enable">
+				<textbox value="@bind(fx.businessName) " />
+				<label value="@load(vmsgs['p_businessName'])"/> 
+			</template>
+			<template name="disable">
+				<textbox disabled="true" />
+			</template>
+		</div>
+		<checkbox checked="@bind(vm.invoiceAddressEnabled)"
+			onCheck="@command('toggleInvoiceAddress', form=fx)"/>
+		<button onClick="@command('save')">Save</button>
+	</div> 
+</div>
