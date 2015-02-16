@@ -1,0 +1,11 @@
+<zk>
+<window>
+	<button onClick="get500()">500</button>
+	<zscript><![CDATA[
+	public void get500(){
+		Executions.getCurrent().getNativeResponse().sendError(500, "generated error");
+	}
+	
+	]]></zscript>
+</window>
+</zk>
