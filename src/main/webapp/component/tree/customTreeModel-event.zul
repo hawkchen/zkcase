@@ -1,0 +1,15 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('support.component.tree.TreeEventVM')">
+		<button onClick="@command('add')">add</button>
+		<tree model="@bind(vm.model)" selectedItem="@save(vm.selectedItem)">
+			<template name="model">
+				<treeitem>
+					<treerow>
+						<treecell label="@load(each)"></treecell>
+					</treerow>
+				</treeitem>
+			</template>
+		</tree>
+	</div>
+</zk>
