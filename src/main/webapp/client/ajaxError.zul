@@ -1,0 +1,17 @@
+<zk>
+	<window border="normal">
+		<button onClick="sendError()">response send error</button>
+		<button onClick="sleep(40000)">sleep 40 seconds</button>
+	</window>
+	<zscript><![CDATA[
+	import javax.servlet.http.*;
+	
+	public void sendError() throws java.io.IOException{
+		((HttpServletResponse)execution.getNativeResponse()).sendError(500, "my error message");
+	}
+	public void sleep(long milliseconds) throws InterruptedException{
+		Thread.sleep(milliseconds);
+	}
+]]>
+  </zscript>
+</zk>
