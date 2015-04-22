@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
-import org.zkoss.zkmax.zul.Filedownload;
+import org.zkoss.zul.Filedownload;
 
 public class DownloadComposer extends SelectorComposer {
 
