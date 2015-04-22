@@ -1,0 +1,6 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.InitVM')">
+	<label value="@load(vm.myargs)"/>
+		<button onClick="@command('newRisk')">open</button>
+	</div>
+</zk>

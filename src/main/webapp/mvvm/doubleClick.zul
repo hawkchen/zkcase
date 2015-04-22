@@ -1,17 +1,29 @@
 <zk>
 <!-- 
  -->
-<listbox apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.DooubleClickVM')"
-onSelect="@command('cmd1')">
+<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.mvvm.DooubleClickVM')">
+<listbox >
 	<listitem>
-		<listcell label="name" onClick="@command('cmd1')" onDoubleClick="@command('cmd2')" />
-		<listcell label="value"  onDoubleClick="@command('cmd2')" />
+		<listcell label="onclick onDoubleclick" onClick="@command('cmd1')" onDoubleClick="@command('cmd2')" />
+		<listcell label="chekcCmd1"  onClick="@command('checkCmd1')" />
 	</listitem>
 	<listitem>
-		<listcell label="name2" onClick="@command('cmd1')" onDoubleClick="@command('cmd2')" />
-		<listcell label="value2"  onDoubleClick="@command('cmd2')" />
+		<listcell label="onclick only" onClick="@command('cmd1')"/>
+		<listcell label="onclick messagebox"  onClick="@command('msg')" />
 	</listitem>	
+	<listitem>
+		<listcell label="show popup"  popup="mypp"/>
+		<listcell label="window popup" onClick="@command('pop', pop=winpop)"   />
+	</listitem>		
 </listbox>
 
-<label onClick="" >test</label>
+<label onClick="@command('msg')" >test</label>
+<label popup="mypp" >popup</label>
+<popup id="mypp" >
+	<label value="@load(vm.message)"/>
+</popup>
+<window id="winpop" mode="overlapped" visible="false"  title="Notice" closable="true" onClose="self.visible = false; event.stopPropagation();">
+window popup
+</window>
+</window>
 </zk>

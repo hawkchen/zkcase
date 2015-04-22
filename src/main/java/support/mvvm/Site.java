@@ -1,6 +1,6 @@
 package support.mvvm;
 
-import org.hibernate.validator.constraints.Length;
+//import org.hibernate.validator.constraints.Length;
 import org.zkoss.bind.*;
 import org.zkoss.zk.ui.Component;
 
@@ -16,7 +16,7 @@ public class Site{
 		this.invoiceAddress = invoiceAddress;
 	}
 
-	@Length(min=5)
+	//@Length(min=5)
 	public String getUrl() {
 		return url;
 	}
