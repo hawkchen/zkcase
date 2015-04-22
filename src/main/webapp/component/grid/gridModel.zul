@@ -1,0 +1,37 @@
+<zk>
+<zscript><![CDATA[
+	                  
+	ListModelList list = new ListModelList();
+	list.add("1");
+	list.add("2");
+	list.add("3");
+]]>
+</zscript>
+	<grid id="grid" model="${list}"  emptyMessage="empty" width="100%">
+		<columns>
+			<column>col1</column>
+			<column>col2</column>
+			<column>col3</column>
+		</columns>
+		<frozen columns="2"></frozen>
+		<template name="model">
+			<row >
+				<label value="${each}"></label>
+				<label value="${each}"></label>
+				<label value=""></label>
+			</row>
+		</template>
+	</grid>
+	<button onClick="add()">Add</button>
+<zscript><![CDATA[
+	      
+	
+	public void add(){
+		list.add(new Random().nextInt());
+		List rowChildren = grid.getRows().getChildren();
+		rowChildren.get(rowChildren.size()-1).appendChild(new Label("num"));
+		
+	}
+]]>	
+</zscript>
+</zk>

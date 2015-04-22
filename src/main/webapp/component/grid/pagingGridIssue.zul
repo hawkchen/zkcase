@@ -1,6 +1,6 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <!-- MVC example -->
-<vlayout apply="support.grid.PagingComposer">
+<vlayout apply="support.component.grid.PagingComposer">
 
 	<grid id="gridSaldiGiornalieri" emptyMessage="empty" width="100%">
 		<frozen columns="1" />

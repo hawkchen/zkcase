@@ -1,4 +1,4 @@
-package support.grid;
+package support.component.grid;
 
 import java.util.*;
 

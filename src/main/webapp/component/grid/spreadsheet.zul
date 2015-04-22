@@ -2,7 +2,7 @@
 <zk>
 	<include src="/zkVersion.zul"/>
 	<style src="/grid/style.css" />
-	<div apply="support.grid.SpreadsheetController" width="100%">
+	<div apply="support.component.grid.SpreadsheetController" width="100%">
 		<grid sclass="grid-spreadsheet" height="350px" width="100%"
 			model="${$composer.months}" mold="paging" pageSize="2">
 			<frozen style="background: #DFDED8" columns="1">

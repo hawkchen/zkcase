@@ -1,0 +1,9 @@
+<div apply="support.component.grid.PagingTextboxComposer" >
+	<combobox id="choiceBox" >
+		<comboitem label="locale" value="locale"/>
+		<comboitem label="number" value="number"/>
+	</combobox>
+ <custom-attributes org.zkoss.zul.grid.rod = "false"/> 
+	<grid id="myGrid" mold="paging" width="600px">
+	</grid>
+</div>

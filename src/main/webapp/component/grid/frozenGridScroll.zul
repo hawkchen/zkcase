@@ -1,6 +1,6 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
 <vlayout apply="org.zkoss.bind.BindComposer"
-	viewModel="@id('vm') @init('support.grid.PagingViewModel')" xmlns:n="native">
+	viewModel="@id('vm') @init('support.component.grid.PagingViewModel')" xmlns:n="native">
 	
 	<hlayout sclass="content-header">
 		<n:h1>Saldi Giornalieri</n:h1>
