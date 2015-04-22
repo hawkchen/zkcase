@@ -1,0 +1,7 @@
+<zk>
+<window apply="support.javaee.InvalidateSessionComposer">
+<button id="i" >invalidate</button>
+<button id="b" >print</button>
+</window>
+
+</zk>
