@@ -1,0 +1,7 @@
+<zk>
+	<div apply="support.event.EventThreadComposer">
+		<separator height="50px" />
+		<button label="Thread"></button>
+		<label id="lbl" />
+	</div>
+</zk>
