@@ -1,0 +1,25 @@
+<zk xmlns:n="native" xmlns:c="client">
+<script type="text/javascript" src='https://www.google.com/recaptcha/api.js' defer="true"/>
+	<script><![CDATA[
+		function afterValidate(response){
+			zk.Widget.$('$form').fire('onCaptchaValidate',{'response':response}
+			 ,{toServer:true});
+		}
+	]]></script>
+	<grid id="form" apply="support.intergration.RecaptchaComposer" width="400px">
+		<columns>
+			<column>Form</column>
+		</columns>
+		<rows>
+			<row>
+				<textbox></textbox>
+			</row>
+			<row>
+				<n:div class="g-recaptcha" data-sitekey="6Lcj5AYTAAAAAHp_ATdyZcWkMi7lzO_JZPMhYj4S" data-callback="afterValidate"/>
+			</row>
+			<row>
+				<button id="submit" disabled="true" >submit</button>
+			</row>
+		</rows>
+	</grid>
+</zk>

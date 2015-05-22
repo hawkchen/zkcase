@@ -1,0 +1,18 @@
+<?script type="text/javascript"  src='https://www.google.com/recaptcha/api.js'?>
+<zk xmlns:n="native" xmlns:c="client">
+	<!-- 
+	<grid id="form" apply="support.intergration.RecaptchaComposer" width="400px">
+		<rows>
+			<row>
+			</row>
+			<row>
+			</row>
+			<row>
+			</row>
+		</rows>
+	</grid>
+	 -->
+	 	
+			<n:div class="g-recaptcha" data-sitekey="6Lcj5AYTAAAAAHp_ATdyZcWkMi7lzO_JZPMhYj4S" data-callback="afterValidate"/>
+	 <textbox/>
+</zk>
