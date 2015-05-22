@@ -1,0 +1,7 @@
+
+<zk xmlns:n="native">
+	<n:button class="test" sclass="456">123</n:button>
+	 <button>button</button>
+	<!-- 
+	 -->
+</zk>
