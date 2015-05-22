@@ -1,0 +1,11 @@
+<zk>
+<label multiline="true" popup="pp">
+1. click to open popup
+2. press enter at the textbox
+
+no onBlur fired in firefox 
+</label>
+<popup id="pp">
+<textbox onBlur="" onOK="self.parent.close()"></textbox>
+</popup>
+</zk>

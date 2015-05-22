@@ -1,0 +1,11 @@
+<zk>
+	<listbox id="dragBox" mold="paging" apply="support.component.listbox.DragHeaderComposer" itemRenderer="support.component.listbox.DragItemRenderer"
+		vflex="1" hflex="1" autopaging="true">
+
+		<listhead sizable="true">
+			<listheader label="name" draggable="true" droppable="true" />
+			<listheader label="type" draggable="true" droppable="true" />
+			<listheader label="Address" draggable="true" droppable="true" />
+		</listhead>
+	</listbox>
+</zk>

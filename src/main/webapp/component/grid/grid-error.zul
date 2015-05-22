@@ -1,0 +1,11 @@
+<zk>
+	<grid>
+		<rows>
+			<row>
+				<cell>
+					<label value="test" />
+				</cell>
+			</row>
+		</rows>
+	</grid>
+</zk>

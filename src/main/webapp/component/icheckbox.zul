@@ -1,0 +1,53 @@
+<zk xmlns:n="native">
+	<window title="ICheckbox Demo" border="normal" width="480px"
+		apply="support.component.IcheckboxComposer">
+		<div>
+			<label value="Checkbox with given initial value:" />
+		</div>
+		<iCheckbox id="cb" label="cb: indeterminate " checked="${null}" />
+		<iCheckbox id="cb1" label="cb1: checked " checked="true" />
+		<iCheckbox id="cb2" label="cb2: unchecked " checked="false" />
+		<iCheckbox label="disable" disabled="true" />
+
+
+		<html><![CDATA[ <br/>]]></html>
+		<div>
+			<label value="Latest value of the checkbox: " />
+			<label id="l" value="latest value" />
+		</div>
+		<html><![CDATA[ <br/>]]></html>
+		<div>
+			<label value="Set value to checkbox cb:" />
+		</div>
+
+		<button id="indeterminate" label="cb.setChecked(null)">
+			<attribute name="onClick"><![CDATA[
+	cb.setChecked(null);
+]]></attribute>
+		</button>
+		<button id="checked" label="cb.setChecked(true)" 
+			onClick="cb.setChecked(true)" />
+		<button id="unchecked" label="cb.setChecked(false)"
+			onClick="cb.setChecked(false)" />
+
+	</window>
+			<n:input type="checkbox" id="ncb" disabled="true"/>
+			<n:input type="text" disabled="true"/>
+			<n:input type="button" disabled="true"/>
+			<script type="text/javascript" defer="true" ><![CDATA[
+			                                                      /*
+			jq('#ncb').dblclick(function(){
+				console.log('dblclick');
+			});
+			jq('#ncb').click(function(){
+				console.log('click');
+			});
+			*/
+			jq(document).dblclick(function(){
+				console.log('doc dblclick');
+			});
+			jq(document).click(function(){
+				console.log('doc click');
+			});
+			]]></script>
+</zk>

@@ -1,0 +1,8 @@
+<!-- 7.0.1 -->
+<zk>
+   <vlayout>
+        <image id="img" />
+        Upload your hot shot:
+        <dropupload maxsize="-1" content="content" detection="browser" onUpload="img.setContent(event.media)" />
+    </vlayout>
+</zk>

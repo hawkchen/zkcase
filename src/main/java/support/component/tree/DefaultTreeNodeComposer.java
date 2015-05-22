@@ -14,13 +14,13 @@ public class DefaultTreeNodeComposer extends SelectorComposer<Component> {
 
 	private DefaultTreeModel<DefaultTreeNode<String>> mymodel;
 	DefaultTreeNode level2;
+	DefaultTreeNode level1 = new DefaultTreeNode<String>("Level1", new LinkedList<DefaultTreeNode<String>>());
 	@Wire
 	Tree mytree;
 
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 
-		DefaultTreeNode level1 = new DefaultTreeNode<String>("Level1", new LinkedList<DefaultTreeNode<String>>());
 		level2 = new DefaultTreeNode("Level2", new LinkedList<DefaultTreeNode<String>>());
 		level2.add(new DefaultTreeNode("Content1"));
 		level2.add(new DefaultTreeNode("Content2"));
@@ -37,6 +37,8 @@ public class DefaultTreeNodeComposer extends SelectorComposer<Component> {
 
 	@Listen("onClick = #mybtn")
 	public void onTestInsert(){
-		level2.add(new DefaultTreeNode("Content added"));
+//		level2.add(new DefaultTreeNode("Content added"));
+		level1.setData("4");
+		level2.setData("3");
 	} 
 }

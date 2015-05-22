@@ -3,15 +3,10 @@ package support.component;
 
 import java.util.ArrayList;
 
-import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.event.SelectEvent;
 import org.zkoss.zk.ui.select.SelectorComposer;
-import org.zkoss.zk.ui.select.annotation.Listen;
-import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zk.ui.util.Clients;
-import org.zkoss.zul.Combobox;
-import org.zkoss.zul.ListModel;
-import org.zkoss.zul.ListModelList;
-import org.zkoss.zul.Window;
+import org.zkoss.zk.ui.select.annotation.*;
+import org.zkoss.zul.*;
 import org.zkoss.zul.ext.Selectable;
 
 public class ComboboxComposer extends SelectorComposer<Window> {
@@ -30,4 +25,13 @@ public class ComboboxComposer extends SelectorComposer<Window> {
 		cbox.setModel(lm);
 	}
 
+	@Listen("onSelect = #localeBox")
+	public void changeSentence(SelectEvent e){
+		Object selectedItem = e.getSelectedItems().iterator().next();
+		//clear existing components in the target area , with  or getChildren().clear() or Component.detach()
+		Textbox textbox = new Textbox();
+		// set up values
+		Combobox combobox = new Combobox();
+		//append to the target area, maybe a div or window
+	}
 }

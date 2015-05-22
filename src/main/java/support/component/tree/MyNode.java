@@ -8,17 +8,21 @@ import java.util.*;
 
 public class MyNode
 {
-    public String title;
-    public List children = new ArrayList();
+    public String data;
+    public List<MyNode> children = new ArrayList();
 
-    public MyNode(String title)
+    public MyNode(String data)
     {
-        this.title = title;
+        this.data = data;
     }
 
     public String toString()
     {
-        return title;
+        return data;
     }
+
+	public List<MyNode> getChildren() {
+		return children;
+	}
 
 }

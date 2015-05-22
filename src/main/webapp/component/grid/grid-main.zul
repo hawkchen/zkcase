@@ -1,0 +1,4 @@
+<zk>
+	main page 
+	<include src="grid-error.zul"/>
+</zk>

@@ -12,7 +12,7 @@ public class TreeAddComposer extends SelectorComposer<Component> {
 
 	private MyTreeModel mymodel;
 	private MyNode level2;
-
+	MyNode level1 = new MyNode("Level1");
 	@Wire
 	Tree mytree;
 
@@ -20,7 +20,6 @@ public class TreeAddComposer extends SelectorComposer<Component> {
 		super.doAfterCompose(comp);
 		//		Tree mytree = (Tree) getFellow("mytree");
 
-		MyNode level1 = new MyNode("Level1");
 		level2 = new MyNode("Level2");
 		level2.children.add(new MyNode("Content1"));
 		level2.children.add(new MyNode("Content2"));
@@ -38,9 +37,12 @@ public class TreeAddComposer extends SelectorComposer<Component> {
 	@Listen("onClick = #mybtn")
 	public void onTestInsert(){
 		level2.children.add(new MyNode("Content added"));
+		level1.data = "Number of sub-nodes: 4";
+		level2.data = "Number of sub-nodes: 3";
 		mymodel.fireEvent(TreeDataEvent.INTERVAL_ADDED, new int[] {0,0}, 2, 2);
-//		mymodel.fireEvent(TreeDataEvent.CONTENTS_CHANGED, new int[] {0}, 0, 0);
+		mymodel.fireEvent(TreeDataEvent.STRUCTURE_CHANGED, null, -1, -1);
 //		mymodel.fireEvent(TreeDataEvent.CONTENTS_CHANGED, new int[] {}, 0, 0);
+//		mymodel.fireEvent(TreeDataEvent.CONTENTS_CHANGED, new int[] {0}, 0, 0);
 	}
 	
 	@Listen("onClick = #change")

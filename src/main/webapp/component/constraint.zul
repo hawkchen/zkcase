@@ -1,0 +1,19 @@
+<zk>
+<window apply="support.component.ConstraintComposer">
+<tabbox>
+	<tabs>
+		<tab>1</tab>
+		<tab>2</tab>
+	</tabs>
+	<tabpanels>
+		<tabpanel>
+			<textbox constraint="no empty"></textbox>
+		</tabpanel>
+		<tabpanel>
+			<textbox></textbox>
+		</tabpanel>
+	</tabpanels>
+</tabbox>
+<button label="submit"></button>
+</window>
+</zk>

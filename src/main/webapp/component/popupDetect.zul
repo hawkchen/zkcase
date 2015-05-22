@@ -10,5 +10,7 @@
 		<a id="openWindow" label="Open a window"/>
 	</vlayout>
 
+<div popup="p">open pp</div>
+<popup id="p">test</popup>
 
 </zk>

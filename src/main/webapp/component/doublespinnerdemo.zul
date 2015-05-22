@@ -1,0 +1,110 @@
+<zk>
+    <style>
+        .z-green {
+            font-weight: bold;
+            color: green;
+        }
+        .z-red {
+            font-weight: bold;
+            color: red;
+        }
+        .profit_Forecast {
+            font-size: 20px;            
+        }
+    </style>
+    <!-- Product Entity -->
+    <zscript><![CDATA[
+        class Product {
+            private int id;
+            private double price;
+            private int quantity;
+            public Product(int id,double price, int qua) {
+                this.id=id;
+                this.price=price;
+                this.quantity=qua;
+            }
+            public int getId() {
+                return this.id;
+            }
+            public double getPrice() {
+                return this.price;
+            }
+            public int getQuantity() {
+                return this.quantity;
+            }
+        }
+    ]]></zscript>
+     
+    <zscript><![CDATA[
+        import java.util.*;
+        import java.text.*;
+        NumberFormat format = new DecimalFormat("#0.00");
+         
+        void calProfit(Doublespinner ds) {
+            InputEvent ie = (InputEvent) event;
+            Double newPrice = Double.parseDouble(ie.getValue());
+            Product p = (Product)((Row)ds.getParent()).getValue();
+                Double price = Double.parseDouble(((Label) page.getFellow("pri_" + p.getId())).getValue());
+                Integer quantity = Integer.parseInt(((Label) page.getFellow("qua_" + p.getId())).getValue());
+                Label profit_Label = (Label) page.getFellow("pro_" + p.getId());
+             
+            profit_Label.setValue(format.format((newPrice - price) * quantity));
+            totalProfit = 0;
+            for (int j = 0; j < i; j++) {                
+                totalProfit = totalProfit + Double.parseDouble(((Label)page.getFellow("pro_"+j)).getValue());
+            }
+            tnp.setValue(format.format(totalProfit));
+            tnp.setSclass(totalProfit > 0 ? "z-green" : (totalProfit < 0 ? "z-red" : ""));
+        }
+    ]]></zscript>
+    <grid id="prodcuts_grid">
+        <columns>
+            <column>Product</column>
+            <column width="150px">Unit Price</column>
+            <column width="150px">Inventory Quantity</column>
+            <column label="Quoted price" width="150px">(+-0.1)</column>
+            <column>Net Profit</column>
+        </columns>
+        <rows>
+            <zscript><![CDATA[
+                List products = new ArrayList();
+                int i = 0;
+                products.add(new Product(i++,17.4,4372));
+                products.add(new Product(i++,21.7,5138));
+                products.add(new Product(i++,9.25,10243));
+                products.add(new Product(i++,12.3,3425));
+                products.add(new Product(i++,32.655,777));
+                Double totalProfit = 0.0;
+            ]]></zscript>
+            <zk forEach="${products}">
+                <row value="${each}">
+                    Products #${each.id} Name
+                    <label id="pri_${each.id}" value="${each.price}" />
+                    <label id="qua_${each.id}" value="${each.quantity}" />
+                    <doublespinner id="quo_${each.id}" value="${each.price}" hflex="1" step="0.1" onChanging="calProfit(self)" />
+                    <label id="pro_${each.id}" value="0.00" hflex="1" />
+                </row>
+            </zk>
+        </rows>
+        <foot>
+            <footer span="2" />
+            <footer>Profit Forecast :</footer>
+            <footer>
+                <label id="tnp" />
+            </footer>
+            <footer span="1">
+                <button label="Submit">
+                    <attribute name="onClick"><![CDATA[
+                         Map priceProposal = new HashMap();
+                         priceProposal.put("total", format.format(totalProfit) );
+                         Executions.createComponents("/widgets/input/doublespinner/submit.zul", null, priceProposal);
+                         price_win.doModal();
+                        ]]></attribute>
+                </button>
+            </footer>
+        </foot>
+    </grid>
+     
+         
+ 
+</zk>

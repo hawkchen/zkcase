@@ -1,0 +1,6 @@
+<zk>
+<label multiline="true">
+enter the time very fast and press enter immediately in firefox
+</label>
+<datebox width="250px" format="medium+short"/>
+</zk>

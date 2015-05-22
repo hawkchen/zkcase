@@ -1,14 +1,7 @@
-<!-- 7.0.1 -->
 <zk>
-  <button id="attachBtn" upload="true,maxsize=102400000" label="Attach" onUpload="myProcessUpload()"/>
+<div apply="support.component.UploadComposer">
+  <button id="attachBtn" upload="true,maxsize=204800000" label="Attach" />
   <label id="status"/>
-  <zscript><![CDATA[
-	import org.zkoss.util.media.Media;;
-  	public void myProcessUpload(){
-  		Media media = event.getMedia();
-  		Thread.sleep(2000);
-  		status.setValue("uploaded "+media.getName()+", size:"+(media.getByteData().length/1024)+" k bytes");
-  	}
-  ]]>
-  </zscript>
+  <button id="uploadEmailImgButton" label="Upload Email Image" upload="true, maxsize=-1, accept=image/*" />
+</div>
 </zk>
