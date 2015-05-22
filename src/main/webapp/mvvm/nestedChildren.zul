@@ -1,0 +1,17 @@
+<zk>
+	<div apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm')@init('support.mvvm.NestedChildrenVM')">
+		<vlayout children="@bind(vm.checkGroups.keySet())">
+			<template name="children">
+				<groupbox >
+					<caption label="@load(each)"/>
+					<vlayout children="@bind(vm.checkGroups[each])">
+						<template name="children">
+							<checkbox label="@load(each)" onCheck="@command('check', checked=self.checked, arg=each)" />
+						</template>
+					</vlayout>
+				</groupbox>
+			</template>
+		</vlayout>
+	</div>
+</zk>
