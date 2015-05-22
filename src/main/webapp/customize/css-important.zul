@@ -1,0 +1,9 @@
+<zk>
+<style>
+.z-textbox[disabled]{
+  background: #a3f3e3!important;
+}
+</style>
+	<textbox disabled="true" style="background: #a3f3e3!important"/>
+	<textbox disabled="true" />
+</zk>
