@@ -1,0 +1,39 @@
+.item-last,
+.item-branch,
+.line {
+	background-image: url(imgs/tee-last.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+.item-last {
+	background-position: 0 bottom;
+}
+.item-branch {
+	background-position: 0 -180px;
+}
+.lines-container {
+	position: relative;
+	height: 0px;
+	width: 0px;
+	z-index: 9999;
+	background-color: transparent;
+}
+.dottree .z-tree-open {
+	content: "\00a0 " !important;
+	background-image: url(imgs/icon.gif);
+}
+.dottree .z-tree-close {
+	content: "\00a0 " !important;
+	background-image: url(imgs/icon.gif);
+	background-position: 0 bottom;
+	position: relative;
+	top: 2px;
+}
+.z-icon-caret-right:before {
+	word-spacing:10px;
+	content: "\00a0 " !important;
+}
+.z-icon-caret-down:before {
+	word-spacing:10px;
+	content: "\00a0 " !important;
+}

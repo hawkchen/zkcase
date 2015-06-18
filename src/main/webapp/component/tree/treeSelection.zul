@@ -3,7 +3,7 @@
 <window title="new page title" border="normal">
 
 <hlayout width="100%">
-<tree id="tree1" width="400px" rows="8" multiple="true">
+<tree id="tree1" width="400px" rows="8" multiple="true" zclass="z-dottree">
 	<treecols sizable="true">
 		<treecol label="Name" />
 		<treecol label="Description" />

@@ -1,0 +1,98 @@
+<zk>
+	<style src="dottree.css"></style>
+	<script src="dottree.js"></script>
+	<window title="tree demo" border="normal" width="600px">
+	    <tree id="tree"  sclass="dottree">
+	    <treecols>
+			<treecol label="My item List" />		
+		</treecols>
+	        <treechildren>
+	            <treeitem>
+	                <treerow>
+	                    <treecell label="Item 1" />
+	                </treerow>
+	            </treeitem>
+	            <treeitem open="false">
+	                <treerow>
+	                    <treecell label="Item 2" />
+	                </treerow>
+	                <treechildren>
+	                    <treeitem open="false">
+	                        <treerow>
+	                            <treecell label="Item 2.1" />
+	                        </treerow>
+	                        <treechildren>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.2" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.3" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.4" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.2" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.1" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.2" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.1" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.2" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.1" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.2" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.1" />
+	                        </treerow>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.2" />
+	                        </treerow>
+	                    </treeitem>
+	                </treechildren>
+	                    </treeitem>
+	                    <treeitem>
+	                        <treerow>
+	                            <treecell label="Item 2.2" />
+	                        </treerow>
+	                    </treeitem>
+	                </treechildren>
+	            </treeitem>
+	            <treeitem label="Item 3" />
+	        </treechildren>
+	    </tree>
+	</window>
+</zk>
