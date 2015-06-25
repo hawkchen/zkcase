@@ -1,0 +1,34 @@
+<zk xmlns:c="client">
+<div c:onBind="stopWhileProcessing(this.$n());">
+<navbar>
+<navitem label="item1 - stop while processing" onClick="longOperation1()"/>
+<navitem label="item2 - show busy" onClick="longOperation2()" c:onClick="showBusyOverlay()"/>
+</navbar>
+<zscript><![CDATA[
+public void longOperation1() throws InterruptedException{
+	Thread.sleep(3000);
+}
+public void longOperation2() throws InterruptedException{
+	Thread.sleep(3000);
+	Clients.clearBusy();
+}
+]]></zscript>
+
+<script><![CDATA[
+function stopWhileProcessing(element){
+	element.addEventListener('click',
+			function(event){
+				if(zk.processing){
+					alert('please wait');
+					event.stopPropagation();
+				}
+			}, true);
+}
+
+function showBusyOverlay() {
+	zAu.cmd0.showBusy('operation in progress, please wait');
+}
+]]></script>
+
+</div>
+</zk>

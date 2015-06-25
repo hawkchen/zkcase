@@ -1,5 +1,0 @@
-<zk>
-	<div apply="support.issue.IssueComposer">
-		<combobox id="combo"  />
-	</div>
-</zk>

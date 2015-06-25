@@ -1,4 +1,0 @@
-<zk>
-    <custom-attributes org.zkoss.zul.Button.mold="bs"/>
-    <button label="click me" class="btn-primary" />
-</zk>

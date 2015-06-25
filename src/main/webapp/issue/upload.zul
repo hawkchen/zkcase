@@ -1,6 +1,0 @@
-<!-- 7.0.1 -->
-<zk>
-<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init('support.issue.UploadVM')">
-<button class="btn-info"  iconSclass="z-icon-upload" upload="true,maxsize=-1,native" onUpload="@command('upload')"/>	
-</div>
-</zk>
