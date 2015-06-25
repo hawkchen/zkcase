@@ -1,0 +1,361 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="msg" ?>
+<?page title="Registrar Planilla" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client" 
+	xmlns:n="native">
+	<window self="@define(content)" 
+		width="100%" 
+		apply="support.issue.RegistrarPlantillaController" 
+		style="font-family: Interstate-bold;" id="frm_winRegistrarPlanilla"
+		Title="${msg:l('conf.registrarplantilla.tituloVentana')}"
+		border="none"  position="center">
+		
+		<div sclass="z-groupbox-content">
+
+			<groupbox id="reg_grupoDatosRegistrar" closable="false"
+				width="100%">
+				<caption style="text-align: left;">
+					<label id="lblreg_GrupoDatosRegistrar"
+						value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.grupoDatosRegistrar')}" />
+				</caption>
+
+				<grid id="grid_CriterioDatosRegistrar" sclass="gridzk"
+					width="100%" xmlns:w="client">
+					<rows>
+
+						<row>
+
+							<cell>
+								<hbox>
+									<label value="*"
+										sclass="form-label heading-tres" style="color: red" />
+									<label id="elm_lblNombrePlantilla"
+										sclass="form-label heading-tres"
+										value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.nombrePlantilla')}" />
+
+								</hbox>
+							</cell>
+
+							<cell>
+								<hbox>
+									<textbox id="elm_txtNombrePlantilla" disabled="false" width="80%" value="" style="text-transform:uppercase;"
+									constraint="no empty: ${msg:l('conf.registrarplantilla.requerido')}."/>
+
+								</hbox>
+							</cell>
+
+						</row>
+
+						<row>
+
+							<cell>
+								<hbox>
+									<label value="*"
+										sclass="form-label heading-tres" style="color: red" />
+									<label id="elm_lblTipoPlantilla"
+										sclass="form-label heading-tres"
+										value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.tipoPlantilla')}" />
+
+								</hbox>
+							</cell>
+
+							<cell>
+								<hbox>
+
+									<combobox 
+										id="elm_cbSelectTipoPlantilla" width="250px"
+										readonly="true"
+										constraint="no empty: ${msg:l('conn.gestionarplantillas.requerido')}."
+										disabled="true">
+											<template name="model" >
+											<comboitem label="${each.nombreTipoDocumento}" value="${each.idTipoDocumento}"/>
+											</template>
+									</combobox>
+
+								</hbox>
+							</cell>
+
+						</row>
+
+						<row>
+
+							<cell>
+								<hbox>
+									<label value="*"
+										sclass="form-label heading-tres" style="color: red" />
+									<label id="elm_lblSubtipoPlantilla"
+										sclass="form-label heading-tres"
+										value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.subtipoPlantilla')}" />
+
+								</hbox>
+							</cell>
+
+							<cell>
+								<hbox>
+									<combobox  
+										id="elm_cbSelectSubTipoPlantilla" width="250px"
+										
+										selectedItem="@bind(vm.valorSubTipo)" readonly="true"
+										constraint="no empty: ${msg:l('conn.gestionarplantillas.requerido')}."
+										disabled="true">
+											<template name="model">
+											<comboitem label="${each.nombreSubTipoDocumento}" value="${each.idSubTipoDocumento}"/>
+											</template>
+									</combobox>
+								</hbox>
+							</cell>
+
+						</row>
+
+						<row>
+
+							<cell>
+								<hbox>
+									<label value="*"
+										sclass="form-label heading-tres" style="color: red" />
+									<label
+										id="elm_lblSeleccionarServicio"
+										sclass="form-label heading-tres"
+										value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.seleccionarServicio')}" />
+
+								</hbox>
+							</cell>
+
+						</row>
+						
+						<row>
+						
+							<cell colspan="2">
+								<hbox>
+
+								<!-- <dual-listbox id="listaDoble" /> -->
+
+								</hbox>
+							</cell>
+						
+						</row>
+						
+
+						<row>
+
+							<cell>
+								<hbox>
+									<label value="*"
+										sclass="form-label heading-tres" style="color: red" />
+									<label id="elm_lblEstado"
+										sclass="form-label heading-tres"
+										value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.estado')}" />
+
+								</hbox>
+							</cell>
+
+							<cell>
+								<hbox>
+
+									<combobox  
+										id="elm_cbSelectEstado" width="250px"
+										 readonly="true"
+										constraint="no empty: ${msg:l('conn.gestionarplantillas.requerido')}.">
+											<template name="model">
+											<comboitem label="${each.nombreElemento}" value="${each.idParametroElemento}"/>
+											</template>
+									</combobox>
+
+								</hbox>
+							</cell>
+
+						</row>
+
+						<row>
+
+							<cell>
+								<hbox>
+									<label value="*"
+										sclass="form-label heading-tres" style="color: red" />
+									<label id="elm_lblRegistradoPor"
+										sclass="form-label heading-tres"
+										value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.registradoPor')}" />
+
+								</hbox>
+							</cell>
+
+							<cell>
+								<hbox>
+
+									<textbox id="elm_txtRegistradoPor"
+										disabled="true" width="80%" value=""
+										style="text-transform:uppercase;" />
+
+								</hbox>
+							</cell>
+
+						</row>
+
+						<row>
+
+							<cell>
+								<hbox>
+									<label value="*"
+										sclass="form-label heading-tres" style="color: red" />
+									<label id="elm_lblAdjuntarPlantilla"
+										sclass="form-label heading-tres"
+										value="${msg:l('conf.registrarplantilla.grupoDatosRegistrar.adjuntarPlantilla')}" />
+
+								</hbox>
+							</cell>
+
+							<cell>
+								<hbox>
+
+									<textbox
+										id="elm_txtAdjuntarPlantilla" disabled="false" width="80%"
+										value="" style="text-transform:uppercase;" 
+										constraint="no empty: ${msg:l('conn.gestionarplantillas.requerido')}."/>
+									<button id="elm_btnExaminar" 
+										
+										label="conf.registrarplantilla.examinar"
+										upload="true"/>
+								</hbox>
+							</cell>
+
+						</row>
+
+					</rows>
+				</grid>
+									<groupbox
+										id="reg_grupoListadoParametro" closable="false"
+										width="100%">
+										<caption
+											style="text-align: left;">
+											<label
+												id="lblreg_GrupoListadoParametro"
+												value="${msg:l('conf.registrarplantilla.grupoListadoParametro.grupoListadoParametro')}" />
+										</caption>
+
+										<grid
+											id="grid_CriterioListadoParametro" sclass="gridzk"
+											width="100%" xmlns:w="client">
+											<rows>
+
+												<row>
+
+													<cell>
+														<hbox>
+									<listbox id="elm_listadoParametros" hflex="1"
+								 	vflex="true" rows="3" style="border-style: solid;border-width: 1px;">
+								 	<listhead>
+								 		<listheader width="30%" style="display: none;">
+								 		</listheader>
+								 		<listheader	width="70%" style="display: none;">
+								 		</listheader>
+								 	</listhead>
+								 	<template name="model"
+								 		var="lista">
+								 		<listitem >
+								                <listcell  label="${each.nombreElemento}"/>
+								                <listcell  label="${each.valorAtributo1}"/>
+								 		</listitem>
+								 	</template>
+								 </listbox>
+
+
+														</hbox>
+													</cell>
+
+												</row>
+
+											</rows>
+										</grid>
+
+									</groupbox>
+				<grid id="grid_CriterioGrupos" sclass="gridzk"
+					width="100%" xmlns:w="client">
+					<rows>
+
+						<row>
+
+							<cell>
+								<hbox>
+
+									<groupbox
+										id="reg_grupoEdicionPlantilla" closable="false"
+										width="100%">
+										<caption
+											style="text-align: left;">
+											<label
+												id="lblreg_GrupoEdicionPlantilla"
+												value="${msg:l('conf.registrarplantilla.grupoEdicionPlantilla.grupoEdicionPlantilla')}" />
+										</caption>
+
+										<grid
+											id="grid_CriterioEdicionPlantilla" sclass="gridzk"
+											width="100%" xmlns:w="client">
+											<rows>
+
+												<row>
+
+													<cell>
+														<hbox>
+
+															<label
+																id="elm_lblTextoPlantilla"
+																sclass="form-label heading-tres"
+																value="${msg:l('conf.registrarplantilla.grupoEdicionPlantilla.textoPlantilla')}" />
+
+														</hbox>
+													</cell>
+
+													<cell>
+														<hbox>
+														
+														<!-- <ckeditor id="elm_editor" toolbar="Complex"></ckeditor> -->
+														</hbox>
+													</cell>
+
+												</row>
+
+											</rows>
+										</grid>
+
+									</groupbox>
+
+								</hbox>
+							</cell>
+
+
+						</row>
+
+						<row>
+
+							<cell>
+								<hbox>
+
+									<button id="elm_btnGuardar"
+										disabled="false" autodisable="self"
+										label="${msg:l('conf.registrarplantilla.guardar')}"
+										/>
+
+									<button id="elm_btnCancelar"
+										disabled="false" autodisable="self"
+										label="${msg:l('conf.registrarplantilla.cancelar')}"
+										onClick="@command('Cancelar')" />
+
+								</hbox>
+							</cell>
+
+						</row>
+
+
+					</rows>
+				</grid>
+				<label value="*" sclass="form-label heading-tres"
+					style="color: red" />
+				<label id="elm_lblCampoObligatorio"
+					sclass="form-label heading-tres"
+					value="${msg:l('conf.registrarplantilla.grupoListadoParametro.campoObligatorio')}" />
+
+			</groupbox>
+
+		</div>
+	</window>
+</zk>

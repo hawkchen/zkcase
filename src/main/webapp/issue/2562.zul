@@ -1,0 +1,12 @@
+<zk>
+	DefaultTreeNode example:
+	<window width="100%" border="none" mode="embedded"
+		apply="support.component.tree.DefaultTreeNodeComposer">
+		<button id="mybtn" label="Insert node" />
+		<tree id="mytree">
+			<treecols>
+				<treecol label="Name" />
+			</treecols>
+		</tree>
+	</window>
+</zk>

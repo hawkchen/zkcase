@@ -1,0 +1,18 @@
+<zk>
+  <window border="normal" title="hello" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('support.issue.InlineEditVM')">
+        <div>When remove one element, the first input from the grid is selected.</div>
+    	<grid model="@bind(vm.model)"  >
+          <columns>
+            <column label="Header" />
+          </columns>
+            <template name="model">
+        <row>
+          <hbox >
+          <textbox inplace="true" value="@bind(each)" />
+            <button onClick="@command('remove',item = each)" label="Remove" />  
+          </hbox>
+              </row>
+          </template>
+    </grid>
+  </window>
+</zk>

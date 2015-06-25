@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" arg0="./codaOperatoreWindow" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<window id="codaOperatoreWindow" 
+		border="none" height="100%">
+		<timer id="timer" delay="60000" repeats="true" />
+		<!-- 1 minuto -->
+		<borderlayout id="borderLayout_CodaOperatore">
+            <north border="none" >
+                <hbox pack="stretch" width="100%" sclass="hboxcoda" hflex="true">
+                    <!-- CRUD BUTTONS -->
+                    <menubar id="menubar" vflex="true">
+                        <menuitem id="btnCreaProposta" image="/img/16x16/template.gif" label="${c:l('btnCreaProposta.tooltiptext')}" tooltiptext="${c:l('btnCreaProposta.tooltiptext')}" />
+                        <menuitem id="btnVediProposte" image="/img/16x16/template.gif" label="${c:l('btnVediProposte.tooltiptext')}" tooltiptext="${c:l('btnVediProposte.tooltiptext')}" />
+                        <menuitem id="btnCreaProgramma" image="/img/16x16/template.gif" label="${c:l('btnCreaProgramma.tooltiptext')}" tooltiptext="${c:l('btnCreaProgramma.tooltiptext')}" />
+                        <menuitem id="btnVediProgramma" image="/img/16x16/template.gif" label="${c:l('btnVediProgramma.tooltiptext')}" tooltiptext="${c:l('btnVediProgramma.tooltiptext')}" />
+                        <menuitem id="btnDeroga" image="/img/16x16/da_autorizzare.gif" label="${c:l('btnDeroga.tooltiptext')}" tooltiptext="${c:l('btnDeroga.tooltiptext')}" />
+                        <menu label="Trasferta" image="/img/strumenti.gif">
+                            <menupopup>
+                                <menuitem id="menuCorreggiRicostruita" label="${c:l('menuCorreggiRicostruita.label')}" image="/img/16x16/modifica.gif" />
+                                <menuitem id="menuModRicostruita" label="${c:l('menuModRicostruita.label')}" image="/img/16x16/modifica.gif" />
+                                <menuitem id="menuCopiaRichiesta" label="${c:l('menuCopiaRichiesta.label')}" image="/img/16x16/template.gif" />
+                                <menuitem id="menuAnnullaRichiesta" label="${c:l('menuAnnullaRichiesta.label')}" image="/img/16x16/cancella.gif" />
+                                <menuitem id="menuStampaRichiesta" label="${c:l('menuStampaRichiesta.label')}" image="/img/16x16/stampa.gif" />
+                            </menupopup>
+                        </menu>
+                        <menuitem id="btnAttesaFornitore" image="/img/16x16/daconfermare.gif" label="btnAttesaFornitore" tooltiptext="${c:l('btnAttesaFornitore.tooltiptext')}" />
+                        <menuitem id="btnIndisponibilita" image="/img/16x16/cancella.gif" label="btnIndisponibilita" tooltiptext="${c:l('btnIndisponibilita.tooltiptext')}" />
+                        <menuitem id="btnApriTicket" image="/img/16x16/modifica.gif" label="btnApriTicket" tooltiptext="${c:l('btnApriTicket.tooltiptext')}" />
+                    </menubar>
+                    <toolbar align="end">
+                        <checkbox id="chkEvase" label="chkEvase" sclass="labelBold" />
+                        <toolbarbutton id="btnFiltra" image="/img/spunta.gif" tooltiptext="${c:l('btnFiltra.tooltiptext')}" />
+                        <toolbarbutton id="btnViewFilter" image="/img/cerca.gif" tooltiptext="${c:l('btnViewFilter.tooltiptext')}" />
+                    </toolbar>
+                </hbox>
+            </north>
+
+			<center border="none" flex="true">
+				<div height="100%" vflex="true">
+					<radiogroup id="rdg"/>
+					<grid id="gridTrasferte"  emptyMessage="Non ci sono trasferte assegnate." height="100%" vflex="true">
+						<auxhead id="auxFilter">
+							<auxheader>
+								<combobox id="cboFilterTipoServizio"
+									width="100%" constraint="strict" readonly="true">
+									<comboitem
+										self="@{each=servizio}" label="@{servizio.descrizione}"
+										value="@{servizio.idServizio}" />
+								</combobox>
+							</auxheader>
+							<auxheader></auxheader>
+							<auxheader>
+								<combobox id="cboFilterAzienda"
+									width="100%" constraint="strict" readonly="true">
+									<comboitem
+										self="@{each=gaAziende}" value="@{gaAziende.idAzienda}"
+										label="@{gaAziende.ragioneSociale}" />
+								</combobox>
+							</auxheader>
+							<auxheader>
+								<textbox id="txtFilterNumPratica"
+									width="100%" />
+							</auxheader>
+							<auxheader>
+								<textbox id="txtFilterVersione"
+									width="100%" />
+							</auxheader>
+							<auxheader>
+								<textbox id="txtFilterPax"
+									width="100%" />
+							</auxheader>
+							<auxheader>
+								<combobox
+									id="cboFilterRdvTipooperazione" width="100%"
+									constraint="strict" readonly="true">
+									<comboitem value=" " label=" " />
+									<comboitem value="0"
+										label="===" />
+									<comboitem value="1"
+										label="Ins." />
+									<comboitem value="2"
+										label="Mod." />
+									<comboitem value="3"
+										label="Ann." />
+								</combobox>
+							</auxheader>
+							<auxheader>
+								<combobox
+									id="cboFilterRdvStatoServizio" width="100%"
+									constraint="strict" readonly="true">
+									<comboitem
+										self="@{each=bbeAzioni}" label="@{bbeAzioni.bbeDescrizione}"
+										value="@{bbeAzioni.idAzione}" />
+								</combobox>
+							</auxheader>
+							<auxheader>
+								<datebox
+									id="dbxFilterRdvDatainiztrasf" width="100%"
+									format="dd-MMM-yyyy" />
+							</auxheader>
+							<auxheader>
+								<textbox
+									id="txtFilterRdvOrigDestcitta" width="100%" />
+							</auxheader>
+							<auxheader>
+								<datebox id="dbxFilterRdvDatain"
+									width="100%" format="dd-MMM-yyyy" />
+							</auxheader>
+							<auxheader>
+								<datebox id="dbxFilterRdvDataout"
+									width="100%" format="dd-MMM-yyyy" />
+							</auxheader>
+							<auxheader>
+								<datebox
+									id="dbxFilterTimestampRicezione" width="100%"
+									format="dd-MMM-yyyy" />
+							</auxheader>
+						</auxhead>
+						<columns menupopup="auto" sizable="true">
+							<column width="60px" sort="auto(descrTiposervizio)" label="${c:l('gridTrasferte.labeltiposervizio')}" />
+							<column width="110px" label="${c:l('gridTrasferte.labelInfo')}" />
+							<column sort="auto(idAzienda)" label="${c:l('gridTrasferte.labelazienda')}" />
+							<column width="130px" sort="auto(numPratica)" label="${c:l('gridTrasferte.labelpratica')}" />
+							<column width="30px" sort="auto(rdvNumvers)" label="${c:l('gridTrasferte.labelversione')}" />
+							<column sort="auto(pax)" label="${c:l('gridTrasferte.labelpax')}" />
+							<column width="50px" sort="auto(rdvTipooperazione)" label="${c:l('gridTrasferte.labeltipoOperazione')}" />
+							<column width="95px" sort="auto(descrAzione)" label="${c:l('gridTrasferte.labelstato')}" />
+							<column width="90px" sort="auto(rdvDatainiztrasf)" label="${c:l('gridTrasferte.labeldatapartenza')}" />
+							<column width="150px" sort="auto(rdvOrigDestcitta)" label="${c:l('gridTrasferte.labelorigdestcitta')}" />
+							<column width="80px" sort="auto(rdvDatain)" label="${c:l('gridTrasferte.labeldatain')}" />
+							<column width="80px" sort="auto(rdvDataout)" label="${c:l('gridTrasferte.labeldataout')}" />
+							<column width="125px" sort="auto(timestampAggiornamento)" label="${c:l('gridTrasferte.labeltimestampaggiornamento')}" />
+						</columns>
+						<foot>
+							<footer span="13" id="footerCategory" />
+						</foot>
+					</grid>
+					<separator />
+				</div>
+			</center>
+		</borderlayout>
+	</window>
+</zk>

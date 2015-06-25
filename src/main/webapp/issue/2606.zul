@@ -1,0 +1,17 @@
+<zk>
+  <window border="normal" title="list item add">
+    <button label="clearSelection" onClick="lb.clearSelection();" />
+    <button label="lb.appendChild(listitem)" onClick="lb.appendChild(createSelectedListitem());" />
+    <button label="lb.insertBefore(listitem)" onClick="lb.insertBefore(createSelectedListitem(), null);" />
+    <button label="listitem.setParent(lb)" onClick="createSelectedListitem().setParent(lb)" />
+    <listbox id="lb"/>
+  </window>
+  <zscript>
+    int count = 1;
+    public Listitem createSelectedListitem() {
+       Listitem item = new Listitem("item" + count++);
+       item.setSelected(true);
+       return item;
+    }
+  </zscript>
+</zk>

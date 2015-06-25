@@ -1,0 +1,14 @@
+<zk>
+ 	<window border="normal" mode="modal"  height="20%" title="Window with dimensions setted in %"  apply="org.zkoss.bind.BindComposer"  viewModel="@id('vm') @init('support.issue.Issue2742')" contentStyle="overflow-y:scroll;"
+  closable="true">
+  <vlayout>
+    <label value="Window with dimensions setted in %"/>
+    <space />
+    <space />  	
+    <space />
+    <space />
+    <combobox model="@load(vm.timeZones)" />
+  </vlayout>
+ </window>
+
+</zk>

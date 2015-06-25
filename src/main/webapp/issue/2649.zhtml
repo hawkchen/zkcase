@@ -1,0 +1,4 @@
+<?init class="support.javaee.RedirectInit" ?>
+<zk>
+	<button>test</button>
+</zk>

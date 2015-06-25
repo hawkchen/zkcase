@@ -1,0 +1,6 @@
+<zk>
+  <vbox apply="org.zkoss.bind.BindComposer"  viewModel="@id('vm') @init('support.issue.Issue2742')">
+    <label value="In IE the combobox has a wrong behavior when we opened the list of options if you are inside a window in modal mode and the window dimensions are set in% and if the component is positioned at the end of the window with scroll" />
+    <button label="Open Window with dimensions setted in %" onClick="@command('openWindow1')" />
+  </vbox>
+</zk>
