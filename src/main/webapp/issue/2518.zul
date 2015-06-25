@@ -1,6 +1,6 @@
 <!-- 7.0.1 -->
 <zk>
-<button label="Browse" upload="true,maxsize=-1,accept=.png,.pdf" onUpload="myProcessUpload(event)" />
+<button label="Browse" upload="true,maxsize=-1,accept=.png|.pdf|.txt" onUpload="myProcessUpload(event)" />
   <label id="status"/>
   <zscript><![CDATA[
 	import org.zkoss.util.media.Media;;

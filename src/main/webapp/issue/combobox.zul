@@ -1,28 +1,21 @@
-<!-- 7.0.1 -->
 <zk>
-	<combobox width="150px" >
-			<comboitem label="A1" value="A1" />
-			<comboitem label="B1" value="B1" />
-			<comboitem label="1A" value="1A" />
-			<comboitem label="2A" value="2A" />
-	</combobox>
-	
-	<combobox width="150px" readonly="true" >
-			<comboitem label="A1" value="A1" />
-			<comboitem label="B1" value="B1" />
-			<comboitem label="C1" value="C1" />
-			<comboitem label="1A" value="1A" />
-			<comboitem label="2A" value="2A" />
-	</combobox>
-	
-	<combobox  width="150px" readonly="true" >
-			<comboitem label="1A" value="1A" />
-			<comboitem label="2A" value="2A" />
-			<comboitem label="A1" value="A1" />
-			<comboitem label="B1" value="B1" />
-			<comboitem label="abc" value="abc" />
-	</combobox>	
-<zscript><![CDATA[
-                  
-]]></zscript>	
+	<grid width="50em" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('support.issue.ComboboxVM')" model="@load(vm.model)">
+		<columns>
+			<column label="Primary" hflex="min" />
+			<column label="Language" ></column>
+			<column label="add" width="4em">
+			</column>
+		</columns>
+		<template name="model">
+			<row>
+				<radio checked="true"/>
+				<combobox value="@bind(vm.type)" 
+					inplace="true" hflex="1" placeholder="Select a Language" />
+				<hlayout>
+					<a label="Delete"
+						/>
+				</hlayout>
+			</row>
+		</template>
+	</grid>
 </zk>
