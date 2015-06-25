@@ -2,6 +2,9 @@
 <head></head>
 <body>
 	Other
-	<button onclick="window.opener.fillForm('some value');window.open('start.html#', window.opener.name);">fill opener form and go back</button>
+	<button onclick="window.opener.fillForm('some value');window.open('start.html', window.opener.name);window.opener.focus()">fill opener form and go back</button>
+	<!-- 
+	  focus() might not work on all browsers. https://developer.mozilla.org/en-US/docs/Web/API/Window/focus
+	 -->
 </body>
 </html>
