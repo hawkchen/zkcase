@@ -1,0 +1,30 @@
+<zk>
+	<window border="normal" title="main"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('main')@init('support.mvvm.MainModuleVM')">
+		apply different viewModels on an include when sub ViewModel can
+		be instantiated statically instead of dynamically by the main ViewModel
+		<button label="send to all 3 pages" onClick="@global-command('refresh', key='data from main')"/>
+		<include src="module.zul" apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm')@init('support.mvvm.ModuleVM')" />
+		<include src="module.zul" apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm')@init('support.mvvm.ModuleVM')" />
+		<include src="module.zul" apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm')@init('support.mvvm.ModuleVM')" />
+	</window>
+
+	<window border="normal" title="main" viewModel="@id('main')@init('support.mvvm.MainModuleVM')"
+		apply="org.zkoss.bind.BindComposer">
+		using a ViewModel's properties as a viewmodel
+		<include src="module.zul"  apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init(main.modules[0])"/>
+		<include src="module.zul"  apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init(main.modules[1])"/>
+		<include src="module.zul"  apply="org.zkoss.bind.BindComposer" viewModel="@id('vm')@init(main.modules[2])"/>
+	</window>
+	
+	<window border="normal" title="main" viewModel="@id('main')@init('support.mvvm.MainModuleVM')"
+		apply="org.zkoss.bind.BindComposer">
+		using @ref doesn't like applying a ViewModel, just like declaring a variable with an attribute name. 
+		<include src="module.zul"  vm="@ref(main.modules[0])"/>
+		<include src="module.zul"  vm="@ref(main.modules[1])"/>
+		<include src="module.zul"  vm="@ref(main.modules[2])"/>
+	</window>
+</zk>

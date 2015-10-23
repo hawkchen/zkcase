@@ -1,0 +1,7 @@
+<window border="normal" >
+index: <label value="@load(vm.index)"/>
+	<vlayout>
+	<label value="@load(vm.value)"/>
+	<button label="command" onClick="@command('mycmd')"/>
+	</vlayout>
+</window>
