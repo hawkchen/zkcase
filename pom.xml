@@ -2,9 +2,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.zkoss</groupId>
-	<artifactId>zkcase</artifactId>
+	<artifactId>zkcase7</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
+	<properties>
+		<!-- 
+		<zk.version>7.0.3-Eval</zk.version>
+		<zk.version>7.0.2-Eval</zk.version>
+		<zk.version>7.0.1-Eval</zk.version>
+		<zk.version>7.0.5-Eval</zk.version>
+		<zk.version>7.0.7.FL.20151211-Eval</zk.version>
+ 		<zk.version>7.0.6-Eval</zk.version>
+ 		<zk.version>6.5.8-Eval</zk.version>		 
+		 -->
+		<zk.version>6.5.7</zk.version>
+	</properties>	
 	<repositories>
 		<repository>
 			<id>zk CE</id>
@@ -14,8 +26,14 @@
 			<id>ZK EE Evaluation</id>
 			<url>http://mavensync.zkoss.org/zk/ee-eval</url>
 		</repository>
+		<!-- 
+		-->
+		<repository>
+			<id>ZK EE</id>
+			<url>https://maven.zkoss.org/repo/zk/ee</url>
+		</repository> 
 	</repositories>
-	<dependencies>
+	<dependencies>	
 		<!-- <dependency> <groupId>org.zkoss.zss</groupId> <artifactId>zssex</artifactId> <version>${zss.version}</version> 
 			</dependency> -->
 		<dependency>
@@ -23,8 +41,14 @@
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
 		</dependency>
-		<!-- <dependency> <groupId>org.zkoss.zkbootstrap</groupId> <artifactId>zkbootstrap</artifactId> <version>${zk.version}</version> 
-			<systemPath>${project.basedir}/lib/zk-bootstrap.jar</systemPath> <scope>system</scope> </dependency> -->
+		<!-- 
+		<dependency>
+		  <groupId>org.zkoss.addons</groupId>
+		  <artifactId>zk-bootstrap</artifactId>
+		  <version>1.0.0</version>
+		</dependency>		
+		 -->
+		<!-- 
 		<dependency>
 			<groupId>java</groupId>
 			<artifactId>webfragment</artifactId>
@@ -32,11 +56,7 @@
 			<systemPath>${project.basedir}/lib/SampleFragment-0.0.1-SNAPSHOT.jar</systemPath>
 			<scope>system</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
+			-->
 		<!-- <dependency> <groupId>org.zkoss.zkforge</groupId> <artifactId>gmapsz</artifactId> <version>3.0.2</version> 
 			</dependency> -->
 		<dependency>
@@ -49,15 +69,11 @@
 			<artifactId>zkplus</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
-		<!-- <dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zkbind-debugger</artifactId> <version>0.8.2</version> 
+		<!-- 
+		<dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zkbind-debugger</artifactId> <version>0.8.2</version> 
 			<scope>system</scope> <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/zkbind-debugger.jar</systemPath> 
 			</dependency> -->
-		<dependency>
-			<groupId>org.zkoss.zats</groupId>
-			<artifactId>zats-mimic-ext7</artifactId>
-			<version>1.2.0</version>
-			<scope>test</scope>
-		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -70,10 +86,57 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<!-- bean validator 
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>4.0.2.GA</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.6.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zml</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zuljsp</artifactId>
+			<version>2.5.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>zkex</artifactId>
+					<groupId>org.zkoss.zk</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>		
+		<dependency>
+			<groupId>org.zkoss.theme</groupId>
+			<artifactId>silvertail</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zhtml</artifactId>
+			<version>${zk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
-	<properties>
-		<zk.version>7.0.0</zk.version>
-	</properties>
+
 	<description>Store sample or reproducible cases done in ZK support team.</description>
 	<name>ZK Support Cases</name>
 	<build>
