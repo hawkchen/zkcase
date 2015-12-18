@@ -1,7 +1,10 @@
 <zk>
-	<iframe id="testFrame"/>
-	<zscript><![CDATA[
-		testFrame.setSrc("/include/menuPage.zul?layoutType=1&pageIdTest=mytest");
-	]]>
-	</zscript>
+	<!-- 
+	<iframe src="http://localhost:8080/zkessentials/index.zul"/>
+	 -->
+	<include src="~zkaddoncase/laterEnable.zul" mode="defer"/>
+	 <zscript><![CDATA[
+	     //System.out.println(WebApps.getCurrent().getResource("~./zkaddoncase/laterEnable.zul").getContent().toString());            
+	 ]]>
+	 </zscript>
 </zk>

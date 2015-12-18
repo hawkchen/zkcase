@@ -1,8 +1,6 @@
 package support.javaee;
 
-import javax.servlet.http.*;
-
-import org.zkoss.zk.ui.*;
+import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 
@@ -10,6 +8,7 @@ public class InvalidateSessionComposer extends SelectorComposer {
 
 	@Listen("onClick = #i")
 	public void invalidate(){
+		/*
 		HttpServletRequest vRequest = (HttpServletRequest)Executions.getCurrent().getNativeRequest();
 		HttpSession vSession = vRequest.getSession(true);
 		
@@ -24,6 +23,7 @@ public class InvalidateSessionComposer extends SelectorComposer {
 		vSession.setAttribute("fullname", "john doe");
 		vSession.setAttribute("cellphone", "27834545678");
 		Executions.sendRedirect(null);
+		*/
 	}
 	
 	@Listen("onClick = #b")

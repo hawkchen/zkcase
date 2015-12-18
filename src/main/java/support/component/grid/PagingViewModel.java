@@ -13,8 +13,8 @@ public class PagingViewModel {
 	@Wire
 	private Grid gridSaldiGiornalieri;
 	
-	private int totalSize = 46;
-	ListModel list = new ListModelList();
+	private int totalSize = 26;
+	ListModelList list = new ListModelList();
 	List dataList = new LinkedList();
 	private int pageSize = 5;
 	private int activePage = 0;
@@ -24,12 +24,11 @@ public class PagingViewModel {
 	@Init
 	public void init() {
 		for (int i = 0; i < totalSize ; i++){
-			dataList.add("row "+i);
+			list.add("row "+i);
 		}
 		for (int i = 0; i < 20 ; i++){
 			columnList.add("col "+i);
 		}
-		updateList();
 	}
 	@AfterCompose
 	public void afterCompose(@ContextParam(ContextType.VIEW) Component view) {
@@ -62,6 +61,13 @@ public class PagingViewModel {
 
 		gridSaldiGiornalieri.appendChild(columns);
     }
+	
+	@Command
+	public void addFirst(){
+		String element = "first";
+		list.add(0, element);
+		list.addToSelection(element);
+	}
 	
 	public ListModel getList(){
 		return list;

@@ -1,3 +1,4 @@
 <zk>
 ${session}
+<button label="session" onClick="System.out.println(Sessions.getCurrent())"></button>
 </zk>

@@ -24,7 +24,7 @@
 <vlayout>
 	<textbox id="username" value="default"></textbox>
 	<hlayout>
-	Listen: <combobox id="listenCombo"  value="default">
+	Listen: <combobox id="listenCombo"  disabled="true">
 		<comboitem label="default" />
 		<comboitem label="A"/>
 		<comboitem label="B"/>

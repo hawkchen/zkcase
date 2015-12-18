@@ -5,73 +5,22 @@
 	<groupbox>
 		<vlayout>
 
-			<grid model="@load(vm.list)" id="gridSaldiGiornalieri" emptyMessage="empty"
-				width="100%">
-
-				<frozen columns="1" />
+			<grid model="@load(vm.list)" emptyMessage="empty"
+				width="100%" mold="paging" pageSize="5" paginal="pg">
 
 				<columns sizable="true" width="100%">
 					<column label="labels.stampings.employee" width="200px" />
-					<column style="text-align:right;" width="90px" forEach="${vm.columns}"
-						label="${each}" />
 				</columns>
 
-				<template name="model" var="saldo">
-					<row width="100%" children="@load(vm.columnList)">
-					<template name="children">
-						<cell if="${forEachStatus.index eq 0 }">
-							<label width="55px" value="@load(saldo)" />
-						</cell>
-						<cell popup="tooltipPopup" context="contextMenu" if="${forEachStatus.index gt 0 }">
-							<label width="55px"
-								value="@load(forEachStatus.index gt 0 ? 'gt 0' : 'lt 0')" />
-						</cell>
-					</template>
+				<template name="model" >
+					<row width="100%" >
+						<label value="${each}"/>
 					</row>
 				</template>
 			</grid>
-
-			<paging detailed="true" autohide="false" mold="default" id="paging"
-				totalSize="@bind(vm.totalSize)" pageSize="@bind(vm.pageSize)" activePage="@bind(vm.activePage)"
-				onPaging="@command('paging')">
-			</paging>
-			<popup id="tooltipPopup">
-
-				<groupbox width="300px;" mold="3d" closable="false">
-					<caption label="Dettaglio giornata" />
-
-					<vlayout>
-						<hlayout>
-							<label hflex="1" value="labels.dettagli_giornata.ore_effettive }" />
-							<label id="oreEffettive" hflex="1" />
-						</hlayout>
-						<hlayout>
-							<label hflex="1" value="labels.dettagli_giornata.ore_assenza }" />
-							<label id="oreAssenza" hflex="1" />
-						</hlayout>
-						<hlayout>
-							<label hflex="1" value="labels.dettagli_giornata.ore_previste }" />
-							<label id="orePreviste" hflex="1" />
-						</hlayout>
-						<hlayout>
-							<label hflex="1" value="labels.dettagli_giornata.ore_normali }" />
-							<label id="oreNormali" hflex="1" />
-						</hlayout>
-						<hlayout>
-							<label hflex="1" value="labels.dettagli_giornata.ore_maggiorazione }" />
-							<label id="oreMaggiorazione" hflex="1" />
-						</hlayout>
-						<hlayout>
-							<label hflex="1" value="labels.dettagli_giornata.ore_straordinarie }" />
-							<label id="oreStraordinarie" hflex="1" />
-						</hlayout>
-					</vlayout>
-					<hlayout></hlayout>
-
-				</groupbox>
-			</popup>
-
-			<menupopup id="contextMenu"></menupopup>
+			<paging id="pg" />
+			<button label="add at first" onClick="@command('addFirst')"></button>
+		
 		</vlayout>
 	</groupbox>
 </window>

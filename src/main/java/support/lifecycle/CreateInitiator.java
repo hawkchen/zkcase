@@ -10,7 +10,7 @@ public class CreateInitiator implements Initiator {
 
 	@Override
 	public void doInit(Page page, Map<String, Object> args) throws Exception {
-		Executions.createComponents("/mvvm/textbox-instant.zul", null, null);
+		//Executions.createComponents("/mvvm/textbox-instant.zul", null, null);
 	}
 	
 }

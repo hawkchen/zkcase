@@ -32,4 +32,10 @@ public class CustomSelectAllComposer extends SelectorComposer<Component> {
 			((Selectable) model).clearSelection();
 		}
 	}
+	
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		// TODO Auto-generated method stub
+		super.doAfterCompose(comp);
+	}
 }

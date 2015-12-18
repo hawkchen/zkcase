@@ -28,10 +28,12 @@ public class UploadComposer extends GenericForwardComposer {
 				size += read;
 			}
 	  		status.setValue("uploaded "+media.getName()+", size:"+(size/1024)+" k bytes");
+	  		outputStream.close();
   		}catch(Exception e){
   			//handle exception
   			e.printStackTrace();
   		}
+  		
 	}
 	
 }

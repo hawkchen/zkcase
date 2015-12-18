@@ -1,4 +1,4 @@
-package support.component.listbox;
+package support.component.grid;
 
 
 import java.util.ArrayList;
@@ -10,6 +10,7 @@ import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Grid;
+import org.zkoss.zul.Intbox;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
 
@@ -20,6 +21,8 @@ public class ScrollToComposer extends SelectorComposer<Component> {
 
     @Wire
     private Grid box;
+    @Wire
+    private Intbox indexBox;
     
     private int count = INIT_SIZE;
     
@@ -43,12 +46,16 @@ public class ScrollToComposer extends SelectorComposer<Component> {
     
     @Listen("onClick = #btn")
     public void addRow() {
-        ((ListModelList<String>)model).add("Item " + (count++));
-        Clients.scrollIntoView(box.getRows().getLastChild());    // scroll to the last item
+        ((ListModelList<String>)model).add(indexBox.getValue(), "Item " + (count++));
     }
     
     @Listen("onClick = #replace")
     public void replace() {
-        ((ListModelList<String>)model).set(model.getSize()-1, "replaced item");
+        ((ListModelList<String>)model).set(indexBox.getValue(), "replaced item");
+    }
+    
+    @Listen("onClick = #scroll")
+    public void scrollTo() {
+    	Clients.scrollIntoView(box.getRows().getChildren().get(indexBox.getValue()));    // scroll to the last item
     }
 }

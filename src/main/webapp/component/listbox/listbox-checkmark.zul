@@ -1,41 +1,28 @@
 <zk>
-<zscript><![CDATA[
-List names = new ArrayList();
-	names.add("Jasmin");
-	names.add("David");
-	names.add("Richard");
-	names.add("Jean");
-	names.add("Norman");
-	names.add("Thomas");
-	names.add("Leonard");
-	names.add("Janine");
-	names.add("Daniel");
-	names.add("Michael");
-	names.add("Julia");
-	names.add("Vitali");
-	names.add("Katharina");
-	names.add("Marie");
-	names.add("Jenny");
-	names.add("Reinhard");
-	names.add("Christoph");
-	names.add("Heiko");
-	names.add("Ludwig");
-	names.add("Nico");
-	names.add("Rolf");
-	ListModelList model = new ListModelList(names);
-]]>
-</zscript>
-	<custom-attributes org.zkoss.zul.listbox.rod="false" />
-	<listbox model="${model}" rows="5" multiple="true" checkmark="true" onCheckSelectAll="">
-		<listhead>
-			<listheader hflex="min" />
-			<listheader label="Name" />
-		</listhead>
-		<template name="model">
-			<listitem checkable="${forEachStatus.index % 2 eq 0}">
-				<listcell />
-				<listcell label="${each}" />
-			</listitem>
-		</template>
-	</listbox>
+<div id="container" sclass="vertical" apply="org.zkoss.bind.BindComposer"
+         viewModel="@id('vm') @init('demo.menu.navbar.NavigationViewModel')">
+        <navbar id="navbar" orient="vertical" collapsed="false"
+                onSelect="@command('navigatePage', target=self.selectedItem.attributes['navigationPage'])">
+ 
+            <nav label="ZK's Pizza" iconSclass="z-icon-home"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+ 
+            <nav label="Customers" iconSclass="z-icon-group" badgeText="3"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+ 
+            <nav label="Orders" iconSclass="z-icon-truck" badgeText="4"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+ 
+            <nav label="Fan Service" iconSclass="z-icon-star"
+                children="@load(vm.pageMap[self.label].values()) @template('navitem')"/>
+                 
+            <template name="navitem" var="navigationPage">
+                <navitem label="@load(navigationPage.subTitle)" selected="@load(navigationPage.selected)"/>
+            </template>
+        </navbar>
+         
+        <include id="contentInclude" mode="instant" sclass="content"
+                 currentPage="@ref(vm.currentPage)"
+                 src="@load(currentPage.includeUri)" />
+    </div>
 </zk>

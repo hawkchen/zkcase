@@ -1,5 +1,8 @@
 <zk xmlns:c="client">
-	<button id="myButton" c:onClick="jq(this).attr('disabled', true);" >click to disable by jq</button>
-	<separator></separator>
-	<button style="opacity: .4;pointer-events: none;">disabled by CSS</button>
+	long request
+	load in 2 tabs at the same time, zk will show:
+	    Too many concurrent requests
+	<zscript><![CDATA[
+Thread.sleep(5000);	                  
+	]]></zscript>
 </zk>

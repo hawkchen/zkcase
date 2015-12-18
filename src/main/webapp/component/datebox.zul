@@ -2,5 +2,38 @@
 <label multiline="true">
 enter the time very fast and press enter immediately in firefox
 </label>
-<datebox width="250px" format="medium+short"/>
+<datebox width="250px" format="yyyy/MM/dd"/>
+<datebox width="250px" format="yyyy/MM/dd" lenient="false"/>
+	<script type="text/javascript" ><![CDATA[
+		zk.afterLoad('zul.db', function() {
+		    var old = {};
+			var _quotePattern = /\'/g;
+			zk.override(zul.db.Datebox.prototype, old, {
+				coerceFromString_: function (val, pattern) {
+					var unf = zul.db.Datebox._unformater;
+					if (unf && jq.isFunction(unf)) {
+						var cusv = unf(val);
+						if (cusv) {
+							this._shortcut = val;
+							return cusv;
+						}
+					}
+					if (val) {
+						var d = new zk.fmt.Calendar().parseDate(val, this.getFormat(), !this._lenient, this._value, this._localizedSymbols);
+						if (!d) return {error: zk.fmt.Text.format(msgzul.DATE_REQUIRED + (this.localizedFormat.replace(_quotePattern, '')))};
+						
+						if (val.length >=5 && val.length <8){
+							return {error: zk.fmt.Text.format(msgzul.DATE_REQUIRED + (this.localizedFormat.replace(_quotePattern, '')))};
+						}
+						return d;
+					}
+					return null;
+				},
+		   });
+		});
+		
+	]]>
+	</script>
+<!-- 
+ -->
 </zk>

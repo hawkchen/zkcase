@@ -8,7 +8,8 @@
  </zscript>
 	<custom-attributes org.zkoss.zul.listbox.rod="true" />
 	
-	<listbox model="${listModel}" width="150px" height="300px"></listbox>
+	<listbox model="${listModel}" width="150px" height="300px" ></listbox>
+		<listbox model="${listModel}"  mold="select"></listbox>
 	<label id="countLabel"/>
 	<button
 		onClick='retain()'>

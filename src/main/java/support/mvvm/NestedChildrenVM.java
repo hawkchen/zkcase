@@ -43,5 +43,4 @@ public class NestedChildrenVM extends InnerVM{
 		System.out.println(checked+","+arg);
 	}
 	
-	
 }

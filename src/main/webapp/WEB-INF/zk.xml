@@ -16,25 +16,123 @@
 		<debug-js>true</debug-js>
 	</client-config>
 
+	<system-config>
+		<id-generator-class>org.zkoss.zk.ui.impl.StaticIdGenerator</id-generator-class>
+	</system-config>
+<!-- 
+        <ui-factory-class>org.zkoss.zk.ui.http.SerializableUiFactory</ui-factory-class>
+<desktop-config>
+    <theme-uri>/theme/scrollbar.css</theme-uri>
+</desktop-config>	
+<device-config>
+   <device-type>ajax</device-type>
+   <embed><![CDATA[
+      <script type="text/javascript">
+zk.Draggable.ignoreStop = function (target) { 
+		
+		return zk(target).isInput()
+				|| (!(zk.ie < 8) && jq.nodeName(target, 'select'))
+				|| jq.nodeName(target, 'option'); 	                              
+}
+      </script>
+    ]]></embed>
+</device-config>
 
+	
+
+<device-config>
+    <device-type>ajax</device-type>
+    <server-push-class>org.zkoss.zkex.ui.comet.CometServerPush</server-push-class>
+</device-config>
+<session-config>
+    <max-desktops-per-session>2</max-desktops-per-session>
+</session-config>
+    <session-timeout>1800</session-timeout>
+    <timer-keep-alive>false</timer-keep-alive>
+    <max-requests-per-session>5</max-requests-per-session>
+    <max-pushes-per-session>3</max-pushes-per-session>
+
+    <server-push-class>org.zkoss.zk.ui.impl.PollingServerPush</server-push-class>
+<library-property>
+    <name>org.zkoss.theme.preferred</name>
+    <value>zk-bootstrap</value>
+</library-property>
+<library-property>
+        <name>org.zkoss.bind.PhaseListener.class</name>
+        <value>support.mvvm.MyPhaseListener</value>
+</library-property>
+ -->
+ <!-- 
+<library-property>
+	<name>org.zkoss.zul.Button.mold</name>
+	<value>bs</value>
+</library-property>
+<library-property>
+	<name>org.zkoss.zul.Menupopup.mold</name>
+	<value>bs</value>
+</library-property>
+<library-property>
+	<name>org.zkoss.zkmax.zul.Navbar.mold</name>
+	<value>bs</value>
+</library-property>
+<library-property>
+	<name>org.zkoss.zul.Paging.mold</name>
+	<value>bs</value>
+</library-property>
+<library-property>
+	<name>org.zkoss.zul.Panel.mold</name>
+	<value>bs</value>
+</library-property>
+ 
+<listener>
+    <listener-class>support.theme.CustomThemeInit</listener-class>
+</listener>
+
+
+ 
+
+<language-mapping>
+    <language-name>xml</language-name>
+    <extension>svg</extension>
+</language-mapping>
+<language-config>
+	<addon-uri>/WEB-INF/spanish-addon.xml</addon-uri>
+</language-config>
+
+<system-config>
+    <disable-event-thread>false</disable-event-thread>
+	<event-time-warning>30</event-time-warning>
+</system-config>
+ -->
 
 <!-- 
+	<listener>
+		<listener-class>support.javaee.MyAppInit
+		</listener-class>
+	</listener>
 	<library-property>
 		<name>org.zkoss.util.logging.config.file</name>
 		<value>/log4j.properties</value>
 	</library-property>
+	
 
 <language-config>
-    <addon-uri>/WEB-INF/lang-addon.xml</addon-uri>
+    <addon-uri>/WEB-INF/my-addon.xml</addon-uri>
 </language-config>	
  -->
 
 	<!-- <library-property> <name>org.zkoss.zul.listbox.DataLoader.class</name> <value>support.component.ListboxDataLoader</value> 
-		</library-property> <language-config> <addon-uri>/WEB-INF/lang-addon-slider.xml</addon-uri> </language-config> -->
+		</library-property> 
+		<language-config> <addon-uri>/WEB-INF/lang-addon-slider.xml</addon-uri> </language-config> -->
 
 	<!-- <device-config> <device-type>ajax</device-type> <server-push-class>org.zkoss.zk.ui.impl.PollingServerPush</server-push-class> 
-		</device-config> <library-property> <name>org.zkoss.web.util.resource.dir</name> <value>/zkpatch</value> 
-		</library-property> -->
+		</device-config> 
+		
+	<library-property>
+		<name>org.zkoss.web.util.resource.dir</name>
+		<value>/zkpatch</value>
+	</library-property> 
+		-->
 
 	<!-- <device-config> <device-type>ajax</device-type> <embed><![CDATA[ <script type="text/javascript" 
 		src="/zkcase/zkpatch/button-ie11.js"></script> ]]></embed> </device-config> -->

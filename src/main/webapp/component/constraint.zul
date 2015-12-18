@@ -1,19 +1,83 @@
 <zk>
-<window apply="support.component.ConstraintComposer">
-<tabbox>
-	<tabs>
-		<tab>1</tab>
-		<tab>2</tab>
-	</tabs>
-	<tabpanels>
-		<tabpanel>
-			<textbox constraint="no empty"></textbox>
-		</tabpanel>
-		<tabpanel>
-			<textbox></textbox>
-		</tabpanel>
-	</tabpanels>
-</tabbox>
-<button label="submit"></button>
-</window>
+<!-- 
+	<div apply="support.component.ConstraintComposer" height="200px"
+		style="overflow:auto">
+		<tabbox height="300px">
+			<tabs>
+				<tab>1</tab>
+				<tab>2</tab>
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<textbox constraint="no empty"></textbox>
+				</tabpanel>
+				<tabpanel>
+					<textbox></textbox>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		<textbox constraint="no empty"></textbox>
+		<button label="submit"></button>
+	</div>
+<textbox constraint="/^[0]|[0-3]/:error"/>
+ -->
+<textbox constraint="no empty, at_pointer"/>
+<decimalbox id="box" constraint="no empty, no negative" format="0.0"  onBlur="check()" onChange="validate()"/>
+
+<script ><![CDATA[
+zk.afterLoad('zul.inp', function() {
+    var old = {};
+	zk.override(zul.inp.Errorbox.prototype, old, {
+        bind_: function() {
+		    this.$supers(zul.inp.Errorbox, 'bind_', arguments);
+		    zWatch.listen({onScroll: this});
+	    }
+    });
+});
+]]></script>
+<separator/>
+<button id="checkButton" label="submit" disabled="true"/>
+<zscript><![CDATA[
+    import java.math.*;
+    import java.text.*;
+	
+	public void check(){
+		if (box.getErrorMessage() ==null){
+			checkButton.setDisabled(false);
+		}else{
+			checkButton.setDisabled(true);
+		}
+	}
+	/* complicated validation that a constraint cannot do.
+	*/
+	public void validate(){
+		if (box.getValue().compareTo(new java.math.BigDecimal(4.0)) > 0){
+			box.setErrorMessage("error");
+			System.out.println("validate");
+		}
+	}
+	
+	class GpaConstaint implements Constraint {
+        //Constraint//
+        public void validate(Component comp, Object value) {
+        	// choose one of the following 2 implementations
+            if (value == null || ((BigDecimal)value).compareTo(new BigDecimal(4.0)) > 0){
+                throw new WrongValueException(comp, "0.0 ~ 4.0");
+            }
+            
+        	/*
+            DecimalFormat myFormatter = new DecimalFormat("0.0");
+            String output = myFormatter.format(value);
+            if (!output.matches("^[0]|[0-3]\\.(\\d?\\d?)|[4].[0]$")){
+            	throw new WrongValueException(comp, "0.0 ~ 4.0");
+            }
+        	*/
+        }
+    }
+    Constraint gpaConstraint = new GpaConstaint();
+]]>
+</zscript>
+<!-- 
+<decimalbox constraint="${gpaConstraint}" format="0.0"/>
+ -->
 </zk>

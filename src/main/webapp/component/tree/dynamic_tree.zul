@@ -1,10 +1,13 @@
 <window id="demoWindow" apply="support.component.tree.DemoComposer">
+<!-- 
 	<style src="dottree.css"></style>
 	<script src="dottree.js"></script>
+ -->
 	<!-- preload images makes calculation for tree row height correct -->
 	<custom-attributes org.zkoss.zul.image.preload="true"/>
-	<tree id="tree" width="300px" sclass="dottree">
-	<custom-attributes org.zkoss.zul.client.rod="false" scope="page"/>
+	<custom-attributes org.zkoss.zul.tree.rod="false"/>
+	<custom-attributes org.zkoss.zul.client.rod="false"  />
+	<tree id="tree" sclass="dottree" hflex="min">
 		<treecols>
 			<treecol label="My Contact List" />		
 		</treecols>

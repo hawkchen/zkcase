@@ -1,16 +1,9 @@
 package support.http;
 
-import java.io.FileNotFoundException;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
-import org.zkoss.zk.ui.select.annotation.Listen;
-import org.zkoss.zul.Filedownload;
 
 public class DownloadComposer extends SelectorComposer {
-
+/*
 	@Listen("onClick = #download")
 	public void download() throws FileNotFoundException{
 		HttpServletResponse response = (HttpServletResponse) Executions.getCurrent().getNativeResponse();
@@ -28,5 +21,6 @@ public class DownloadComposer extends SelectorComposer {
 
 		Filedownload.save("/component/forie.doc", null);
 	}
+	*/
 	
 }

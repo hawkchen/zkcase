@@ -1,19 +1,22 @@
 package support.client;
 
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.event.BookmarkEvent;
 import org.zkoss.zk.ui.select.SelectorComposer;
-import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Combobox;
+import org.zkoss.zul.Datebox;
 
 public class WidgetListenerComposer extends SelectorComposer<Component> {
 
 	@Wire
-	private Textbox target;
+	private Datebox myDatebox;
+	@Wire
+	private Combobox myCombobox;
 
-	@Listen("onBookmarkChange = window")
-	public void fillForm(BookmarkEvent e){
-		target.setValue(e.getBookmark());
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		super.doAfterCompose(comp);
+		myDatebox.setWidgetListener("onBind", "jq(this.getInputNode()).attr('aria-label','This is my datebox'); jq(this.getInputNode()).attr('aria-required',true);");
+		myCombobox.setWidgetListener("onBind", "jq(this.getInputNode()).attr('aria-label','my combobox'); jq(this.getInputNode()).attr('aria-required',true);");
 	}
 }

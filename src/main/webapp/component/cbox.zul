@@ -1,6 +1,7 @@
 <zk>
+<!-- 
 <window id="main" apply="support.component.ComboboxComposer">
-	<combobox id="cbox"></combobox>
+	<combobox id="cbox" value="@test(test)"></combobox>
 </window>
 <style>
 .mylabel{
@@ -16,4 +17,7 @@
 <textbox></textbox>
 <textbox></textbox>
 </div>
+ -->
+ <combobox id="cbox" value="@test(test)" apply="support.component.ComboboxComposer"></combobox>
+ 
 </zk>

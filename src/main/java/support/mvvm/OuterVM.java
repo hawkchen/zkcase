@@ -1,8 +1,27 @@
 package support.mvvm;
 
-import org.zkoss.bind.annotation.Init;
+import java.util.Locale;
+
+import org.zkoss.bind.annotation.*;
+import org.zkoss.zul.ListModelList;
 
 public class OuterVM {
+
+	private String bean = "apple";
+	private ListModelList<Locale> model = new ListModelList<Locale>(Locale.getAvailableLocales());
+	
+	
+	public ListModelList<Locale> getModel() {
+		return model;
+	}
+
+	public String getBean() {
+		return bean;
+	}
+
+	public void setBean(String bean) {
+		this.bean = bean;
+	}
 
 	public InnerVM innerVM = new InnerVM(){
 		
@@ -19,5 +38,10 @@ public class OuterVM {
 	
 	public InnerVM getInnerVm(){
 		return innerVM;
+	}
+	
+	@Command
+	public void initTab(){
+		System.out.print("inittab");
 	}
 }

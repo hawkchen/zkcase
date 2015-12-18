@@ -90,7 +90,6 @@
 					</row>
 				</template>
 			</grid>
-		
 			<paging detailed="true" autohide="false" mold="default" id="paging"
 				totalSize="@bind(vm.totalSize)" pageSize="@bind(vm.pageSize)" activePage="@bind(vm.activePage)" onPaging="@command('paging')">
 			</paging>

@@ -2,5 +2,5 @@
 <button onClick='Clients.showBusy("busy")'>test</button>
 <button id="ok">ok</button>
 <button id="cancel">cancel</button>
-<botón>botón</botón>
+<!-- <botón>botón</botón> -->
 </zk>

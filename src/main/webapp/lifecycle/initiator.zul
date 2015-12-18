@@ -2,5 +2,6 @@
 <zk>
 <window id="main" apply="support.component.ComboboxComposer">
 	<combobox id="cbox"></combobox>
+	<button id="print"/>
 </window>
 </zk>

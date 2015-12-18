@@ -16,7 +16,7 @@
 		<frozen columns="2"></frozen>
 		<template name="model">
 			<row >
-				<label value="${each}"></label>
+				<textbox inplace="true" value="${each}"/>
 				<label value="${each}"></label>
 				<label value=""></label>
 			</row>
