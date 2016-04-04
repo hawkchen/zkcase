@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="亞太電信CP金流" ?>
+<?meta content="text/html; charset=UTF-8" pageEncoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+<style src="grid12.css"/>
+    <window id="OnlineDeposit_Window" title="線上儲值" border="normal"  >
+        <custom-attributes scope="request" org.zkoss.zk.desktop.nocache="true" />
+        <style src="/css/default.css"/>
+        <separator/>
+        <div align="center" id="div_sms_conf"
+        	sclass="container-fluid">
+
+        	<div sclass="row">
+        		<div sclass="col-sm-offset-4 col-sm-4"
+        			style="border: 1px solid;" align="center">
+        			<separator spacing="5px" />
+        			<div sclass="row" align="left">
+        				<div sclass="col-sm-4">
+        					<image src="icon_red.png" />
+        					服務名稱
+        				</div>
+        				<textbox id="textbox_servicce_name"
+        					sclass="col-sm-12" disabled="true" />
+        			</div>
+        			<div sclass="row" align="left">
+        				<div sclass="col-sm-4">
+        					<image src="icon_red.png" />
+        					交易金額
+        				</div>
+        				<intbox id="intbox_trade_amounts"
+        					sclass="col-sm-6" disabled="true" />
+        			</div>
+
+        			<div id="receipt" >
+        				<radiogroup id="radio_receipt_type">
+        					<attribute name="onCheck">
+							if (self.selectedItem.value.equals("3")) {
+								textbox_vat_no.setDisabled(false);
+								textbox_vat_no.setConstraint("no empty,/^[0-9]+/");
+							} else {
+								textbox_vat_no.setDisabled(true);
+								textbox_vat_no.setConstraint(null);
+								textbox_vat_no.setValue("");
+								textbox_vat_no.clearErrorMessage();
+							}
+						</attribute>
+        					<div sclass="row">
+        						<div sclass="col-sm-4" align="left">
+        							<image src="icon_red.png" />
+        							發票類型
+        						</div>
+        						<div sclass="col-sm-6">
+        							<radio label="二聯式"
+        								id="radio_receipt_type_two" value="2" Selected="true" />
+        							<radio label="三聯式"
+        								id="radio_receipt_type_three" value="3" />
+        						</div>
+        					</div>
+        				</radiogroup>
+
+        				<div sclass="row" align="left">
+        					<div sclass="col-sm-4">
+        						<image src="icon_red.png" />
+        						發票抬頭
+        					</div>
+        					<textbox id="textbox_receipt_title" sclass="col-sm-6"
+        						maxlength="20" constraint="no empty: 不可為空值" />
+        				</div>
+        				<div sclass="row" align="left">
+        					<div sclass="col-sm-4">
+        						<image src="icon_red.png" />
+        						統一編號
+        					</div>
+        					<textbox id="textbox_vat_no" maxlength="8" sclass="col-sm-6"
+        						constraint="no empty,/^[0-9]{8}/: 統編需完整8碼" />
+        				</div>
+        				<div sclass="row" align="left">
+        					<div sclass="col-sm-4">
+        						<image src="icon_red.png" />
+        						發票地址
+        					</div>
+        					<textbox id="textbox_receipt_address" sclass="col-sm-6"
+        						constraint="no empty: 不可為空值" />
+        				</div>
+        				<div sclass="row" align="left">
+        					<div sclass="col-sm-4">
+        						<image src="icon_red.png" />
+        						聯絡人
+        					</div>
+        					<textbox id="textbox_contact_name" sclass="col-sm-6"
+        						maxlength="10" constraint="no empty: 不可為空值" />
+        				</div>
+        				<div sclass="row" align="left">
+        					<div sclass="col-sm-4">
+        						<image src="icon_red.png" />
+        						聯絡電話
+        					</div>
+        					<textbox id="textbox_contact_phone" sclass="col-sm-6"
+        						maxlength="20" />
+        				</div>
+        				<div sclass="row" align="left">
+        					<div sclass="col-sm-4">
+        						<image src="icon_red.png" />
+        						聯絡人手機號碼
+        					</div>
+        					<textbox id="textbox_contact_cellphone"
+        						sclass="col-sm-6" maxlength="10"
+        						constraint="no empty,/^[0][9][0-9]+/: 手機號碼請用09開頭" />
+        				</div>
+        				<div sclass="row" align="left">
+        					<div sclass="col-sm-4">
+        						<image src="icon_red.png" />
+        						聯絡人Email
+        					</div>
+        					<textbox id="textbox_contact_email" sclass="col-sm-6"
+        						constraint="/.+@.+\.[a-z]+/: 請輸入完整 e-mail address" />
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div align="center" style="color: red" sclass="row">
+        		一律使用電子發票，若不同意請勿交易，
+        	</div>
+        	<div align="center" style="color: red" sclass="row">
+        		三聯式發票開立後會Email至聯絡人Email。
+        	</div>
+        </div>
+
+        <div align="center">
+            <!--<button label="確認發送" id="sendBtn" onClick="OnlineDeposit_Window_1.sendOrder()" autodisable="self" >-->
+            <button label="確認" id="sendBtn" >
+                <attribute name="onClick">
+                    intbox_trade_amounts.getValue();
+                    textbox_receipt_title.getValue();
+                    textbox_receipt_address.getValue();
+                    textbox_vat_no.getValue();
+                    textbox_contact_name.getValue();
+                    textbox_contact_phone.getValue();
+                    textbox_contact_cellphone.getValue();
+                    textbox_contact_email.getValue();
+                    sendBtn.setDisabled(true);
+                    <!--Clients.showBusy(null); -->
+                    OnlineDeposit_Window.sendOrder();
+                 </attribute>
+            </button>
+        </div>
+        
+    </window>
+</zk>

@@ -1,0 +1,32 @@
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    
+    <div align="center" width="100%" height="100%" apply="support.client.AutoReloadComposer">
+        <timer id="timer" repeats="true" delay="1500" running="true"/>
+        <label id="toUpdate"/>
+    </div>
+    <script><![CDATA[
+/**
+The error handler below start checking the server alive when there is an AJAX sending error and reloads the current page after the server is alive. 
+**/
+var aliveChecker = null;
+zAu.ajaxErrorHandler = function (req, status, statusText, ajaxReqTries) {
+    var pollingInterval = 3000; //change the interval to check
+    if (aliveChecker == null){
+    	aliveChecker = setInterval(checkAlive, pollingInterval);
+    }
+    return 0;
+}
+
+function checkAlive(){
+    jq.ajax({
+        url: window.location,
+        success: function(result){
+    		console.log(result);
+			window.location.reload();
+        },     
+    });
+ }
+    ]]></script>
+</zk>

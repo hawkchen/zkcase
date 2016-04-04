@@ -1,0 +1,19 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page title="Test ARIA attributes"?>
+<zk xmlns:ca="client/attribute" xmlns:c="client">
+
+	<vlayout vflex="true" apply="support.client.WidgetListenerComposer">
+		<textbox id="myTextbox" 
+			ca:aria-label="This is my textbox" hflex="55%" />
+
+		<datebox id="myDatebox" 
+		hflex="55%" />
+		
+		<combobox id="myCombobox">
+			<comboitem label="a"/>
+			<comboitem label="b"/>
+			<comboitem label="c"/>
+		</combobox>
+	</vlayout>
+	<textbox ca:autocomplete="off"/>
+</zk>

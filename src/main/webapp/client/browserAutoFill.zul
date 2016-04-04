@@ -1,0 +1,40 @@
+<zk xmlns:n="native">
+<n:form autocomplete="off">
+<!-- 
+<grid>
+	<rows>
+	<row>
+		<label value="Login ID" sclass="fieldTitle" />
+		<textbox id="loginId" focus="true" onOK="updateChange()" onLogin="doLogin()"></textbox>
+	</row>
+
+	<row>
+		<label value="Password" sclass="fieldTitle" />
+
+		<textbox type="password" id="password" onChange=""></textbox>
+	</row>
+	</rows>
+</grid>	
+<n:input style="display:none;"/>
+ -->
+</n:form>
+<zscript><![CDATA[
+public void updateChange(){                  
+	System.out.println(loginId.getValue()+","+password.getValue());
+	Clients.evalJavaScript("zk.Widget.$('$password').updateChange_();");
+	Events.echoEvent("onLogin", loginId, null);
+}
+
+
+public void doLogin(){                  
+	System.out.println(loginId.getValue()+","+password.getValue());
+	//perfor your login business logic
+}
+]]>
+</zscript>
+<n:form autocomplete="off">
+<n:input id="username"/>
+<n:input id="password" type="password"/>
+<n:button type="submit"/>
+</n:form>
+</zk>
