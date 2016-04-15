@@ -1,7 +1,7 @@
 <zk>
 send dummy AU to server to get back long operation result.
  <zscript>
-  desktop.enableServerPush(new org.zkoss.zk.ui.impl.PollingServerPush(50000, 1000, -1));
+  desktop.enableServerPush(new org.zkoss.zk.ui.impl.PollingServerPush(500, 1000, -1));
   
   void longOp() {
    final Desktop dt = Executions.getCurrent().getDesktop();

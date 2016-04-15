@@ -19,7 +19,25 @@
 	<system-config>
 		<id-generator-class>org.zkoss.zk.ui.impl.StaticIdGenerator</id-generator-class>
 	</system-config>
+	
+<library-property>
+    <name>org.zkoss.zkex.ui.comet.smartconnection.disabled</name>
+    <value>false</value>
+  </library-property>	
 <!-- 
+<desktop-config>
+    <theme-uri>/theme/grid.css.dsp</theme-uri>
+</desktop-config>
+<language-config>
+    <addon-uri>/WEB-INF/my-addon.xml</addon-uri>
+</language-config>		
+<listener>
+    <listener-class>org.zkoss.zkmax.au.InaccessibleWidgetBlockService$DesktopInit</listener-class>
+</listener>	
+<library-property>
+  <name>org.zkoss.zkmax.au.IWBS.events</name>
+  <value>onClick</value>
+</library-property>	
         <ui-factory-class>org.zkoss.zk.ui.http.SerializableUiFactory</ui-factory-class>
 <desktop-config>
     <theme-uri>/theme/scrollbar.css</theme-uri>
@@ -96,7 +114,7 @@ zk.Draggable.ignoreStop = function (target) {
     <extension>svg</extension>
 </language-mapping>
 <language-config>
-	<addon-uri>/WEB-INF/spanish-addon.xml</addon-uri>
+	<addon-uri>/WEB-INF/-addon.xml</addon-uri>
 </language-config>
 
 <system-config>
@@ -116,9 +134,7 @@ zk.Draggable.ignoreStop = function (target) {
 	</library-property>
 	
 
-<language-config>
-    <addon-uri>/WEB-INF/my-addon.xml</addon-uri>
-</language-config>	
+
  -->
 
 	<!-- <library-property> <name>org.zkoss.zul.listbox.DataLoader.class</name> <value>support.component.ListboxDataLoader</value> 

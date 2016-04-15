@@ -7,15 +7,19 @@
 	<packaging>war</packaging>
 	<properties>
 		<!-- 
-		<zk.version>7.0.3-Eval</zk.version>
+		<zk.version>7.0.4-Eval</zk.version>
 		<zk.version>7.0.2-Eval</zk.version>
-		<zk.version>7.0.1-Eval</zk.version>
+ 		<zk.version>6.0.5</zk.version>		 
+		<zk.version>7.0.3-Eval</zk.version>
+    	<zk.version>8.0.1-Eval</zk.version>
+		<zk.version>7.0.8.FL.20160222-Eval</zk.version>
+		<zk.version>7.0.7-Eval</zk.version>
+ 		<zk.version>6.5.8-Eval</zk.version>
+		<zk.version>7.0.0</zk.version>
+ 		<zk.version>7.0.7-Eval</zk.version>
 		<zk.version>7.0.5-Eval</zk.version>
-		<zk.version>7.0.7.FL.20151211-Eval</zk.version>
- 		<zk.version>7.0.6-Eval</zk.version>
- 		<zk.version>6.5.8-Eval</zk.version>		 
 		 -->
-		<zk.version>6.5.7</zk.version>
+		<zk.version>7.0.7-Eval</zk.version>
 	</properties>	
 	<repositories>
 		<repository>
@@ -27,11 +31,11 @@
 			<url>http://mavensync.zkoss.org/zk/ee-eval</url>
 		</repository>
 		<!-- 
-		-->
 		<repository>
 			<id>ZK EE</id>
 			<url>https://maven.zkoss.org/repo/zk/ee</url>
 		</repository> 
+		-->
 	</repositories>
 	<dependencies>	
 		<!-- <dependency> <groupId>org.zkoss.zss</groupId> <artifactId>zssex</artifactId> <version>${zss.version}</version> 
@@ -57,19 +61,17 @@
 			<scope>system</scope>
 		</dependency>
 			-->
-		<!-- <dependency> <groupId>org.zkoss.zkforge</groupId> <artifactId>gmapsz</artifactId> <version>3.0.2</version> 
-			</dependency> -->
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkplus</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
-		<!-- 
 		<dependency> <groupId>org.zkoss.zk</groupId> <artifactId>zkbind-debugger</artifactId> <version>0.8.2</version> 
 			<scope>system</scope> <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/zkbind-debugger.jar</systemPath> 
 			</dependency> -->
@@ -86,7 +88,25 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.4</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.zkoss.common</groupId>
+		    <artifactId>zcommon</artifactId>
+		    <version>${zk.version}</version>
+		    <!-- 
+		    <exclusions>
+		        <exclusion>
+		            <groupId>org.slf4j</groupId>
+		            <artifactId>slf4j-jdk14</artifactId>
+		        </exclusion>
+		    </exclusions>
+		     -->
+		</dependency>	
 		<!-- bean validator 
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.6.1</version>
+		</dependency>
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-validator</artifactId>
@@ -95,11 +115,6 @@
 		<dependency>
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-api</artifactId>
-		    <version>1.6.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-log4j12</artifactId>
 		    <version>1.6.1</version>
 		</dependency>
 		<dependency>
@@ -134,6 +149,16 @@
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.0</version>
 		</dependency>
 	</dependencies>
 

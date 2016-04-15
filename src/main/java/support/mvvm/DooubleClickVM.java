@@ -11,8 +11,9 @@ public class DooubleClickVM extends InnerVM{
 	private String message;
 
 	@Command
-	public void cmd1(){
+	public void cmd1() throws InterruptedException{
 		System.out.println("cmd1 ");
+		Thread.sleep(3000);
 	}
 	
 	@Command

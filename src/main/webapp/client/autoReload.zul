@@ -9,7 +9,6 @@
     <script><![CDATA[
 /**
 The error handler below start checking the server alive when there is an AJAX sending error and reloads the current page after the server is alive. 
-**/
 var aliveChecker = null;
 zAu.ajaxErrorHandler = function (req, status, statusText, ajaxReqTries) {
     var pollingInterval = 3000; //change the interval to check
@@ -28,5 +27,6 @@ function checkAlive(){
         },     
     });
  }
+**/
     ]]></script>
 </zk>

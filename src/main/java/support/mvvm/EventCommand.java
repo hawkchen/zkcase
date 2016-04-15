@@ -47,6 +47,11 @@ public class EventCommand {
 		args.put("selectedEntry", selectedEntry);
 		BindUtils.postGlobalCommand(null, null, "entrySelected", args);
 	}
+	
+	@GlobalCommand
+	public void print(){
+		System.out.println("global invoked");
+	}
 
 	public String getSelectedEntry() {
 		System.out.println("getSelectedEntry");

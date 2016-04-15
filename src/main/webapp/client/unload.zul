@@ -1,0 +1,7 @@
+<zk>
+	<div id="root" apply="support.client.CloseComposer">
+		detect a browser tab closing
+		<button id="exit" label="exit" />
+	</div>
+
+</zk>

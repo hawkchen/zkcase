@@ -1,0 +1,9 @@
+<language-addon>
+	<addon-name>spanish</addon-name>
+	<language-name>xul/html</language-name>
+
+    <component>
+        <component-name>botón</component-name>
+        <extends>button</extends>
+    </component>
+</language-addon>

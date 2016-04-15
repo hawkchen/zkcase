@@ -9,24 +9,6 @@
 </listbox>
 
 <zscript></zscript>
-<script type="text/javascript"><![CDATA[
-zk.afterLoad('zul.sel', function () {
-	var oldMethod = {};
-	zk.override(zul.sel.SelectWidget.prototype, oldMethod, {		
-		_shallIgnore: function(evt, bSel){
-		 	var selection = window.getSelection();
-		 	 if(selection.type == "Range") {
-			    //evt.stop({propagation:true});
-			    return true;
-			 }else{
-				return oldMethod._shallIgnore.apply(this, arguments); //call the original method
-			 }
-		}
-	
-	});
-});	
-]]>
-</script>
 <listbox >
 	<listhead><listheader>default no nonselectableTags specified</listheader></listhead>
     <listitem><listcell><textbox/></listcell></listitem>
@@ -63,6 +45,6 @@ zk.afterLoad('zul.sel', function () {
     <listitem><listcell><button label="button"/></listcell></listitem>
     <listitem><listcell><h:input xmlns:h="native"/></listcell></listitem>
     <listitem><listcell><datebox/></listcell></listitem>
-    <listitem><listcell>a label</listcell></listitem>
+    <listitem><listcell>a label <a iconSclass="z-icon-book"></a></listcell></listitem>
 </listbox>
 </zk>

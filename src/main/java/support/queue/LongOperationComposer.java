@@ -1,5 +1,6 @@
 package support.queue;
 
+import org.zkoss.lang.Threads;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.*;
 import org.zkoss.zk.ui.select.SelectorComposer;
@@ -18,6 +19,7 @@ public class LongOperationComposer extends SelectorComposer<Component> {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		eq = EventQueues.lookup("longop", "session", true);
+//		eq = EventQueues.lookup("longop");
 		/*
 		 have to enable server push manually when using desktop scope event queue
 		((DesktopCtrl)comp.getDesktop()).enableServerPush(
@@ -25,7 +27,7 @@ public class LongOperationComposer extends SelectorComposer<Component> {
 		eq = EventQueues.lookup("longop");
 		 */
 		//subscribe async listener to handle long operation
-		eq.subscribe(new EventListener() {
+		final EventListener asyncListener = new EventListener() {
 			public void onEvent(Event evt) {
 				if ("doLongOp".equals(evt.getName())) {
 					org.zkoss.lang.Threads.sleep(3000); //simulate a long operation
@@ -33,14 +35,17 @@ public class LongOperationComposer extends SelectorComposer<Component> {
 					eq.publish(new Event("endLongOp")); //notify it is done
 				}
 			}
-		}, true); //asynchronous
+		};
+		eq.subscribe(asyncListener, true); //asynchronous
 		
 		//subscribe a normal listener to show the result to the browser
 		eq.subscribe(new EventListener() {
 			public void onEvent(Event evt) {
 				if ("endLongOp".equals(evt.getName())) {
 					print(result); //show the result to the browser
-					EventQueues.remove("longop");
+//					EventQueues.remove("longop","session");
+					//EventQueues.remove("longop");
+//					eq.unsubscribe(asyncListener);
 				}
 			}
 		}); //synchronous

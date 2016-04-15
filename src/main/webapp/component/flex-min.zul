@@ -1,0 +1,25 @@
+<zk>
+<zscript><![CDATA[
+ListModelList list = new ListModelList(Locale.getAvailableLocales());
+
+public void changeHeightResize(){
+	box.setRows(20);
+	Clients.resize(parentBox);
+}
+
+//the border doesn't change accordingly
+public void changeHeight(){
+	box.setRows(20);
+}
+]]>
+</zscript>
+	<button onClick="changeHeightResize()" label="change height and resize"></button>
+	<button onClick="changeHeight()" label="change height only"></button>
+	<div vflex="min" style="border: solid 2px">
+		<vbox id="parentBox" vflex="min">
+			<listbox id="box" model="${list}" rows="0">
+			</listbox>
+		</vbox>
+	</div>
+</zk>
+

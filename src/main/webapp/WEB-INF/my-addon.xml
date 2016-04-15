@@ -1,13 +1,12 @@
 <language-addon>
-	<addon-name>noOtherDoubleClicks</addon-name>
+	<addon-name>scrollable</addon-name>
 	<language-name>xul/html</language-name>
-
-    <component>
-        <component-name>a</component-name>
-        <extends>a</extends>
-        <property>
-            <property-name>autodisable</property-name>
-            <property-value>self</property-value>
-        </property>
-    </component>
+	<component>
+		<component-name>window</component-name>
+		<extends>window</extends>
+		<custom-attribute>
+			<attribute-name>data-scrollable</attribute-name>
+			<attribute-value>true</attribute-value>
+		</custom-attribute>
+	</component>
 </language-addon>

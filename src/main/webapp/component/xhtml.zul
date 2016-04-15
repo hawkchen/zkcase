@@ -1,4 +1,13 @@
-<zk xmlns="xhtml">
- 
-<button>xhtml</button>
+<zk xmlns:x="xhtml">
+
+<x:input id="box"></x:input> 
+<button onClick="print()">print value</button>
+<textbox/>
+<zscript><![CDATA[
+public void print(){
+	System.out.println("click "+box);
+	System.out.print(box.getValue());
+}
+]]>
+</zscript>
 </zk>

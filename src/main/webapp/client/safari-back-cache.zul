@@ -1,0 +1,19 @@
+<zk >
+	<a href="/">another page</a>
+    <button id="submitButton" label="Submit" disabled="false" onClick="reset()"/>
+    <zscript><![CDATA[
+public void reset(){
+	Clients.showNotification("submitted");
+}
+    ]]></zscript>
+    <script><![CDATA[
+	if (zk.mobile && zk.safari){
+	    jq(window).on('pageshow', function (evt) {
+			if (evt.originalEvent.persisted) {
+				window.location.reload();
+			}
+		});
+	}
+    ]]></script>    
+    
+</zk>
