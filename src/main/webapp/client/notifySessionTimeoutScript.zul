@@ -1,0 +1,47 @@
+<zk>
+	<script type="text/javascript"><![CDATA[
+var secondsBeforeExpire = ${session.maxInactiveInterval};
+var timeToDecide = 5; // Give users 5 seconds to decide
+
+function sessionExpirationAlert(){
+	var label = new zul.wgt.Label();
+	label.setValue('Your session is about to timeout in ' + timeToDecide + ' seconds! Click OK to avoid expiration.');
+	var expirationAlertBox = new zul.wnd.Window({
+	    title: 'Session Expiration Warning',
+	    border: 'normal',
+	    mode: 'modal',
+	    width: '250px',
+	    children: [
+	        label,
+	        new zul.wgt.Button({
+	            label: 'OK',
+	            listeners:  {
+	                onClick: function (evt) {
+	        			zAu.send(new zk.Event(null, "onHi", null, {toServer:true}));
+	        			this.parent.detach();
+	                }
+	            }
+	        })
+	    ]
+	});
+	zk.Widget.$(jq('.z-page')).firstChild.appendChild(expirationAlertBox);
+}
+
+function startSessionExpirationTimer(){
+	return setTimeout(sessionExpirationAlert, (secondsBeforeExpire - timeToDecide) * 1000);
+}
+
+var expirationTimer = startSessionExpirationTimer();
+
+zWatch.listen({
+// reset the expiration timer when each time a au request sent 
+    onSend: {
+		onSend: function (ctl, arg0) {
+			clearTimeout(expirationTimer);
+			expirationTimer = startSessionExpirationTimer();
+		}
+	},
+});
+]]>
+  </script>
+</zk>

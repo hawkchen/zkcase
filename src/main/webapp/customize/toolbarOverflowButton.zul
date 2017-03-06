@@ -1,0 +1,26 @@
+<zk >
+	<script type="text/javascript" src="js/toolbar-scrollable.js"/>
+    <panel id="panel" title="ZK Desktop" height="350px" width="425px">
+    	<!--
+    		Preloading images ensure the width calculation of each toolbarbutton includes the image width.  
+    	 -->
+        <custom-attributes org.zkoss.zul.image.preload="true" />
+        <toolbar id="tb" sclass="vista" align="start">
+            <toolbarbutton image="/img/live.gif" label="Live 1234"
+                           onClick='alert("Live")' />
+            <toolbarbutton image="/img/defender.gif" label="Defender 1234"
+                           onClick='alert("Defender")' />
+            <toolbarbutton image="/img/battery.gif" label="Battery 1234"
+                           onClick='alert("Battery")' />
+            <toolbarbutton image="/img/network.gif" label="Network 1234"
+                           onClick='alert("Network")' />
+            <toolbarbutton image="/img/volumn.gif" label="Volumn 1234"
+                           onClick='alert("Volumn")' />
+            <toolbarbutton  label="12:55 PM 1234"
+                            onClick='alert("time")' />
+        </toolbar>
+    </panel>
+    <script defer="true"><![CDATA[
+	toolbarScrollable(zk.Widget.$('$tb'));           	
+    ]]></script>
+</zk>

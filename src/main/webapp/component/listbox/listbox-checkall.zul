@@ -1,0 +1,32 @@
+<zk>
+<zscript><![CDATA[
+                  import java.util.*;
+ListModelList model = new ListModelList(Locale.getAvailableLocales()); 
+model.setMultiple(true);
+]]></zscript>
+<custom-attributes org.zkoss.zul.listbox.rod="false" />
+	<listbox id="box" model="${model}" checkmark="true" multiple="true"  rows="10">
+		<listhead>
+			<listheader label="header 1" />
+			<listheader label="header 2" />
+		</listhead>
+		<template name="model">
+		<listitem>
+			<listcell label="${each}" />
+			<listcell label="${each}" />
+		</listitem>
+		</template>
+	</listbox>
+	<label id="msg" multiline="true"/>
+	<button label="print selected count" onClick="print()"/>
+	<zscript><![CDATA[
+	public void print(){
+		StringBuilder msgBuff = new StringBuilder();
+		msgBuff.append("selected count in a component: "+box.getSelectedCount()+"\n");
+		msgBuff.append("selected count in a model: "+model.getSelection().size()+"\n");
+		msgBuff.append(box.getItemCount()+"\n");
+		msg.setValue(msgBuff.toString());
+	}
+	]]></zscript>
+	
+</zk>
